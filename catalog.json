@@ -1,0 +1,348 @@
+{
+  "sections": [
+    {
+      "id": "about",
+      "slug": "about",
+      "title": "About the temple",
+      "order": "1"
+    },
+    {
+      "id": "timings",
+      "slug": "timings",
+      "title": "Darshan & pooja timings",
+      "order": "2"
+    },
+    {
+      "id": "sevas",
+      "slug": "sevas",
+      "title": "Sevas",
+      "order": "3"
+    },
+    {
+      "id": "priests",
+      "slug": "priests",
+      "title": "Priests",
+      "order": "4"
+    },
+    {
+      "id": "gallery",
+      "slug": "gallery",
+      "title": "Gallery",
+      "order": "5"
+    },
+    {
+      "id": "videos",
+      "slug": "videos",
+      "title": "Videos",
+      "order": "6"
+    },
+    {
+      "id": "articles",
+      "slug": "articles",
+      "title": "Articles",
+      "order": "7"
+    },
+    {
+      "id": "visit",
+      "slug": "visit",
+      "title": "Visit & contact",
+      "order": "8"
+    },
+    {
+      "id": "announcements",
+      "slug": "announcements",
+      "title": "Announcements",
+      "order": "8"
+    }
+  ],
+  "content": [
+    {
+      "section": "gallery",
+      "title": "Kedarnath",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1TLhVgI82iDGipxe7ReyCkxHlgpXCbxsY/view?usp=drivesdk",
+      "order": 1
+    },
+    {
+      "section": "gallery",
+      "title": "kotappa konda nandi",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1aa1jw9_CO0mZqW3DIvbI5nVVJeBcdZld/view?usp=drivesdk",
+      "order": 2
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1IVgKLJnCMaz9yEGMQ54pjew5CZsZZGlA/view?usp=drivesdk",
+      "order": 3
+    },
+    {
+      "section": "gallery",
+      "title": "God photo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1BiKLNk-4JrA0eKfiZ4yfLizzpPMgdzkC/view?usp=drivesdk",
+      "order": 4
+    },
+    {
+      "section": "gallery",
+      "title": "Sub Temple",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1uAHf-GtFaUz9oj0W7P7_HxQMIRBJg5Ie/view?usp=drivesdk",
+      "order": 5
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1LOgAD_zkRftNbPIzp7ZjK_bquOi6DKEo/view?usp=drivesdk",
+      "order": 6
+    },
+    {
+      "section": "gallery",
+      "title": "Main statue",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/10d_k0X2OTX674FXtoDx-9K2xHZmj808C/view?usp=drivesdk",
+      "order": 7
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1FBE6Ag9fVdbL0NgZjXyX8flIzmCKqWRW/view?usp=drivesdk",
+      "order": 8
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1u0bgBQIC09mKUdpZ-8blnMcYcaF9Snu4/view?usp=drivesdk",
+      "order": 9
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1wdr5Q6rnrtY9XQj5qNEBXFXfTI8UJ-Lm/view?usp=drivesdk",
+      "order": 10
+    },
+    {
+      "section": "gallery",
+      "title": "Chidambareshwara Swamy Temple",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1aUbX342Q-vScs9KrXHJplE-_06c0_B-Z/view?usp=drivesdk",
+      "order": 11
+    },
+    {
+      "section": "gallery",
+      "title": "Temple view",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1q4pnT2ypOO0zuScfpX5kD8ggOu6wp34m/view?usp=drivesdk",
+      "order": 12
+    },
+    {
+      "section": "priests",
+      "title": "Shyam Sundar Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1poUTORJi2sGztH0PTguR19u7rqG486c2/view?usp=drivesdk",
+      "order": 13
+    },
+    {
+      "section": "priests",
+      "title": "Gangadhar Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/14CNcwWxJIBr9kw9xoA3qavHJqK7yAuN4/view?usp=drivesdk",
+      "order": 14
+    },
+    {
+      "section": "priests",
+      "title": "Haribandhu Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1zIY8SrO8Y2-zh_DK_Nb1LDLOgQUQKrgV/view?usp=drivesdk",
+      "order": 15
+    },
+    {
+      "section": "priests",
+      "title": "Chakrapani Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1wtJJSuzR-5gn0si-Zm3lfPSVYLgPd0Xh/view?usp=drivesdk",
+      "order": 16
+    },
+    {
+      "section": "priests",
+      "title": "Govind Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/16L2r3kZCIRAHjflXW-c_iKUrvlak7KqM/view?usp=drivesdk",
+      "order": 17
+    },
+    {
+      "section": "priests",
+      "title": "Vijay Kumar Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/15uHIvogBLH8DH3YfRuiDaySyprh1lQ5w/view?usp=drivesdk",
+      "order": 18
+    },
+    {
+      "section": "priests",
+      "title": "Chidambar Rawlo",
+      "body": "",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1K7oraD44OKacqupM5IyniM9wmznLkUBc/view?usp=drivesdk",
+      "order": 19
+    },
+    {
+      "section": "timings",
+      "title": "Morning Aarti",
+      "body": "",
+      "extra": "05:30:00 – 06:00:00 · All days",
+      "url": "",
+      "media": "",
+      "order": 20
+    },
+    {
+      "section": "timings",
+      "title": "Annaprasadam",
+      "body": "",
+      "extra": "10:55:00 – 12:00:00 · All days",
+      "url": "",
+      "media": "",
+      "order": 21
+    },
+    {
+      "section": "timings",
+      "title": "Temple Closed",
+      "body": "",
+      "extra": "12:00:00 – 17:00:00 · All days",
+      "url": "",
+      "media": "",
+      "order": 22
+    },
+    {
+      "section": "timings",
+      "title": "Evening Aarti",
+      "body": "",
+      "extra": "17:00:00 – 18:30:00 · All days",
+      "url": "",
+      "media": "",
+      "order": 23
+    },
+    {
+      "section": "videos",
+      "title": "శ్రీశ్రీశ్రీ చిదంబరేశ్వర స్వామి వారి శివపార్వతుల కళ్యాణమహోత్సవ ఆహ్వాన పత్రిక",
+      "body": "",
+      "extra": "",
+      "url": "https://www.youtube.com/watch?v=3UQuJdwqMB4",
+      "media": "",
+      "order": 24
+    },
+    {
+      "section": "videos",
+      "title": "Chidambareswara swamy temple Harathi puja",
+      "body": "",
+      "extra": "",
+      "url": "https://www.youtube.com/watch?v=OFoNqp5DCsY",
+      "media": "",
+      "order": 25
+    },
+    {
+      "section": "sevas",
+      "title": "Rudrabhishekam",
+      "body": "Sacred ritual involving ceremonial bathing of the Shiva Lingam with water, milk, and other holy offerings along with powerful Vedic chanting. Performed to seek protection, inner strength, peace, and overall well-being.",
+      "extra": "",
+      "url": "",
+      "media": "",
+      "order": 26
+    },
+    {
+      "section": "sevas",
+      "title": "Annadanam",
+      "body": "Sacred service of offering free meals to devotees and visitors as an act of charity and compassion, promoting sharing, gratitude, and community welfare.",
+      "extra": "",
+      "url": "",
+      "media": "",
+      "order": 27
+    },
+    {
+      "section": "sevas",
+      "title": "Shiva Mala (Mala Dharana)",
+      "body": "Shiva Mala is a sacred practice where devotees wear a holy garland (mala) with devotion to Lord Shiva. It is usually observed during special periods like Karthika Masam or before important poojas. Devotees follow strict discipline while wearing the mala, including: Daily pooja and prayers to Lord Shiva Maintaining purity and simple living Avoiding non-vegetarian food and bad habits Visiting temples regularly",
+      "extra": "",
+      "url": "",
+      "media": "",
+      "order": 28
+    },
+    {
+      "section": "sevas",
+      "title": "Alankara Seva",
+      "body": "Special service involving the decorative adornment with fresh flowers, ornaments, and traditional attire as an expression of devotion and celebration.",
+      "extra": "",
+      "url": "",
+      "media": "",
+      "order": 29
+    },
+    {
+      "section": "about",
+      "title": "About the temple",
+      "body": "శ్రీ శ్రీ శ్రీ చితంబరేశ్వర ఆలయం – చరిత్ర మరియు ప్రత్యేకతఆంధ్రప్రదేశ్ రాష్ట్రంలోని శ్రీకాకుళం జిల్లాలోని ఇచ్ఛాపురం, రైల్వే స్టేషన్ ట్రాక్ సమీపంలో ఉన్న శ్రీ శ్రీ శ్రీ చితంబరేశ్వర ఆలయం ఎంతో పవిత్రమైనది మరియు ప్రాచీన చరిత్రను కలిగి ఉంది. ఈ ఆలయం తన వైభవంతో పాటు గొప్ప ఆధ్యాత్మిక ప్రాముఖ్యతను సంతరించుకుంది. ఎన్నో సంవత్సరాలుగా భక్తులు ఇక్కడికి వచ్చి భగవంతుడిని దర్శించుకుని ఆశీర్వాదాలు పొందుతున్నారు. స్థాన...",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1M9fX9XK9eR3RjDp6p_iSGvSuZ-BQogxH/view?usp=drivesdk",
+      "order": 30
+    },
+    {
+      "section": "about",
+      "title": "History of Chidambareshwara Swamy Temple",
+      "body": "🛕 శ్రీ శ్రీ శ్రీ చితంబరేశ్వర ఆలయం – చరిత్ర, మహిమ మరియు ప్రత్యేకతఆంధ్రప్రదేశ్‌లోని శ్రీకాకుళం జిల్లా, ఇచ్ఛాపురం రైల్వే స్టేషన్ సమీపంలో ఉన్న శ్రీ శ్రీ శ్రీ చితంబరేశ్వర ఆలయం భక్తుల విశ్వాసానికి నిలువెత్తు నిదర్శనం. ఈ ఆలయం కేవలం ఒక పూజా స్థలం మాత్రమే కాదు – ఇది చరిత్ర, సంప్రదాయం, ఆధ్యాత్మిక శక్తి కలిసిన పవిత్ర క్షేత్రం.ఎన్నో సంవత్సరాలుగా భక్తులు ఇక్కడికి వచ్చి స్వామివారి దర్శనం చేసుకుని తమ కోరికలు నెరవేర్చుకున్నారని విశ్వసిస్తున్నారు.---🕉️ ఆలయ ఆవిర్భావం – ఒక దివ్య కథఈ ఆలయ చరిత్ర సుమారు 300 సంవత్సరాల క్రితం ప్రారంభమైంది.ఒకప్పుడు ఈ ప్రదేశంలో వేపచెట్టు కింద చిన్న పుట్ట ఉండేది. ఆ పుట్టను దేవాంగులు భక్తితో పూజించేవారు. ఆ కాలంలో ఈ ప్రాంతాన్ని పాలిస్తున్న కీర్తి చంద్రదేవ గారికి ఒక రాత్రి స్వప్నంలో భగవంతుడు దర్శనమిచ్చి,👉 “ఈ వేపచెట్టు కింద శివలింగం ఉంది… ఇక్కడ నాకు ఆలయం నిర్మించాలి” అని ఆజ్ఞాపించాడని చెబుతారు.ఆ దివ్య ఆజ్ఞను గౌరవిస్తూ రాజు ఒక సంవత్సరంలోనే ఈ ఆలయాన్ని నిర్మించాడు. ఈ విధంగా ఒక చిన్న పుట్టగా ప్రారంభమైన ప్రదేశం, ఈరోజు మహిమాన్విత ఆలయంగా మారింది.---🔱 స్వయంభూ శివలింగం – ఆలయ ప్రధాన విశేషంఈ ఆలయంలో ఉన్న శివలింగం స్వయంభూ (Self-originated) అని విశ్వసిస్తారు. అంటే ఇది భూమి నుండి స్వయంగా వెలిసిందని నమ్మకం.👉 ఈ శివలింగాన్ని దర్శించడం వల్ల:మనశ్శాంతి లభిస్తుందికోరికలు నెరవేరుతాయిఆధ్యాత్మిక శక్తి పెరుగుతుందిఅందుకే దూర ప్రాంతాల నుండి కూడా భక్తులు ఇక్కడికి వస్తుంటారు.---👨‍ పరంపర – తరతరాల సేవఈ ఆలయంలో మరో గొప్ప విశేషం – పూజారితనం ఒకే కుటుంబంలో కొనసాగడం.గోవింద్ రావ్లోగారు – ~70 సంవత్సరాలు సేవచక్రపాణి రావ్లోగారు – ~45 సంవత్సరాలుహరిబంధు రావ్లోగారు – ~50 సంవత్సరాలుగంగాధర రావ్లోగారు – ~65 సంవత్సరాలుచితంబర రావ్లోగారు – ~52 సంవత్సరాలుప్రస్తుతం విజయ్‌కుమార్ రావ్లోగారు – 11 సంవత్సరాలుగా సేవఅలాగే శామ్‌సుందర్ రావ్లోగారు కూడా ఆలయ సేవల్లో భాగస్వామ్యం చేస్తున్నారు.👉 ఒకే కుటుంబం తరతరాలుగా సేవ చేయడం ఈ ఆలయ ప్రత్యేకత.---⏰ నిత్య పూజా సమయాలుభక్తులు సులభంగా దర్శనం చేసుకునేలా పూజలు క్రమంగా జరుగుతాయి:🌅 ఉదయం హారతి: 5:50 AM – 6:00 AM🍛 అన్నప్రసాదం: 11:45 AM – 12:00 PM🚪 ఆలయం మూసివేత: 12:00 PM – 5:00 PM🌇 సాయంత్రం హారతి: 6:00 PM👉 ఆలయంలో 365 రోజులు దీపజ్యోతి వెలుగుతూ ఉండటం ఒక ప్రత్యేక ఆకర్షణ.---🎉 పండుగలు &amp; ప్రత్యేక కార్యక్రమాలుఈ ఆలయంలో అనేక ఆధ్యాత్మిక కార్యక్రమాలు జరుగుతాయి:🔔 శివపార్వతి కళ్యాణం (ప్రతి సంవత్సరం)🌊 సంక్రమణం సందర్భంగా కోనేరు వద్ద గంగా హారతి🍲 వార్షికోత్సవం రోజున అన్నదానం🌺 108 మంది మహిళలతో కుంకుమ పూజ📅 షష్టి దినోత్సవం👉 ఈ కార్యక్రమాలు భక్తులను మరింతగా ఆకర్షిస్తాయి.---💍 శుభకార్యాలకు పవిత్ర స్థలంఈ ఆలయం వివాహాలు మరియు ఇతర శుభకార్యాలకు కూడా ప్రసిద్ధి చెందింది. చాలా మంది తమ జీవితంలోని ముఖ్యమైన వేడుకలను ఇక్కడ నిర్వహించడానికి ఇష్టపడతారు.---🛕 ఉపాలయాలుప్రధాన ఆలయంతో పాటు ఇక్కడ అనేక ఉపాలయాలు ఉన్నాయి:వినాయక ఆలయంశనేశ్వర ఆలయంసంతోషి మాత ఆలయంవీరబ్రహ్మేంద్ర స్వామి ఆలయంఆంజనేయ స్వామి ఆలయం👉 ఇవి ఆలయ పవిత్రతను మరింత పెంచుతున్నాయి.---🙏 ముగింపుశ్రీ శ్రీ శ్రీ చితంబరేశ్వర ఆలయం కేవలం ఒక ఆలయం కాదు… ఇది భక్తి, చరిత్ర, సంప్రదాయం కలిసిన ఒక ఆధ్యాత్మిక క్షేత్రం.మీరు ఒకసారి ఈ ఆలయాన్ని సందర్శిస్తే: 👉 మనశ్శాంతి👉 భక్తి భావం👉 ఆత్మీయ ఆనందంఅన్నీ అనుభవించగలరు.\n\n213\n8 months ago",
+      "extra": "",
+      "url": "",
+      "media": "https://drive.google.com/file/d/1x4u1Y7_-QkwBy0Z6Zv05yipdQpkTghtO/view?usp=drivesdk",
+      "order": 31
+    },
+    {
+      "section": "visit",
+      "title": "Temple location",
+      "body": "Ichchapuram, Andhra Pradesh",
+      "extra": "",
+      "url": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.8354101229247!2d84.68068902432726!3d19.11487513243202!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3d41fce70e11f5%3A0xf1b5e8c6b38c59d0!2sChidambareshwara%20Swamy%20Temple!5e0!3m2!1sen!2sin!4v1770266014645!5m2!1sen!2sin",
+      "media": "",
+      "order": 32
+    }
+  ]
+}
