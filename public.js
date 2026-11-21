@@ -145,19 +145,17 @@ function render(data) {
   if($('templeExtras'))$('browse').before($('templeExtras'));
   stopInlineGallery();
   const sections=sorted(data.sections.filter(s=>!['carousel','events','shop'].includes(s.slug)));
-  const gallerySection=sections.find(section=>section.slug==='gallery');
-  // Drive's dedicated Gallery folder is the authoritative photo album. Content
-  // records may add captions, but should not be required for images to appear.
-  const listed=gallerySection?data.content.filter(record=>record.section===gallerySection.id&&gallerySrc(record)):[];
+  // Strict Gallery album: only the dedicated Gallery Drive folder populates photo cards.
+  // Legacy Content records are preserved in Google Sheets but are not mixed into albums.
   const folderImages=(Array.isArray(data.driveGallery)?data.driveGallery:[]).map(record=>({
     ...record, title:record.title||record.name||'Temple photograph',
     media:record.media||(record.id?'https://drive.google.com/file/d/'+record.id+'/view':''),
     url:record.url||''
   }));
   const seenGallery=new Set();
-  galleryViewerItems=[...folderImages,...sorted(listed)].filter(record=>{
-    const key=driveId(record.media)||record.id||record.url;
-    if(!gallerySrc(record)||seenGallery.has(key))return false;
+  galleryViewerItems=folderImages.filter(record=>{
+    const key=driveId(record.media)||record.id;
+    if(!key||!gallerySrc(record)||seenGallery.has(key))return false;
     seenGallery.add(key);return true;
   });
   const needle=$('search').value.trim().toLowerCase(), filter=$('filter').value, sort=$('sort').value;
@@ -174,7 +172,7 @@ function render(data) {
     const about=sectionItems('about');
     const intro=about[0];
     const aboutText=String(intro?.body||sectionBySlug('about')?.summary||'Discover the heritage and traditions of our sacred temple.').replace(/<[^>]*>/g,' ').replace(/\[\[rich-html\]\]/g,'').slice(0,250);
-    const aboutHtml='<div class="about-flex">'+(picture(firstPhoto('about')||firstPhoto('gallery'))||'<div class="panel-placeholder">ॐ</div>')+'<div><p>'+esc(aboutText)+'</p><a class="mini-button" href="#about">Read more ›</a></div></div>';
+    const aboutHtml='<div class="about-flex">'+(picture(firstPhoto('about'))||'<div class="panel-placeholder">ॐ</div>')+'<div><p>'+esc(aboutText)+'</p><a class="mini-button" href="#about">Read more ›</a></div></div>';
     const sevas=sectionItems('sevas');
     const sevasHtml='<p class="panel-intro">Explore sacred services and worship offerings.</p><div class="seva-list">'+(sevas.slice(0,5).map(r=>'<a href="#sevas">❯ &nbsp; '+esc(r.title)+' <span>›</span></a>').join('')||'<a href="#sevas">View available sevas →</a>')+'</div><a class="mini-button" href="#sevas">View all sevas ›</a>';
     const priests=sectionItems('priests');
@@ -182,9 +180,9 @@ function render(data) {
     const timings=sectionItems('timings');
     const timingsHtml='<div class="timing-list">'+(timings.slice(0,6).map(r=>'<a href="#timings"><span>▣ &nbsp; '+esc(r.title)+'</span><strong>'+esc(String(r.extra||'').slice(0,42))+'</strong></a>').join('')||'<a href="#timings">See daily pooja and darshan timings →</a>')+'</div>';
     const gallery=galleryViewerItems;
-    const galleryHtml='<div class="gallery-preview">'+gallery.slice(0,4).map((r,i)=>'<button type="button" class="gallery-tile" data-gallery-index="'+i+'" aria-label="View '+esc(r.title)+' in gallery slideshow">'+picture(r)+'</button>').join('')+'</div>'+
-      '<a class="mini-button" href="#gallery">Open gallery & slideshow →</a>'+
-      (!gallery.length?'<p class="gallery-help">Gallery photos are not loaded yet. Check the Drive connection.</p>':'');
+    const galleryHtml='<p class="panel-intro">🖼️ Photographs from the dedicated Temple Gallery folder. Carousel slides and temple-history photos are kept separate.</p>'+
+      '<div class="gallery-preview gallery-preview-premium">'+gallery.slice(0,8).map((r,i)=>'<button type="button" class="gallery-tile" data-gallery-index="'+i+'" aria-label="Open '+esc(r.title)+' in gallery"><img loading="lazy" alt="'+esc(r.title)+'" src="'+esc(gallerySrc(r))+'"'+(driveId(r.media)?' data-drive="'+esc(driveId(r.media))+'"':'')+'></button>').join('')+'</div>'+
+      (gallery.length?'<button type="button" class="mini-button" id="galleryOpenAll">⛶ View all '+gallery.length+' gallery photos</button>':'<p class="gallery-help">No photographs yet. Upload images into the Gallery Drive folder.</p>');
     const videos=sectionItems('videos');
     const video=videos.find(r=>url(r.url));
     const youtube=video?.url?.match(/(?:youtu\.be\/|[?&]v=)([\w-]{11})/)?.[1];
@@ -192,7 +190,7 @@ function render(data) {
     const donationList=Array.isArray(data.finance)?data.finance.filter(r=>r.type==='Donation'):(Array.isArray(data.donations)?data.donations:[]);const donationTotal=donationList.reduce((n,r)=>n+Number(r.amountPaise||0),0);const donationsHtml='<div class="donate-panel"><span class="donate-symbol">♡</span><p>Transparent support for daily worship and temple care.</p><strong>₹'+(donationTotal/100).toLocaleString('en-IN',{maximumFractionDigits:2})+' donated</strong><a class="mini-button" href="#donations">Category-wise finances ›</a></div>';
     const visitHtml='<div class="visit-preview temple-live-map"><div><strong>⌖ Chidambareshwara Swamy Temple</strong><p>'+esc(config.place)+'</p><a class="mini-button" href="https://www.google.com/maps/search/?api=1&amp;query=19.1148733%2C84.6807024" target="_blank" rel="noopener noreferrer">Open Google Maps ↗</a></div><iframe loading="lazy" title="Live Google map of Chidambareshwara Swamy Temple, Ichchapuram" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=19.1148733%2C84.6807024&amp;z=17&amp;output=embed" allowfullscreen></iframe></div>';
     const historyRecords=historyState.records;
-    renderHeritagePreview(historyRecords);
+    // History cards are shown once in the dedicated Temple History section.
     const historyHtml='<div class="temple-history-cards">'+(historyRecords.slice(0,3).map((r,i)=>{
       const imageSrc=historyImage(r);
       const photo=imageSrc?'<img loading="lazy" src="'+esc(imageSrc)+'" '+(r.cover?.id?'data-drive="'+esc(r.cover.id)+'"':'')+' alt="'+esc(r.title)+'">':'<div class="history-image-placeholder">🛕</div>';
@@ -416,20 +414,20 @@ function initInlineGallery(){
   draw(0);
 }
 function carousel(data) {
-  const custom=data.sections.find(s=>s.slug==='carousel');
-  // Use published gallery/about photos until the carousel section has published slides.
-  const candidates=id=>sorted(data.content.filter(r=>r.section===id&&(thumbnail(r.media)||url(r.url))));
-  const preferred=custom?candidates(custom.id):[];
-  const defaultSlides=['about','gallery'].flatMap(slug=>{
-    const section=data.sections.find(s=>s.slug===slug);
-    return section?candidates(section.id):[];
-  });
+  // STRICT ALBUM SEPARATION: hero slides only from Drive's dedicated carousel folder.
+  // Do not borrow Gallery, About, History, or Priest photographs as fallbacks.
+  const galleryIds=new Set((data.driveGallery||[]).map(r=>driveId(r.media)||r.id).filter(Boolean));
+  const seen=new Set();
   const driveSlides=Array.isArray(data.driveCarousel)?data.driveCarousel:[];
-  const slides=(driveSlides.length?driveSlides:(preferred.length?preferred:defaultSlides)).slice(0,30);
+  const slides=driveSlides.filter(r=>{
+    const key=driveId(r.media)||r.id;
+    if(!key||galleryIds.has(key)||seen.has(key))return false;
+    seen.add(key);return true;
+  }).slice(0,30);
   if(!slides.length){
     $('carousel').hidden=false;
-    $('photoStatus').textContent='No carousel photos loaded from Google Drive';
-    $('heroSlideCaption').textContent='Carousel photos unavailable';
+    $('photoStatus').textContent='Add photos to the dedicated Carousel Drive folder';
+    $('heroSlideCaption').textContent='Temple carousel · awaiting photographs';
     for(const id of ['photoPrev','photoNext','photoPause','photoFullscreen'])$(id).hidden=true;
     const retry=document.createElement('button');retry.type='button';retry.className='carousel-retry';retry.textContent='↻ Retry loading';
     retry.onclick=()=>location.reload();$('photoDots').replaceChildren(retry);
@@ -485,10 +483,7 @@ function carousel(data) {
   $('brand').textContent=$('temple').textContent=config.name;
   $('place').textContent=config.place;
   document.title=config.name;
-  if(url(config.hero)) {
-    const hero=new Image();hero.src=config.hero;hero.alt='';
-    document.getElementById('heroImageStage').prepend(hero);
-  }
+  // Hero pictures are exclusively controlled by the Carousel folder.
   if(!url(config.endpoint)) {
     $('notice').textContent='Temple listings will appear here when the site is connected to Google Sheets.';
     return;
@@ -712,6 +707,7 @@ function paintTempleHistory(){
 $('historyDialogClose').onclick=()=>$('templeHistoryDialog').close();
 $('templeHistoryDialog').addEventListener('click',e=>{if(e.target===$('templeHistoryDialog')){$('templeHistoryDialog').close();return;}const b=e.target.closest('[data-history-move]');if(b){const r=historyState.records[historyState.index],len=r.photos.length;historyState.slide=(historyState.slide+Number(b.dataset.historyMove)+len)%len;paintTempleHistory();}});
 document.addEventListener('click',e=>{
+ if(e.target.closest('#galleryOpenAll')){if(galleryViewerItems.length)openGalleryViewer(0);return;}
  const more=e.target.closest('#historySeeMore');
  if(more){const grid=document.querySelector('.temple-history-cards');if(!grid)return;const expanded=more.getAttribute('aria-expanded')==='true';if(expanded){grid.querySelectorAll('[data-history-extra]').forEach(n=>n.remove());more.textContent='See all '+historyState.records.length+' temples →';}else{historyState.records.slice(3).forEach((r,i)=>{const card=document.createElement('article');card.className='temple-history-card';card.dataset.historyExtra='true';const coverSrc=historyImage(r);const cover=coverSrc?'<img loading="lazy" src="'+esc(coverSrc)+'" alt="'+esc(r.title)+'">':'<div class="history-image-placeholder">🛕</div>';card.innerHTML=cover+'<div class="history-summary"><h3>'+esc(r.title)+'</h3><p>'+esc(r.shortText||'Learn about this sacred place.')+'</p><button type="button" class="mini-button" data-history-index="'+(i+3)+'">More details →</button></div>';grid.append(card);});more.textContent='Show fewer temples ↑';hydrateDriveImages();}more.setAttribute('aria-expanded',String(!expanded));return;}
  const b=e.target.closest('[data-history-index]');if(b){e.preventDefault();showTempleHistory(Number(b.dataset.historyIndex));}});
