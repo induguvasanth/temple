@@ -1,0 +1,1471 @@
+<!doctype html>
+<html lang="en"><head><base target="_top"><meta charset="utf-8"><? if (view === 'admin') { ?><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jodit@4.17.4/es2021/jodit.min.css"><script src="https://cdn.jsdelivr.net/npm/jodit@4.17.4/es2021/jodit.min.js" defer></script><? } ?><style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap');
+:root{--paper:#f7f2e8;--surface:#fffdf7;--ink:#2e241f;--muted:#6d5b50;--wine:#47221d;--rust:#913d2c;--gold:#efcc92;--line:#e7dac8;--serif:"Instrument Serif",Georgia,serif;color:var(--ink);background:var(--paper);font:15px/1.55 "DM Sans",system-ui,sans-serif}
+*{box-sizing:border-box}body{margin:0}h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.03;margin:0 0 .35em}h1{font-size:clamp(2.9rem,7vw,5rem)}h2{font-size:clamp(2rem,4vw,3rem)}h3{font-size:1.65rem}p{margin:.45em 0 1em}a{color:var(--rust)}button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{opacity:.55;cursor:wait}:focus-visible{outline:3px solid #b05a30;outline-offset:3px}[hidden]{display:none!important}.wrap{width:min(1150px,calc(100% - 36px));margin:auto}.bar{padding:8px;text-align:center;background:var(--wine);color:#f6dfbd;letter-spacing:.1em;font-size:.75rem}.mast{background:var(--surface);border-bottom:1px solid var(--line)}.mast .wrap{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:15px 0}.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font:1.55rem/1.08 var(--serif)}.mark{border:1px solid #d8b58f;color:var(--rust);border-radius:50%;display:grid;place-items:center;width:37px;height:37px;flex:none}.button{border:1px solid transparent;border-radius:7px;padding:9px 15px;text-decoration:none;color:white;background:var(--rust);display:inline-flex;align-items:center;justify-content:center;gap:6px;font-weight:700;font-size:.88rem}.button:hover{filter:brightness(.94)}.secondary{background:transparent;color:var(--wine);border-color:#ceb7a1}.light{color:var(--wine);background:#f2d4a4}.compact{font-size:.78rem;padding:5px 9px}.hero{background:radial-gradient(ellipse at 90% 35%,#915536 0,transparent 58%),#3e211d;color:#fff4e1;position:relative;isolation:isolate;overflow:hidden}.hero img{position:absolute;width:100%;height:100%;object-fit:cover;z-index:-2}.hero:has(img)::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#321711ed,#32171172);z-index:-1}.hero .wrap{padding:clamp(58px,9vw,110px) 0}.hero h1{max-width:700px}.hero p{color:#f7e5ce}.eyebrow{font-size:.72rem;letter-spacing:.15em;font-weight:700;text-transform:uppercase;color:var(--rust)}.hero .eyebrow{color:var(--gold)}.actions,.row{display:flex;align-items:center;flex-wrap:wrap;gap:8px}.row.between{justify-content:space-between}.strip{border-bottom:1px solid var(--line);background:#efe3d1}.strip .wrap{display:flex;gap:18px;overflow:auto;padding:12px 0}.strip a{white-space:nowrap;color:var(--wine);font-weight:700;text-decoration:none}.publicSection{padding:38px 0;border-bottom:1px solid var(--line);scroll-margin-top:12px}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.card,.panel,.stat{border:1px solid var(--line);border-radius:11px;background:var(--surface);padding:16px;min-width:0}.card p{white-space:pre-wrap;overflow-wrap:anywhere}.card img{width:100%;height:180px;object-fit:cover;border-radius:6px;margin-bottom:12px}.foot{background:var(--wine);color:#ffebd0;padding:20px 0}.foot a{color:#ffebd0}.page{padding:30px 0 55px}.tabs{display:flex;gap:6px;overflow:auto;margin:16px 0}.tabs button{white-space:nowrap}.tabs [aria-pressed=true]{background:var(--wine);color:white}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:15px 0}.stat strong{display:block;font:clamp(1.25rem,4vw,2rem) var(--serif);overflow-wrap:anywhere}.badge{display:inline-block;font-size:.75rem;padding:2px 8px;background:#f0e4d1;border-radius:999px}.list{margin-top:14px}.list article{padding:12px 0;border-top:1px solid var(--line)}.list article p{margin:3px 0;color:var(--muted);overflow-wrap:anywhere}.list article strong{overflow-wrap:anywhere}.form{display:grid;gap:10px}.form label{display:grid;gap:4px;font-size:.84rem;font-weight:700}.form label.checkbox{display:flex;align-items:center;gap:6px}.form label.checkbox input{width:auto}.form .wide{grid-column:1/-1}.form.cols{grid-template-columns:repeat(2,minmax(0,1fr))}input,textarea,select{width:100%;padding:8px 10px;color:var(--ink);background:#fffdf9;border:1px solid #cdb8a0;border-radius:6px}textarea{min-height:85px;resize:vertical}.login{max-width:440px}.notice{color:var(--rust);font-size:.88rem;white-space:pre-wrap}.notice:empty{display:none}dialog{width:min(670px,calc(100% - 24px));max-height:88dvh;overflow:auto;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:11px;padding:18px}dialog::backdrop{background:#29170fb0}.close{border:0;background:transparent;color:var(--wine);font-size:1.35rem;padding:3px 8px}progress{width:100%;accent-color:var(--rust)}code{overflow-wrap:anywhere}details>summary{cursor:pointer}
+@media(max-width:700px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:475px){.wrap{width:calc(100% - 24px)}.grid,.form.cols{grid-template-columns:1fr}.mast .brand{font-size:1.19rem}.mast .button{padding:6px 8px;font-size:.76rem}.panel{padding:12px}}
+.admin-layout{display:grid;grid-template-columns:190px minmax(0,1fr);gap:18px;align-items:start}.admin-layout .tabs{display:grid;margin:0;position:sticky;top:12px}.admin-layout .tabs button{justify-content:flex-start;white-space:normal;text-align:left}.stat{box-shadow:0 9px 28px #5833210b}.list article{gap:12px}.hero{min-height:390px}.hero .wrap{position:relative}.hero .eyebrow{margin-bottom:1rem}.carousel-controls{display:flex;gap:7px;margin-top:22px}.carousel-controls button{min-width:42px}.catalog-controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin:20px auto 0;padding:12px;display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px}.catalog-controls label{display:grid;gap:4px;font-size:.84rem;font-weight:700}.publicSection:nth-child(even){background:#fff9ee}.publicSection .card{box-shadow:0 8px 25px #48271b0b;display:flex;flex-direction:column;gap:4px}.publicSection .card .actions{margin-top:auto}.card h3{margin-top:4px}.strip{position:sticky;top:0;z-index:3}.strip a:focus-visible{outline-offset:2px}.publicSection{scroll-margin-top:60px}
+@media(max-width:790px){.admin-layout{display:block}.admin-layout .tabs{position:static;display:flex;margin:12px 0}.admin-layout .tabs button{white-space:nowrap}.catalog-controls{grid-template-columns:1fr 1fr}.catalog-controls label:first-child{grid-column:1/-1}}
+.hero{min-height:440px}.hero>img{inset:0;display:block;object-fit:cover;object-position:center 43%}.hero .wrap{z-index:1}.carousel-controls{align-items:center;flex-wrap:wrap}.photo-dots{display:flex;align-items:center;gap:6px}.photo-dot{width:26px;height:26px;border:0;background:transparent;border-radius:50%;padding:0;cursor:pointer}.photo-dot::after{content:'';display:block;margin:auto;width:8px;height:8px;border:1px solid #fff0cd;border-radius:50%}.photo-dot[aria-current=true]::after{background:#ffe2a2}.publicSection .card img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:contain;background:#f2e8d6;border-radius:8px}.publicSection .card .actions>img{flex:0 0 100%}.publicSection .card .actions{justify-content:flex-start}.hero img{filter:saturate(.9)}@media(max-width:620px){.hero{min-height:390px}.hero>img{object-position:60% center}.photo-dots{flex-basis:100%}}
+.ledger-scroll{overflow:auto;border:1px solid #e7d8bd;border-radius:10px}.ledger{width:100%;min-width:820px;border-collapse:collapse;text-align:left;font-size:.86rem}.ledger th,.ledger td{padding:10px;border-bottom:1px solid #eadcc6}.ledger th{background:#f1e0c4;color:#4e2d1f}.ledger tbody tr:nth-child(even){background:#f9f1e2}.ledger td:last-child{white-space:nowrap}.ledger td:nth-child(6){white-space:nowrap;font-variant-numeric:tabular-nums}#siteControls{margin:12px 0}#financeFilters{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+
+/* Devotee and committee visual system */
+:root{--paper:#f8f4eb;--surface:#fffdf8;--ink:#281c19;--muted:#6d5b51;--wine:#481f26;--rust:#78383a;--gold:#e8bd75;--line:#e5d7c3}
+.devotee-theme .bar,.admin-theme .bar{background:#34171e;color:#f8e5bd}
+.devotee-theme .mast,.admin-theme .mast{border-bottom:1px solid #eadbc7}
+.devotee-theme .hero{min-height:0;background:#34171e;color:#fff6e8}
+.devotee-theme .hero .wrap{padding:clamp(45px,7vw,92px) 0 40px}
+.devotee-theme .hero h1{max-width:13ch;line-height:.94;font-size:clamp(3rem,7vw,6rem);margin:0 0 24px}
+.devotee-theme .hero::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#281218ec,#30151a66 65%,#35172230)}
+.devotee-theme .hero:has(img)::after{content:none}
+.devotee-theme .hero .eyebrow{color:#f2cd91}.hero-outline{background:#34171e85;color:#fff5e5;border-color:#efd8ad80}
+.devotee-theme .strip{box-shadow:0 5px 16px #331a170c}.devotee-theme .strip a{padding:6px 10px;border-radius:6px}.devotee-theme .strip a[aria-current]{background:var(--wine);color:#fff7e8}
+.browse{min-height:360px;padding-bottom:32px;scroll-margin-top:65px}.browse h2{margin:10px 0 16px}.browse .card{box-shadow:0 6px 19px #49281d0b;min-width:0}.browse .card img{width:100%;aspect-ratio:4/3;object-fit:contain;height:auto;background:#f3ead9}.card-meta{color:#6a4233;font-weight:700}
+.section-grid,.giving-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}.section-tile{display:grid;grid-template-columns:auto 1fr auto;gap:11px;align-items:center;padding:12px;border:1px solid var(--line);border-radius:11px;background:var(--surface);text-decoration:none;color:var(--ink);box-shadow:0 4px 14px #401d100a}.section-tile:hover{border-color:#b97a52;background:#fffaf1}.section-tile img{width:65px;height:56px;object-fit:cover;border-radius:7px}.section-tile div{grid-column:2}.section-tile h3{font-size:1.34rem;margin:0}.section-tile div span{font-size:.8rem;color:var(--muted)}.tile-arrow{grid-column:3;color:var(--rust)}.catalog-pager{margin-top:14px;justify-content:center}
+.public-details{margin:8px 0}.public-details summary,#financeFilterPanel summary{cursor:pointer;color:var(--rust);font-weight:700}.rich-text{white-space:normal;overflow-wrap:anywhere;max-width:100%;overflow-x:auto}.rich-text p{white-space:pre-wrap}.rich-text img{display:block;max-width:100%;height:auto;object-fit:contain;margin:8px auto}.rich-text figure{margin:10px 0}.rich-text table{border-collapse:collapse;width:100%;margin:8px 0}.rich-text td,.rich-text th{border:1px solid #ddc9ae;padding:7px;text-align:left}.rich-text th{background:#f0e3d0}.rich-text blockquote{margin:10px 0;border-left:3px solid #b67749;padding-left:12px}.rich-editor{min-height:160px;padding:10px;border:1px solid #cdb599;border-radius:0 0 8px 8px;background:#fff;max-height:300px;overflow:auto}.editor-tools{display:flex;flex-wrap:wrap;gap:4px;background:#f4e9d7;border:1px solid #d9c4a8;border-bottom:none;padding:6px;border-radius:8px 8px 0 0}.rich-field>label{display:block;margin-bottom:5px}.jodit-field{min-width:0}.jodit-field .jodit-container{max-width:100%;border-color:#cdb599}.jodit-field .jodit-toolbar__box{background:#f4e9d7}
+.admin-theme .page{padding-top:22px}.admin-theme h1{font-size:clamp(2.35rem,5vw,3.8rem);margin-bottom:8px}.admin-theme #workspace .panel{box-shadow:0 10px 25px #34171e0c}.admin-theme .stat{background:linear-gradient(155deg,#fffdf9,#f6e8d4);border-color:#e1cdb3}.admin-theme .stat:nth-child(1) strong{color:#205841}.admin-theme .stat:nth-child(2) strong{color:#822c3e}.admin-theme .admin-layout .tabs{background:#f4e7d4;border:1px solid #e4d1b7;border-radius:10px;padding:7px;gap:5px}.admin-theme .admin-layout .tabs [aria-pressed=true]{background:var(--wine);color:#fff6e4;border-color:var(--wine)}.admin-theme .admin-layout .tabs button{border-color:transparent}.admin-theme .ledger th{background:#f1e1ca}.admin-theme #financeFilterPanel{margin-top:12px;border:1px solid var(--line);background:#fcf5e9;padding:8px 10px;border-radius:7px}.admin-theme #financeFilters{margin-top:8px}.giving-card,.history-row{border:1px solid var(--line);border-radius:9px;background:#fffaf0;padding:12px;min-width:0}.giving-card h3{margin:8px 0 5px}.giving-card>strong{color:#205841;font-size:1.2rem}.history-row{margin:8px 0}
+@media(max-width:760px){.section-grid,.giving-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.devotee-theme .hero .wrap{padding-top:52px}.devotee-theme .strip .wrap{gap:4px}.devotee-theme .strip a{font-size:.82rem}.section-tile{padding:8px;gap:5px}.section-tile img{width:43px;height:44px}.section-tile h3{font-size:1.08rem}.devotee-theme .foot .wrap{gap:8px}}
+@media(max-width:390px){.section-grid,.giving-grid{grid-template-columns:1fr}}
+
+/* Committee workspace */
+.admin-theme {
+  --paper:#f3f0eb;
+  --surface:#fffefa;
+  --line:#e5dbce;
+  --wine:#4c2332;
+  --rust:#703447;
+  background:var(--paper);
+  min-height:100dvh;
+}
+.admin-theme .wrap {width:min(1440px,calc(100% - 48px));}
+.admin-theme .mast {background:#391a27;border:0;box-shadow:inset 0 -2px #bc9258;}
+.admin-theme .mast .wrap {padding:12px 0;}
+.admin-theme .brand {color:#fff4df;font-size:1.5rem;}
+.admin-theme .mark {color:#f3d393;border-color:#a57c58;}
+.admin-theme .mast .secondary {color:#fff4df;border-color:#987583;}
+.admin-theme .page {padding-top:24px;}
+.admin-theme .workspace-heading {margin-bottom:15px;}
+.admin-theme :is(h1,h2,h3) {font-family:"DM Sans",system-ui,sans-serif;font-weight:700;letter-spacing:-.035em;}
+.admin-theme h1 {font-size:clamp(1.5rem,3vw,2.05rem);margin:0;}
+.admin-theme h2 {font-size:1.24rem;margin:0;}
+.admin-theme h3 {font-size:1.08rem;}
+.admin-theme .stats {gap:12px;margin:0 0 18px;}
+.admin-theme .stat {
+  --accent:#805e42;
+  padding:13px 16px;
+  border:1px solid var(--line);
+  border-top:3px solid var(--accent);
+  border-radius:10px;
+  background:#fffefa;
+}
+.admin-theme .stat-donation,.admin-theme .stat-balance {--accent:#27624c;}
+.admin-theme .stat-expense {--accent:#963e50;}
+.admin-theme .stat-sevas {--accent:#99703d;}
+.admin-theme .stat span {font-size:.8rem;font-weight:700;color:var(--muted);}
+.admin-theme .stat strong {
+  font:700 clamp(1.04rem,2.5vw,1.7rem)/1.25 "DM Sans",system-ui,sans-serif;
+  color:var(--accent);
+  font-variant-numeric:tabular-nums;
+  margin-top:4px;
+  letter-spacing:-.035em;
+}
+.admin-theme .review-ledger {
+  grid-column:1/-1;
+  padding:8px 12px;
+  color:#694015;
+  background:#fff4d9;
+  border:1px solid #e9cea0;
+  border-radius:8px;
+  text-align:left;
+  font-weight:700;
+}
+.admin-theme .admin-layout {grid-template-columns:190px minmax(0,1fr);gap:14px;}
+.admin-theme .admin-layout .tabs {background:#fffefa;border-color:var(--line);padding:6px;}
+.admin-theme .admin-layout .tabs button {font-size:.82rem;min-height:37px;padding:7px 9px;}
+.admin-theme .module {padding:16px;}
+.admin-theme .module-heading {margin-bottom:15px;}
+.admin-theme .record-tools {grid-template-columns:minmax(0,2fr) minmax(120px,1fr) auto;}
+.admin-theme input,.admin-theme select,.admin-theme textarea {border-color:#d8cbbd;}
+.admin-theme #recordCount {font-size:.8rem;margin:12px 0 5px;}
+.admin-theme #records {margin-top:0;}
+.admin-theme .ledger-scroll {border-color:var(--line);}
+.admin-theme .ledger {min-width:0;font-size:.82rem;}
+.admin-theme .ledger :is(th,td) {padding:9px;border-color:#ece3d7;vertical-align:middle;}
+.admin-theme .ledger th {background:#f4ebe0;color:#603849;font-size:.76rem;}
+.admin-theme .ledger tbody tr:nth-child(even) {background:#fcf8f2;}
+.admin-theme .ledger tbody tr:hover {background:#f7efe5;}
+.admin-theme .ledger small {display:block;color:var(--muted);overflow-wrap:anywhere;}
+.admin-theme .ledger-amount {white-space:nowrap;font-variant-numeric:tabular-nums;font-weight:700;}
+.admin-theme .status-active {background:#e0f0e6;color:#20563e;}
+.admin-theme .status-inactive {background:#eee9e6;color:#594d47;}
+.admin-theme .status-review {background:#fff0cc;color:#6a4310;}
+.admin-theme #pagination:not(:empty) {margin-top:12px;}
+.admin-theme .transaction-cards {display:none;}
+.admin-theme .transaction-card {background:#fffefa;border:1px solid var(--line);border-radius:9px;padding:10px 12px;}
+.admin-theme .transaction-card p {font-size:.8rem;margin:4px 0 9px;}
+.admin-theme .giving-card .button {margin-top:5px;}
+.admin-theme dialog {box-shadow:0 20px 70px #311b2a55;}
+.admin-theme dialog > .row {margin-bottom:12px;}
+@media (max-width:1050px) {
+  .admin-theme .ledger-scroll {display:none;}
+  .admin-theme .transaction-cards {display:grid;gap:8px;}
+}
+@media (max-width:790px) {
+  .admin-theme .wrap {width:calc(100% - 24px);}
+  .admin-theme .page {padding-top:15px;}
+  .admin-theme .stats {grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-bottom:10px;}
+  .admin-theme .stat {padding:9px 10px;}
+  .admin-theme .admin-layout .tabs {margin:0 0 10px;}
+  .admin-theme .module {padding:10px;}
+  .admin-theme .record-tools {grid-template-columns:repeat(2,minmax(0,1fr));}
+  .admin-theme .record-tools label:first-child {grid-column:1/-1;}
+}
+@media (max-width:440px) {
+  .admin-theme .brand {font-size:1.16rem;}
+  .admin-theme .module-heading {align-items:flex-start;}
+}
+
+/* Devotee homepage */
+.devotee-theme .mast {background:#fffaf1;}
+.devotee-theme .hero {background:radial-gradient(ellipse at 20% 20%,#58303a,#331722 75%);}
+.devotee-theme .hero .wrap {padding:clamp(35px,5.5vw,72px) 0 28px;}
+.devotee-theme .hero h1 {font-size:clamp(2.65rem,6.2vw,5.1rem);max-width:14ch;margin-bottom:18px;}
+.devotee-theme .hero > img {left:42%;width:58%;object-position:center 45%;}
+.devotee-theme .hero::before {background:linear-gradient(90deg,#331722 35%,#331722d0 48%,#33172210 76%);}
+.devotee-theme .carousel-controls {margin-top:15px;font-size:.82rem;}
+.devotee-theme .carousel-controls .button {border-color:#f4d6a677;color:#fff0d7;background:#331722ae;min-width:34px;padding:3px 8px;}
+.devotee-theme .photo-dots {gap:0;}
+.devotee-theme .visit-links {display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:9px;padding:13px 0;}
+.devotee-theme .visit-links a {
+  display:grid;
+  gap:2px;
+  padding:9px 12px;
+  color:var(--wine);
+  text-decoration:none;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:9px;
+}
+.devotee-theme .visit-links a:hover {border-color:#a85f42;}
+.devotee-theme .visit-links span {color:var(--muted);font-size:.77rem;}
+.devotee-theme .strip {background:#fbf2e3;}
+.devotee-theme .strip .wrap {padding:7px 0;scrollbar-width:thin;}
+.devotee-theme .catalog-controls {margin-top:12px;padding:10px;}
+.devotee-theme .browse h2 {font-size:clamp(1.9rem,4vw,2.65rem);}
+.devotee-theme .section-tile {min-height:65px;}
+@media (max-width:620px) {
+  .devotee-theme .hero .wrap {padding:35px 0 15px;}
+  .devotee-theme .hero > img {left:0;width:100%;object-position:58% center;}
+  .devotee-theme .hero::before {background:linear-gradient(90deg,#311620ed,#311620b8 62%,#31162045);}
+  .devotee-theme .visit-links {grid-template-columns:repeat(auto-fit,minmax(100px,1fr));gap:5px;padding:8px 0;}
+  .devotee-theme .visit-links a {padding:7px;font-size:.84rem;}
+  .devotee-theme .visit-links span {font-size:.7rem;}
+}
+
+/* Premium temple presentation inspired by the supplied references */
+:root{--wine:#680021;--rust:#990c32;--gold:#e9ad39;--paper:#fbf4e9;--surface:#fffdfa;--line:#ecdccb}
+.devotee-theme{background:linear-gradient(145deg,#fffaf3,#f7e9d8)}
+.devotee-theme .bar{background:#5c0020;color:#ffe2a2}
+.devotee-theme .mast{background:linear-gradient(110deg,#fffdfa,#fff3e3)}
+.devotee-theme .brand{color:#650d21;font-weight:700;font-size:clamp(1.25rem,2.6vw,2.1rem)}
+.devotee-theme .mark{border:0;color:#a05a09;font-size:2rem}
+.devotee-theme .strip{background:linear-gradient(90deg,#720021,#430018);border-bottom:2px solid #dc9b28}
+.devotee-theme .strip a{color:#fff0d8}
+.devotee-theme .strip a:hover,.devotee-theme .strip a[aria-current]{background:#a77720;color:white}
+.devotee-theme .hero{min-height:450px;background:linear-gradient(125deg,#3b061b,#7b2634)}
+.devotee-theme .hero .wrap{padding:clamp(70px,10vw,120px) 0 45px}
+.devotee-theme .hero h1{font-family:Georgia,serif;font-size:clamp(2.7rem,6vw,5.4rem);max-width:18ch;text-shadow:0 3px 16px #24000d}
+.devotee-theme .hero::before{background:linear-gradient(90deg,#310011e8,#370012a0 50%,#31001120)}
+.devotee-theme .hero .button.light{background:linear-gradient(#ffe0a0,#d99b2c);color:#4b1021;border-radius:25px}
+.devotee-theme .visit-links{position:relative;z-index:2;margin-top:-23px}
+.devotee-theme .visit-links a{background:#fffaf3;box-shadow:0 6px 18px #42001724;border-radius:15px;border-color:#ead6bf}
+.devotee-theme .section-tile,.devotee-theme .card{border-radius:17px;box-shadow:0 8px 22px #4a102015}
+.devotee-theme .section-tile:hover{transform:translateY(-2px);transition:transform .2s}
+.devotee-theme .browse h2{font-family:Georgia,serif;color:#8a0029}
+.devotee-theme .foot{background:#54001e}
+.announcement-bar{background:#fff0d8;border-bottom:1px solid #e4c594;color:#650022}
+.announcement-inner{display:flex;align-items:center;gap:15px;min-height:43px}
+.announcement-label{white-space:nowrap;font-weight:800;font-size:.84rem}
+.announcement-window{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}
+.announcement-ticker{display:flex;width:max-content;gap:48px;white-space:nowrap;animation:templeTicker var(--ticker-seconds,25s) linear infinite;font-weight:600;font-size:.87rem}
+.announcement-ticker span{display:inline-block}
+.announcement-ticker.paused,.announcement-ticker:hover{animation-play-state:paused}
+.announcement-inner button{background:none;border:0;color:#650022;font-weight:800;cursor:pointer}
+@keyframes templeTicker{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.announcement-ticker{animation:none;white-space:normal;flex-wrap:wrap;width:auto}.announcement-window{overflow:auto}}
+.admin-theme{--wine:#680021;--rust:#920a36;--paper:#f8f5fa;--surface:#fff;--line:#e7dce8}
+.admin-theme .mast{background:linear-gradient(100deg,#640021,#3c0018);box-shadow:inset 0 -2px #e3b24f}
+.admin-theme .admin-welcome{position:relative;overflow:hidden;min-height:145px;padding:28px 32px;margin-bottom:20px;border-radius:16px;background:linear-gradient(110deg,#52001d,#9b3358 65%,#b97844);color:#fff4de}
+.admin-theme .admin-welcome span{font-size:.74rem;letter-spacing:.15em;font-weight:800;color:#ffe0a0}
+.admin-theme .admin-welcome h2{font:700 clamp(1.8rem,3vw,2.8rem) Georgia,serif;margin:7px 0}
+.admin-theme .admin-welcome p{margin:0}
+.admin-theme .stat{border-top:0;border-radius:15px;background:linear-gradient(135deg,#fff,#fff1f5);box-shadow:0 4px 14px #51001d14}
+.admin-theme .stat:nth-child(2){background:linear-gradient(135deg,#fff,#e8fbed)}
+.admin-theme .stat:nth-child(3){background:linear-gradient(135deg,#fff,#e9f3ff)}
+.admin-theme .stat:nth-child(4){background:linear-gradient(135deg,#fff,#fff1dd)}
+.admin-theme .admin-layout .tabs{background:linear-gradient(180deg,#680021,#45001b);border-radius:14px;padding:12px}
+.admin-theme .admin-layout .tabs button{color:#fff1df;background:transparent}
+.admin-theme .admin-layout .tabs [aria-pressed=true]{background:linear-gradient(90deg,#ffcf62,#ef9d21);color:#4d1020;border-color:transparent}
+.admin-theme .module{border-radius:16px}
+.admin-theme .ledger th{background:#fff0e5;color:#680021}
+@media(max-width:790px){.admin-theme .admin-layout .tabs{background:#650020}.admin-theme .admin-welcome{padding:20px}.announcement-inner{gap:8px}.announcement-label{font-size:.72rem}}
+
+/* Premium reference-inspired devotee and admin redesign, November 2026 */
+:root{--paper:#fbf5ed;--surface:#fffdfa;--wine:#65051f;--rust:#850c2c;--gold:#e5ad40;--line:#e9d9c7;--ink:#391e24}
+body.devotee-theme{background:linear-gradient(145deg,#fff9f1,#f7eadb);color:var(--ink)}
+.devotee-theme .bar{background:#57021c;color:#ffdf9b;letter-spacing:.08em}
+.devotee-theme .mast{background:#fffaf4;border-bottom:3px solid #d9a449}
+.devotee-theme .mast .wrap{min-height:77px}.devotee-theme .brand{font:700 clamp(1.3rem,2.3vw,2rem)/1.1 Georgia,serif;color:#65051f}.devotee-theme .mark{border:0;background:linear-gradient(145deg,#fff0bc,#e9b956);color:#730b27;width:52px;height:52px;border-radius:12px;font-size:1.6rem}
+.devotee-theme .strip{background:linear-gradient(90deg,#510019,#79092b,#510019);border-bottom:2px solid #e8af43;box-shadow:0 8px 25px #44001b22}
+.devotee-theme .strip .wrap{justify-content:center;flex-wrap:wrap}.devotee-theme .strip a{color:#fff8e9;font-weight:700;padding:12px 13px;border-radius:0}.devotee-theme .strip a:hover,.devotee-theme .strip a[aria-current]{background:#a62042;color:#ffdf9d}
+.devotee-theme .hero{min-height:430px;background:#3c091e;overflow:hidden}.devotee-theme .hero>img{filter:saturate(1.12) brightness(.86);object-fit:cover}.devotee-theme .hero::before{background:linear-gradient(90deg,#240515ed 0%,#3d0923bf 45%,#300a1933 100%)}
+.devotee-theme .hero .wrap{padding:70px 0 45px}.devotee-theme .hero h1{font:700 clamp(2.8rem,5.6vw,5.4rem)/1.03 Georgia,serif;color:#ffedca;max-width:15ch;text-shadow:0 3px 18px #1d0017b0}.hero-kicker{color:#ffe1a5;font-size:1.05rem;letter-spacing:.04em}.devotee-theme .hero .eyebrow{color:#f5d89d;font-weight:700}
+.devotee-theme .button{background:linear-gradient(180deg,#930c35,#62041f);border-radius:10px;color:#fffaf2}.devotee-theme .button.light{background:linear-gradient(180deg,#ffe7a7,#d89a2d);color:#5b071d;border:1px solid #fce3a4}.devotee-theme .hero-outline{background:#2d061c8a;border:1px solid #f7d28c;color:#fff7e8}
+.devotee-theme .visit-links{position:relative;z-index:2;margin-top:-17px;gap:13px}.devotee-theme .visit-links a{border:1px solid #ead8c5;border-radius:16px;background:#fffaf6;box-shadow:0 8px 22px #58051c18;padding:17px 20px;text-decoration:none}.devotee-theme .visit-links strong{color:#750522;font-size:1rem}.devotee-theme .visit-links span{color:#7c6a60}
+.devotee-theme .browse{padding-top:34px}.devotee-theme .home-section-heading{text-align:center;margin:10px auto 28px}.home-section-heading>span,.section-label{font-size:.73rem;font-weight:800;letter-spacing:.15em;color:#b47b2b}.home-section-heading h2{font:700 clamp(2rem,4vw,3.1rem) Georgia,serif;color:#6b0624;margin:6px 0}.home-section-heading p{color:#77645a}
+.devotee-theme .section-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}.devotee-theme .section-tile{display:flex;flex-direction:column;gap:0;padding:0;overflow:hidden;border:1px solid #ead5bc;border-radius:17px;background:#fffdf9;box-shadow:0 9px 28px #4f061619;min-height:320px}.devotee-theme .section-image{height:170px;display:block;overflow:hidden;background:linear-gradient(135deg,#720e31,#d5a34e);width:100%}.devotee-theme .section-image img{height:100%;width:100%;object-fit:cover;transition:transform .3s}.devotee-theme .section-tile:hover img{transform:scale(1.04)}.section-placeholder{height:100%;display:grid;place-items:center;color:#ffdfa0;font:4rem Georgia,serif}.section-tile-body{padding:20px;display:flex;flex:1;flex-direction:column;align-items:flex-start}.devotee-theme .section-tile h3{font:700 1.5rem Georgia,serif;color:#6d0624;margin:7px 0}.devotee-theme .section-tile p{font-size:.88rem;line-height:1.55;color:#6f5b55;overflow-wrap:anywhere}.section-read{margin-top:auto;color:#8b1236;font-weight:800;text-decoration:none}.devotee-theme .foot{background:#53051d;color:#f8e7c7;border-top:4px solid #d9a449}.devotee-theme .foot a{color:#f9d48c}
+.admin-theme{background:#f9f7f8;--wine:#660420;--rust:#8c1237;--paper:#f9f7f8;--surface:#fff;--line:#e7dbe1}.admin-theme .mast{background:linear-gradient(90deg,#4c001b,#79092c);box-shadow:0 3px 15px #3c001722}.admin-theme .mast .wrap{min-height:67px}.admin-theme .brand{font:700 1.55rem Georgia,serif}.admin-theme .mark{border:0;font-size:1.4rem}.admin-theme .admin-welcome{background:linear-gradient(90deg,#51051ddc,#7d1640a8),linear-gradient(115deg,#4a0a2c,#bc8d55);border:1px solid #b67e55;border-radius:16px;min-height:125px;display:flex;align-items:center}.admin-theme .admin-welcome h2{font:700 2.3rem Georgia,serif;color:#fff0d1}.admin-theme .admin-welcome p{color:#fff2e6}.admin-theme .stats{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.admin-theme .stat{border:1px solid #ecdde1;border-top:0;border-radius:15px;background:linear-gradient(145deg,#fff,#fff2f5);box-shadow:0 4px 14px #3c001311;padding:20px}.admin-theme .stat:nth-child(2){background:linear-gradient(145deg,#fff,#fcebee)}.admin-theme .stat:nth-child(3){background:linear-gradient(145deg,#fff,#f3eafd)}.admin-theme .stat:nth-child(4){background:linear-gradient(145deg,#fff,#f5faed)}.admin-theme .stat strong{color:#690621;font-size:clamp(1.1rem,2vw,1.7rem)}
+.admin-overview{display:grid;grid-template-columns:1.1fr 1fr 1.1fr;gap:14px;margin:0 0 18px}.overview-panel{background:#fff;border:1px solid #e6dce2;border-radius:16px;box-shadow:0 6px 20px #4c062011;padding:17px;min-width:0}.overview-panel h2{font:700 1.18rem Georgia,serif;color:#770626;margin:0 0 14px}.overview-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.overview-figures{display:grid;gap:12px}.overview-figures>div{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #f1e8eb;gap:10px;padding:9px 0}.overview-figures span{font-size:.83rem;color:#705a65}.overview-figures strong{color:#730b30;font-size:1.1rem}.quick-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px}.quick-actions button{min-height:67px;background:linear-gradient(160deg,#fff,#fdf1f6);border:1px solid #e6d1dc;border-radius:12px;color:#780b32;font-weight:700;cursor:pointer}.quick-actions button:hover{background:#fae4ed}.finance-preview-row{display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid #eee6e9}.finance-preview-row span{display:grid;min-width:0}.finance-preview-row b{font-size:.79rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.finance-preview-row small{color:#81717a}.finance-preview-row strong{font-size:.82rem;white-space:nowrap}.finance-preview-row .inflow{color:#20744b}.finance-preview-row .outflow{color:#b43b4c}.finance-edit-preview{border:1px solid #e9c9d8;background:#fff1f5;border-radius:7px;color:#8d1740;cursor:pointer;padding:5px 9px}
+.admin-theme .admin-layout{grid-template-columns:220px minmax(0,1fr);gap:16px}.admin-theme .admin-layout .tabs{background:linear-gradient(180deg,#690623,#450016);border:0;border-radius:15px;padding:10px;box-shadow:0 9px 24px #50001d1c}.admin-theme .admin-layout .tabs button{color:#fff0e7;border:0;border-radius:9px;font-weight:700;min-height:42px;background:transparent}.admin-theme .admin-layout .tabs button:hover{background:#ffffff20}.admin-theme .admin-layout .tabs [aria-pressed=true]{background:linear-gradient(110deg,#ffdc83,#e8a839);color:#51041c}.admin-theme .module{border-radius:16px}.admin-theme .module-heading h2{font:700 1.4rem Georgia,serif;color:#6f0627}.admin-theme .button:not(.secondary){background:linear-gradient(130deg,#920d37,#640321)}.admin-theme .ledger th{background:#f8eaf0;color:#6d0829}
+@media(max-width:1100px){.admin-overview{grid-template-columns:1fr 1fr}.admin-overview .overview-panel:last-child{grid-column:1/-1}}
+@media(max-width:760px){.devotee-theme .section-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-theme .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-overview{grid-template-columns:1fr}.admin-overview .overview-panel:last-child{grid-column:auto}.admin-theme .admin-layout{display:block}.admin-theme .admin-layout .tabs{display:flex;overflow:auto;position:static}.admin-theme .admin-layout .tabs button{flex-shrink:0}.devotee-theme .visit-links{margin-top:12px}}
+@media(max-width:520px){.devotee-theme .section-grid{grid-template-columns:1fr}.devotee-theme .hero{min-height:360px}.devotee-theme .hero .wrap{padding:42px 0}.devotee-theme .hero h1{font-size:2.6rem}.admin-theme .wrap{width:calc(100% - 22px)}.admin-theme .stat{padding:13px}.admin-theme .admin-welcome h2{font-size:1.65rem}}
+/* 2026 premium temple reference redesign — layout, not merely recoloring */
+.devotee-theme{background:#f9f0e4;color:#352323}.devotee-theme .bar{background:#57001e;color:#ffe1a0;text-align:center;padding:7px;font-size:.78rem}.devotee-theme .mast{background:#fffbf5;border-bottom:1px solid #e9d8be}.devotee-theme .mast .wrap{min-height:66px}.devotee-theme .brand{font-family:Georgia,serif;color:#5b0a21;font-size:clamp(1.1rem,2.4vw,1.8rem);font-weight:800}.devotee-theme .mark{color:#c48a20}.devotee-theme .strip{position:relative;top:auto;background:linear-gradient(90deg,#670020,#4c001b);border-bottom:3px solid #dca64d;z-index:5}.devotee-theme .strip .wrap{display:flex;justify-content:space-around;gap:4px;overflow-x:auto;white-space:nowrap}.devotee-theme .strip a{color:#fff4e7;padding:13px 14px;font-weight:700}.devotee-theme .strip a[aria-current=page]{background:#b37a22;color:#fff}.devotee-theme .hero{min-height:270px;height:clamp(270px,24vw,365px);background:linear-gradient(105deg,#510018,#7b1c30);position:relative;overflow:hidden}.devotee-theme .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(1.15) brightness(.76)}.devotee-theme .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,#2b0319b0,#510d2880 55%,#2d031080)}.devotee-theme .hero .wrap{position:relative;z-index:2;text-align:center;padding:32px 0 16px;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100%}.devotee-theme .hero h1{font-size:clamp(2rem,4vw,3.5rem);max-width:25ch;line-height:1.1;margin:7px 0 12px;color:#ffe8c2}.devotee-theme .hero-kicker{font-size:.93rem;margin:0}.devotee-theme .hero .eyebrow{margin:0;font-size:.78rem}.devotee-theme .hero .actions{justify-content:center}.devotee-theme .carousel-controls{display:flex;align-items:center;justify-content:center;gap:9px;margin-top:13px}.devotee-theme .carousel-controls .button{padding:4px 12px}.devotee-theme .photo-dots{display:flex;gap:7px}.devotee-theme .visit-links{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;position:relative;margin:0 auto 14px;transform:translateY(-1px);z-index:3}.devotee-theme .visit-links a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;min-height:68px;padding:9px 5px;background:#fffaf6;border:1px solid #edddcb;border-radius:13px;box-shadow:0 5px 15px #57002114;color:#720a27;text-decoration:none}.devotee-theme .visit-links strong{font-size:.85rem}.devotee-theme .visit-links span{font-size:.68rem;color:#846b60}.devotee-theme .browse{padding-top:4px}.devotee-theme .catalog-controls{margin:10px 0;padding:10px;border-radius:12px;background:#fffaf5}.devotee-theme .temple-dashboard{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:12px;padding:8px 0 22px}.temple-panel{background:#fffcf8;border:1px solid #ecdfd1;border-radius:14px;box-shadow:0 5px 15px #5b132112;padding:16px;min-width:0;overflow:hidden}.temple-panel-title{display:flex;align-items:center;gap:10px;border-bottom:1px solid #e7c8ae;margin-bottom:12px;padding-bottom:7px;color:#850b2d}.temple-panel-title h2{font:700 clamp(1.05rem,1.5vw,1.45rem) Georgia,serif;margin:0;color:#7e092b}.panel-icon{font-size:1.5rem}.panel-about{grid-column:span 4}.panel-sevas{grid-column:span 4}.panel-priests{grid-column:span 4}.panel-timings{grid-column:span 4}.panel-gallery{grid-column:span 4}.panel-videos{grid-column:span 4}.panel-donations{grid-column:span 4}.panel-contact{grid-column:span 8}.about-flex{display:grid;grid-template-columns:43% 1fr;gap:12px;align-items:start}.about-flex>img{width:100%;height:155px;object-fit:cover;border-radius:9px}.about-flex p,.panel-intro,.donate-panel p{font-size:.85rem;line-height:1.5;margin:0 0 12px}.mini-button{display:inline-block;border-radius:9px;padding:8px 14px;background:linear-gradient(#9e123c,#66031f);color:white!important;font-size:.8rem;font-weight:700;text-decoration:none;margin-top:6px}.seva-list{display:grid;gap:5px}.seva-list a,.timing-list a{display:flex;justify-content:space-between;gap:8px;align-items:center;background:#f9eee4;padding:6px 10px;border-radius:8px;text-decoration:none;color:#5e1829;font-size:.81rem}.seva-list a span{color:#b57821}.priest-preview{display:grid;grid-template-columns:1fr 1fr;gap:10px}.priest-preview a{text-align:center;text-decoration:none;color:#5e1426;font-size:.78rem}.priest-preview img,.priest-fallback{height:120px;width:100%;object-fit:cover;object-position:top;border-radius:9px;background:#f4e2d4}.priest-preview strong{display:block;margin-top:5px}.timing-list{display:grid;gap:5px}.timing-list strong{font-size:.75rem;white-space:nowrap}.gallery-preview{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}.gallery-preview img{height:130px;width:100%;object-fit:cover;border-radius:8px}.video-preview{height:155px;display:block;position:relative;overflow:hidden;border-radius:10px;background:#6e1c30}.video-preview img{width:100%;height:100%;object-fit:cover}.video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);border:2px solid #fff;border-radius:50%;width:52px;height:52px;display:grid;place-items:center;background:#250916a8;color:white}.video-caption{position:absolute;bottom:0;left:0;right:0;background:#280b1da8;color:white;padding:8px;font-size:.8rem}.donate-panel{min-height:135px;position:relative;padding-left:70px}.donate-symbol{position:absolute;left:7px;top:3px;font-size:3.8rem;color:#9b1238}.visit-preview{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:center;font-size:.85rem}.map-placeholder{background:repeating-linear-gradient(40deg,#e6eadf,#e6eadf 16px,#dce7e5 16px,#dce7e5 29px);min-height:110px;border:5px solid white;border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9b1238;font-size:2rem}.map-placeholder small{font-size:.76rem;color:#553d40}.devotee-theme .foot{background:#57001e}
+/* Admin: left navigation and full-width dashboard, following supplied reference */
+.admin-theme .page{max-width:none;width:100%;padding:0 18px}.admin-theme .mast{background:#fffdfb}.admin-theme #workspace{display:grid;grid-template-columns:248px minmax(0,1fr);gap:14px;align-items:start}.admin-theme #workspace[hidden]{display:none}.admin-side{grid-column:1;grid-row:1 / span 4;background:linear-gradient(170deg,#79002c,#430018);border-radius:0 0 14px 14px;padding:18px 12px;min-height:780px;color:#fff2dc;position:sticky;top:0}.admin-side-brand{display:flex;align-items:center;gap:9px;flex-wrap:wrap;border-bottom:1px solid #ffffff30;padding:6px 8px 20px;font:700 1.15rem Georgia,serif}.admin-side-brand small{display:block;width:100%;color:#ffca65;font:700 .8rem system-ui;margin-left:40px}.admin-side .tabs{display:flex;flex-direction:column;gap:4px;margin-top:13px;background:transparent!important;padding:0!important;box-shadow:none!important}.admin-side .tabs button{text-align:left;color:#fff7ed!important;background:transparent!important;border:0!important;border-radius:9px!important;padding:12px!important}.admin-side .tabs button[aria-pressed=true]{background:linear-gradient(90deg,#ffdc81,#e8a530)!important;color:#5a0922!important}.side-website{display:block;text-align:center;margin:25px 15px;border:1px solid #f7c65a;border-radius:25px;padding:10px;color:#ffe3a0;text-decoration:none}.admin-theme .admin-welcome{grid-column:2;grid-row:1;margin:12px 0 0;min-height:140px;border-radius:14px;background:linear-gradient(90deg,#640526df,#7b123499),url('media/1TLhVgI82iDGipxe7ReyCkxHlgpXCbxsY.webp') center/cover}.admin-theme .stats{grid-column:2;grid-row:2;grid-template-columns:repeat(4,minmax(0,1fr));margin:0}.admin-theme .stat{border-radius:15px;box-shadow:0 5px 13px #5a0c1d14;background:#fff8fa}.admin-theme .stat:nth-child(2){background:#f1fff4}.admin-theme .stat:nth-child(3){background:#edf6ff}.admin-theme .stat:nth-child(4){background:#fff7e9}.admin-theme .admin-overview{grid-column:2;grid-row:3;grid-template-columns:1fr 1fr;gap:14px;margin:0}.admin-theme .admin-overview .overview-panel:nth-child(3){grid-column:1 / -1}.admin-theme .overview-panel{border-radius:15px}.admin-theme .quick-actions{grid-template-columns:repeat(3,1fr)}.admin-theme .recent-finance{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 20px}.admin-theme .admin-layout{grid-column:2;grid-row:4;display:block;margin-bottom:24px}.admin-theme .admin-layout .module{width:100%}.admin-theme .workspace-heading{padding:8px 18px}.admin-theme .workspace-heading h1{font-size:1.4rem}
+@media(max-width:1100px){.devotee-theme .visit-links{grid-template-columns:repeat(3,1fr)}.temple-panel{grid-column:span 6!important}.admin-theme #workspace{grid-template-columns:205px minmax(0,1fr)}.admin-theme .stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.devotee-theme .visit-links{grid-template-columns:repeat(2,1fr)}.temple-panel{grid-column:1/-1!important}.devotee-theme .hero{height:310px}.devotee-theme .hero h1{font-size:2.1rem}.devotee-theme .strip .wrap{justify-content:flex-start}.admin-theme #workspace{display:block}.admin-side{position:relative;min-height:0;margin:8px 0}.admin-side-brand{padding:4px}.admin-side .tabs{display:flex;flex-direction:row;overflow:auto}.admin-side .tabs button{white-space:nowrap;flex-shrink:0}.admin-theme .admin-overview{grid-template-columns:1fr}.admin-theme .admin-overview .overview-panel:nth-child(3){grid-column:auto}.admin-theme .recent-finance{grid-template-columns:1fr}.admin-theme .stats{grid-template-columns:repeat(2,1fr)}.admin-theme .quick-actions{grid-template-columns:repeat(2,1fr)}}
+
+/* Reference-matched devotee layout: top nav, complete carousel images and premium cards */
+.devotee-theme .mast .wrap{min-height:72px}.devotee-theme .strip{position:sticky;top:0;z-index:30}.devotee-theme .strip .wrap{justify-content:space-between;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin}.devotee-theme .strip a{white-space:nowrap;font-size:.88rem;padding:14px 10px}.devotee-theme .hero{height:clamp(330px,33vw,490px);background:#260515}.devotee-theme .hero>img{inset:0;width:100%;height:100%;object-fit:contain;object-position:center;background:#240615;filter:none}.devotee-theme .hero::before{background:linear-gradient(90deg,#260514c9,#26051466 48%,#26051433)}.devotee-theme .hero .wrap{padding:25px 0;min-height:100%;justify-content:center}.devotee-theme .hero h1{font-size:clamp(2rem,3.5vw,3.5rem);max-width:22ch}.devotee-theme .carousel-controls{flex-wrap:wrap}.devotee-theme .temple-panel{border:1px solid #e6cba6;box-shadow:0 8px 22px #50051c13;border-radius:16px;background:linear-gradient(150deg,#fffdfa,#fff8f0)}.devotee-theme .temple-panel-title{border-bottom:1px solid #dfbd88}.devotee-theme .visit-links a{transition:transform .2s,box-shadow .2s}.devotee-theme .visit-links a:hover{transform:translateY(-3px);box-shadow:0 9px 20px #57002125}.gallery-preview img{object-fit:contain;background:#f6ecdd;cursor:zoom-in}.about-flex>img,.priest-preview img{cursor:zoom-in}.video-preview iframe{width:100%;height:100%;border:0}.image-viewer{width:min(96vw,1300px);height:min(92vh,950px);padding:48px 12px 12px;background:#1b0912;border:1px solid #b78c43;border-radius:16px;color:#fff;max-width:none;max-height:none}.image-viewer::backdrop{background:#090206dd}.image-viewer img{width:100%;height:100%;object-fit:contain}.image-viewer button{position:absolute;top:10px;right:15px;border:1px solid #edc178;border-radius:20px;background:#6b0825;color:#fff;padding:7px 15px;cursor:pointer}@media(max-width:700px){.devotee-theme .hero{height:390px}.devotee-theme .hero h1{font-size:2rem}.devotee-theme .strip .wrap{justify-content:flex-start}.devotee-theme .hero::before{background:#26051477}}
+
+/* November corrections: legible admin login, compact left-aligned hero, accessible controls */
+.admin-theme .mast .brand{color:#5c0825!important;text-shadow:none!important}.admin-theme .mast .mark{color:#b78127!important}.admin-theme .mast .button.secondary{color:#670524!important;background:#fffaf4!important;border-color:#bda38d!important}.admin-theme #login{margin:18px auto 30px;max-width:490px;box-shadow:0 16px 38px #4e072014}.admin-theme #login input{background:#fff;color:#30161f}.admin-theme #login .button{color:#fff!important}.admin-theme #login .button.secondary{color:#6b0927!important;background:#fff!important}
+.devotee-theme .mast .wrap{min-height:64px}.devotee-theme .strip{display:flex;align-items:stretch;gap:10px;padding-right:clamp(12px,4vw,70px)}.devotee-theme .strip .wrap{flex:1;min-width:0}.devotee-theme .nav-admin{display:inline-flex;align-items:center;white-space:nowrap;color:#ffe4b1;border:1px solid #d7a653;border-radius:10px;margin:auto 0;padding:8px 12px;text-decoration:none;font-size:.83rem;font-weight:700}.devotee-theme .nav-admin[hidden]{display:none}
+.devotee-theme .hero{height:clamp(390px,38vw,560px)}.devotee-theme .hero .wrap{align-items:flex-start!important;text-align:left!important;justify-content:center!important;padding:30px 0 82px!important}.devotee-theme .hero h1{font-size:clamp(2.1rem,4.2vw,4.4rem)!important;max-width:16ch!important}.devotee-theme .hero .actions{justify-content:flex-start!important}.devotee-theme .hero>img{object-fit:contain!important;object-position:center!important}.devotee-theme .carousel-controls{position:absolute;left:0;right:0;bottom:14px;display:flex!important;align-items:center;justify-content:center!important;gap:12px;padding:8px 15px;border-radius:24px;background:#240a18c7;backdrop-filter:blur(9px);width:max-content;max-width:100%;margin:0 auto!important;color:#fff5e5;z-index:4}.devotee-theme .carousel-controls[hidden]{display:none!important}.devotee-theme .carousel-controls .button{background:#8d1640!important;color:#fff!important;border:1px solid #e7c285!important;border-radius:50px!important;min-width:34px}.devotee-theme .photo-dot[aria-current=true]::after{background:#ffc95e;transform:scale(1.25)}
+.gallery-tile{border:0;background:#f7e9d6;padding:0;border-radius:10px;overflow:hidden;cursor:zoom-in}.gallery-tile img{width:100%;height:145px;object-fit:contain}.inline-video{width:100%;aspect-ratio:16/9}.inline-video iframe{width:100%;height:100%;border:0;border-radius:12px}.public-donations{background:#fffdfa;border:1px solid #e6c99e;padding:24px;border-radius:16px}.donation-filters{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin:15px 0}.donation-table>div{display:grid;grid-template-columns:1fr 2fr 1fr;gap:12px;padding:12px;border-bottom:1px solid #eedcc5}.donation-table b{text-align:right;color:#690726}@media(max-width:700px){.devotee-theme .strip{flex-wrap:wrap;padding:0 8px 8px}.devotee-theme .strip .wrap{flex-basis:100%}.devotee-theme .hero .wrap{padding:22px 0 96px!important}.devotee-theme .hero h1{font-size:2.2rem!important}.devotee-theme .carousel-controls{gap:5px;font-size:.72rem}.donation-filters{grid-template-columns:1fr}}
+
+/* Public finance transparency dashboard */
+.finance-public{padding:clamp(16px,3vw,30px)}.finance-heading h2{margin:0 0 6px;color:#76052a;font:700 clamp(1.65rem,3vw,2.6rem) Georgia,serif}.finance-kicker{letter-spacing:.16em;font-weight:800;font-size:.7rem;color:#ac7925;margin:0 0 7px}.public-finance-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:20px 0 25px}.public-finance-stats button{text-align:left;display:grid;gap:10px;padding:20px;border:1px solid #ead7d9;border-radius:17px;background:#fff3f6;cursor:pointer;box-shadow:0 6px 18px #5909200c}.public-finance-stats button:nth-child(2){background:#f0fbf3;border-color:#d5e9dc}.public-finance-stats button:nth-child(3){background:#edf5ff;border-color:#dce6f4}.public-finance-stats small{color:#75585d;font-weight:700}.public-finance-stats strong{font-size:clamp(1.3rem,2.5vw,2rem);color:#6e082a;overflow-wrap:anywhere}.public-finance-stats span{font-size:.78rem;color:#9b5e19}.finance-public-toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}.finance-public-toolbar label{display:grid;gap:5px;font-weight:700;font-size:.82rem}.finance-public-toolbar input,.finance-public-toolbar select{width:100%;min-width:0;padding:11px;border:1px solid #d8bda9;border-radius:9px;background:#fff}.finance-section-title{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:22px 0 10px}.finance-section-title h3{margin:0;color:#770c30;font:700 1.25rem Georgia,serif}.finance-section-title span{font-size:.76rem;color:#806b6c}.finance-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px}.finance-category-card{display:grid;gap:8px;text-align:left;background:#fffaf5;border:1px solid #e9d5c5;border-radius:12px;padding:15px;cursor:pointer}.finance-category-card>strong{color:#79092d}.finance-category-card span{display:flex;justify-content:space-between;gap:5px;font-size:.78rem}.finance-category-card small{color:#98641c}.finance-history-head,.finance-history-row{display:grid;grid-template-columns:1fr 1.5fr 1.4fr 1fr;gap:10px;align-items:center;padding:13px 10px;border-bottom:1px solid #edddcb}.finance-history-head{background:#f8ecdf;color:#765b56;font-size:.77rem;font-weight:800;border-radius:9px}.finance-history-row{font-size:.85rem}.finance-history-row span:nth-child(2){display:grid;gap:3px}.finance-history-row small{font-size:.7rem;color:#846f6a}.finance-history-row b{text-align:right}.finance-history-row .donation{color:#1d7050}.finance-history-row .expense{color:#ad3245}.finance-donor-link{background:none;border:0;color:#8d1242;text-decoration:underline;cursor:pointer;text-align:left;font-weight:700;padding:0}.finance-dialog{border:0;border-radius:17px;width:min(720px,calc(100vw - 24px));max-height:85vh;padding:22px;box-shadow:0 25px 80px #20091366;background:#fffcf8;color:#3b2025}.finance-dialog::backdrop{background:#18030c99}.finance-dialog-top{display:flex;justify-content:space-between;align-items:center;gap:15px;border-bottom:1px solid #ead5c5;padding-bottom:12px}.finance-dialog-top h2{margin:0;color:#76092c;font:700 1.4rem Georgia,serif}.finance-dialog-top button{border:0;border-radius:50%;background:#f6e6e7;width:34px;height:34px;cursor:pointer}.finance-popup-summary{display:flex;justify-content:space-between;gap:10px;padding:16px 0;color:#754c5c}.finance-popup-records{max-height:55vh;overflow:auto}.finance-popup-item{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid #eee0d5}.finance-popup-item div{display:grid;gap:4px}.finance-popup-item small{color:#8c7270}.finance-popup-item p{margin:5px 0;font-size:.82rem;white-space:pre-wrap}.finance-popup-item b{white-space:nowrap;color:#760c2d}@media(max-width:700px){.public-finance-stats{grid-template-columns:1fr}.finance-public-toolbar{grid-template-columns:1fr}.finance-history-head,.finance-history-row{grid-template-columns:1fr 1.3fr 1fr;gap:5px;font-size:.75rem}.finance-history-head span:nth-child(3),.finance-history-row span:nth-child(3){grid-column:2;grid-row:2}.finance-history-row b{grid-column:3;grid-row:1 / span 2}.finance-section-title{display:block}}
+
+/* Premium category-first financial ledger */
+.finance-category-header{margin:1.4rem 0 .8rem}.finance-category-header h3{font-family:Georgia,serif;color:#78072d;font-size:1.45rem;margin:0}.finance-category-header p{color:#78685f;margin:.35rem 0}.finance-category-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));gap:16px;margin:12px 0 22px}.finance-category-card{text-align:left;display:flex;flex-direction:column;gap:9px;min-height:205px;padding:22px;border:1px solid #e9d7cc;border-radius:20px;background:linear-gradient(145deg,#fff,#fff6ef);box-shadow:0 8px 24px #3e162015;cursor:pointer;color:#431023;transition:transform .2s,box-shadow .2s,border-color .2s}.finance-category-card:hover,.finance-category-card:focus-visible{transform:translateY(-5px);box-shadow:0 16px 30px #3e16202b;border-color:#c58b35}.finance-category-card.expense{background:linear-gradient(145deg,#fff,#f9f0f7)}.finance-category-card strong{font-size:1.13rem}.category-card-icon{font-size:1.7rem;color:#9b143f}.category-card-type{text-transform:uppercase;letter-spacing:.12em;font-size:.7rem;color:#8d6470;font-weight:700}.category-card-total{font-size:1.65rem;font-weight:800;color:#006950}.finance-category-card.expense .category-card-total{color:#a32c43}.finance-category-card small{color:#806d65}.category-card-link{margin-top:auto;color:#83092f;font-weight:700}.finance-ledger-details{border:1px solid #ead9cc;border-radius:15px;padding:15px;background:#fff}.finance-ledger-details>summary{cursor:pointer;color:#82052c;font-weight:700}.finance-ledger-details[open]>summary{margin-bottom:16px}.category-modal-summary{display:flex;align-items:center;gap:15px;flex-wrap:wrap;padding:16px;border-radius:14px;background:#fff3e7;margin-bottom:16px}.category-modal-summary strong{font-size:1.6rem;color:#006b53}.category-modal-summary small{color:#756c65}.category-detail-list{display:grid;gap:10px;max-height:55vh;overflow:auto}.category-detail-row{border:1px solid #ecdcd1;border-radius:13px;padding:15px;background:#fff}.category-detail-row p{color:#78685f;margin:8px 0}@media(prefers-reduced-motion:reduce){.finance-category-card{transition:none}}
+
+/* Reference-inspired image carousel and micro-interactions */
+.devotee-theme .carousel-controls{box-shadow:0 12px 36px #13000d88;border:1px solid #f5ca7955;transition:box-shadow .2s}.devotee-theme .carousel-controls .button{transition:transform .2s,background .2s}.devotee-theme .carousel-controls .button:hover{transform:scale(1.08);background:#b48228!important}.devotee-theme .photo-dot::after{transition:transform .2s,background .2s}.devotee-theme .temple-panel{transition:transform .2s,box-shadow .2s}.devotee-theme .temple-panel:hover{transform:translateY(-3px);box-shadow:0 15px 35px #50051c1c}.devotee-theme .hero>img{object-fit:contain!important}.devotee-theme .gallery-tile{transition:transform .2s,box-shadow .2s}.devotee-theme .gallery-tile:hover{transform:translateY(-3px);box-shadow:0 9px 20px #50051c33}@media(prefers-reduced-motion:reduce){.devotee-theme .carousel-controls,.devotee-theme .carousel-controls .button,.devotee-theme .photo-dot::after,.devotee-theme .temple-panel,.devotee-theme .gallery-tile{transition:none}}
+
+/* ====================================================================
+   TEMPLE PREMIUM 2026 · compact, accessible, responsive UI refinements
+   ==================================================================== */
+:root { --temple-maroon:#600722; --temple-maroon-dark:#320717; --temple-gold:#edbd59; --temple-gold-light:#fff0c6; --temple-cream:#fff9ef; }
+html { scroll-behavior:smooth; }
+body.devotee-theme { background:linear-gradient(180deg,#fff9ef 0%,#fcf4e7 64%,#fff9f1 100%); }
+.devotee-theme .bar { background:linear-gradient(110deg,#4a051b,#720927,#4a051b);color:#fff0c9;box-shadow:inset 0 -1px #d9a94e66; }
+.devotee-theme .mast { background:#fffbf4;box-shadow:0 2px 18px #3c051818; }
+.devotee-theme .mast .wrap { padding:13px 0;min-height:72px; }
+.devotee-theme .brand { color:#56071f;font-weight:650;letter-spacing:-.025em;font-size:clamp(1.08rem,2.3vw,1.65rem); }
+.devotee-theme .mark {background:#fff0ca;border-color:#e6bb65;color:#880f32;box-shadow:0 4px 11px #713d1721;}
+.devotee-theme .strip {background:linear-gradient(100deg,#670024,#4e001b);border-bottom:3px solid #cd963d;box-shadow:0 9px 18px #480d2025;z-index:15;}
+.devotee-theme .strip .wrap {gap:clamp(3px,1vw,14px);padding:9px 0;scrollbar-width:thin;}
+.devotee-theme .strip a {color:#ffecdc;padding:10px 13px;border-radius:10px;font-size:.9rem;transition:background .2s,color .2s,transform .2s;}
+.devotee-theme .strip a:hover {color:#fff;background:#ffffff20;transform:translateY(-1px);}
+.devotee-theme .strip a[aria-current] {background:linear-gradient(135deg,#e9b54f,#f8d78d);color:#570d21;box-shadow:0 3px 12px #17020d36;}
+.devotee-theme .nav-admin {border-color:#e6c384;background:#3c061dcc;color:#ffe6b5;box-shadow:inset 0 1px #ffffff27;}
+.devotee-theme .nav-admin:hover {background:#b58137;color:#2e0716;}
+.devotee-theme .hero {height:clamp(395px,42vw,570px);background:radial-gradient(circle at 70% 48%,#6b3e37 0%,#290d19 70%);border-bottom:3px solid #d8a74f;}
+.devotee-theme .hero>img {left:0;width:100%;height:100%;object-fit:contain!important;object-position:center center!important;filter:saturate(1.12) contrast(1.03);}
+.devotee-theme .hero:has(img)::after {content:''!important;position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#290514f5 0%,#300c1ddc 30%,#2407123a 65%,#16050a10 100%);pointer-events:none;}
+.devotee-theme .hero .wrap {padding:clamp(25px,4vw,55px) 0 101px!important;align-items:flex-start!important;justify-content:center!important;min-height:100%;}
+.devotee-theme .hero .eyebrow {font-weight:800;color:#fbd88b;text-shadow:0 2px 12px #0008;}
+.devotee-theme .hero .hero-kicker {font-size:.8rem;font-weight:700;color:#ffe1a4;letter-spacing:.055em;}
+.devotee-theme .hero h1 {max-width:15ch!important;font-size:clamp(2.35rem,4.2vw,4.3rem)!important;line-height:1.02;letter-spacing:-.01em;color:#fff1d6;text-shadow:0 4px 24px #19000dc0;margin:0 0 19px;}
+.devotee-theme .hero .actions .button {min-height:43px;border-radius:26px;box-shadow:0 5px 22px #1806134f;}
+.devotee-theme .hero .actions .button.light {background:linear-gradient(160deg,#ffdc87,#d99c33);color:#4c0c24;}
+.devotee-theme .hero .actions .hero-outline {border-color:#f4d6a3a8;background:#35091f99;}
+.devotee-theme .carousel-controls {bottom:16px!important;left:50%!important;right:auto!important;transform:translateX(-50%);width:min(96%,740px)!important;max-width:calc(100% - 24px)!important;justify-content:center;flex-wrap:nowrap!important;gap:clamp(5px,1vw,12px)!important;background:#29091dd9!important;border:1px solid #fff0c36b!important;border-radius:24px!important;padding:10px 13px!important;box-shadow:0 14px 36px #1a000d88;}
+.devotee-theme .carousel-controls .button {padding:5px 10px;border-radius:25px!important;min-height:32px;min-width:32px!important;white-space:nowrap;}
+.devotee-theme #photoStatus {color:#fff4da;min-width:100px;max-width:215px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:.78rem;}
+.devotee-theme .photo-pause {flex:none;border:1px solid #dfb66a66;border-radius:24px;padding:6px 10px;color:#ffdfa4;background:#ffffff18;font-size:.76rem;font-weight:700;cursor:pointer;}
+.devotee-theme .photo-pause:hover {background:#eab85b;color:#3e0620;}
+.devotee-theme .photo-dots {flex-wrap:nowrap;max-width:180px;overflow-x:auto;scrollbar-width:thin;}
+.devotee-theme .photo-dot {flex:0 0 18px;width:18px;height:24px;}
+.devotee-theme .photo-dot[aria-current=true]::after {box-shadow:0 0 0 3px #d6a54a42;}
+.devotee-theme .visit-links {margin-top:-14px;z-index:2;position:relative;}
+.devotee-theme .visit-links>a {border:1px solid #e8d7c2;background:#fffdfa;box-shadow:0 9px 22px #4b163317;border-radius:16px;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.devotee-theme .visit-links>a:hover {transform:translateY(-5px);box-shadow:0 16px 30px #4b16332b;border-color:#d9a448;}
+.devotee-theme .temple-dashboard {gap:15px;}
+.devotee-theme .temple-panel {background:#fffdf8;border:1px solid #ead8c4;border-radius:18px;box-shadow:0 6px 20px #421b1a11;overflow:hidden;}
+.devotee-theme .temple-panel-title {border-bottom:1px solid #eddfd1;padding-bottom:9px;}
+.devotee-theme .temple-panel h2 {color:#800b30;letter-spacing:-.017em;}
+.devotee-theme .panel-icon {color:#ac153c;}
+.devotee-theme .mini-button {background:linear-gradient(120deg,#900b35,#5a0523);color:#fff6e7;border-radius:10px;padding:8px 13px;display:inline-flex;align-items:center;gap:5px;transition:transform .2s,box-shadow .2s;}
+.devotee-theme .mini-button:hover {transform:translateY(-2px);box-shadow:0 7px 15px #57051a32;}
+.devotee-theme .gallery-preview img {object-fit:contain;background:#fcf5e9;}
+.devotee-theme .gallery-tile {outline-offset:4px;border:1px solid #e8d3b8;border-radius:13px;}
+.devotee-theme .publicSection .card {border-radius:16px;border:1px solid #ead9ca;background:#fffefa;box-shadow:0 8px 24px #290b1420;transition:transform .2s,box-shadow .2s;}
+.devotee-theme .publicSection .card:hover {transform:translateY(-3px);box-shadow:0 15px 35px #290b1428;}
+.devotee-theme .card h3 {color:#750a29;}
+.devotee-theme #imageViewer {width:min(1080px,calc(100vw - 16px));max-height:96vh;background:#1d0c15;border-color:#8b6652;color:#fff;}
+.devotee-theme #fullImage {object-fit:contain;max-width:100%;max-height:calc(90vh - 70px);margin:auto;display:block;}
+/* Finance is category-first. No duplicate public donation-history ledger. */
+.devotee-theme .finance-public {background:linear-gradient(165deg,#fffefa,#fff7ed);border:1px solid #e4ceaa;border-radius:22px;box-shadow:0 16px 45px #52112412;padding:clamp(18px,3vw,34px);}
+.devotee-theme .finance-heading {display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap;}
+.devotee-theme .finance-readonly {font-size:.73rem;font-weight:800;color:#764d1e;background:#fff0d5;border:1px solid #ecd7b5;border-radius:30px;padding:7px 12px;}
+.devotee-theme .public-finance-stats {grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;}
+.devotee-theme .finance-stat-card {display:grid;gap:8px;min-height:132px;text-align:left;padding:20px;border-radius:17px;border:1px solid #e8dad5;background:linear-gradient(145deg,#fff5f7,#ffe9ef);box-shadow:0 8px 18px #69122d0c;}
+.devotee-theme .finance-stat-card.expense {background:linear-gradient(145deg,#f3fff6,#e6f8ed);border-color:#c9e8d0;}
+.devotee-theme .finance-stat-card.balance {background:linear-gradient(145deg,#f0f7ff,#e3efff);border-color:#d4e3f4;}
+.devotee-theme .finance-stat-card span {font-weight:750;color:#74495a;font-size:.82rem;}
+.devotee-theme .finance-stat-card strong {font-size:clamp(1.25rem,2.4vw,2.1rem);line-height:1.2;color:#640b29;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;}
+.devotee-theme .finance-stat-card.expense strong {color:#23664b;}
+.devotee-theme .finance-stat-card.balance strong {color:#153f72;}
+.devotee-theme .finance-stat-card small {color:#876d60;}
+.devotee-theme .finance-section-title {margin-top:28px;align-items:end;}
+.devotee-theme .finance-public-toolbar {grid-template-columns:2fr 1fr 1fr;margin:15px 0 22px;}
+.devotee-theme .finance-public-toolbar input,.devotee-theme .finance-public-toolbar select {background:#fff;border:1px solid #ddc5aa;border-radius:11px;padding:12px;}
+.devotee-theme .finance-category-grid {grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;}
+.devotee-theme .finance-category-card {min-height:192px;align-items:flex-start;border-radius:17px;border:1px solid #ead8d0;background:linear-gradient(150deg,#fffdfb,#fff1e4);box-shadow:0 9px 19px #3a122016;transition:transform .2s,box-shadow .2s,border-color .2s;}
+.devotee-theme .finance-category-card.expense {background:linear-gradient(150deg,#fffdfb,#f2f8ff);}
+.devotee-theme .finance-category-card:hover {transform:translateY(-4px);border-color:#d9ad64;box-shadow:0 16px 28px #3a122024;}
+.devotee-theme .finance-category-card .category-card-total {color:#670d2e;font-variant-numeric:tabular-nums;font-size:1.62rem;}
+.devotee-theme .finance-category-card.expense .category-card-total {color:#29664c;}
+.devotee-theme .finance-footnote {margin:20px 0 0;color:#88756d;font-size:.78rem;}
+.devotee-theme .finance-dialog {border-radius:20px;border:1px solid #e5ccb3;padding:clamp(16px,3vw,27px);box-shadow:0 30px 90px #13050a99;}
+.devotee-theme .finance-popup-item {gap:12px;}
+/* Admin: clear contrast, dashboard hierarchy, premium card interaction. */
+.admin-theme {background:linear-gradient(180deg,#faf8f5,#f5f1eb 80%);}
+.admin-theme .mast {background:#fff9f2!important;border-bottom:1px solid #e5d0bb;box-shadow:0 4px 12px #24041911;}
+.admin-theme .mast .brand {color:#610b2a!important;font:700 clamp(1rem,2.1vw,1.5rem)/1.25 Georgia,serif;}
+.admin-theme .mast .mark {color:#b77b22!important;}
+.admin-theme .mast .secondary {background:#fff4e6!important;color:#6c1130!important;border-color:#cca886!important;}
+.admin-theme #login {padding:clamp(19px,3vw,30px);max-width:500px;border:1px solid #ebdacc;border-radius:19px;background:linear-gradient(160deg,#fffefa,#fff7f1);box-shadow:0 15px 35px #4a092017;}
+.admin-theme #login label {font-weight:750;color:#4d1a2b;}
+.admin-theme #login input {border-radius:11px;background:#fff;border-color:#d8baaa;min-height:47px;}
+.admin-theme #login .button {min-height:44px;border-radius:11px;}
+.admin-theme .admin-side {background:linear-gradient(165deg,#7b0b31 0%,#4b051f 73%,#34021b 100%);border:1px solid #9f61764f;box-shadow:8px 12px 35px #3c081b22;border-radius:17px!important;min-height:600px;}
+.admin-theme .admin-side-brand {border-color:#ffffff35;line-height:1.2;}
+.admin-theme .admin-side .tabs button {transition:background .2s,transform .2s;font-size:.85rem;}
+.admin-theme .admin-side .tabs button:hover {background:#ffffff22!important;transform:translateX(2px);}
+.admin-theme .admin-side .tabs button[aria-pressed=true] {box-shadow:0 4px 14px #16051440;}
+.admin-theme .admin-welcome {background:radial-gradient(circle at 88% 25%,#f8c96750 0,transparent 25%),linear-gradient(115deg,#4b071d,#8e294c 62%,#ab744e)!important;border:1px solid #ba8056;border-radius:19px!important;box-shadow:0 11px 28px #45092226;}
+.admin-theme .admin-welcome::after {content:'ॐ';position:absolute;right:7%;top:5%;font:800 7rem Georgia,serif;color:#ffffff22;pointer-events:none;}
+.admin-theme .admin-welcome h2 {color:#fff8e7;font:700 clamp(1.6rem,3vw,2.45rem) Georgia,serif;letter-spacing:-.02em;}
+.admin-theme .stats {gap:15px;}
+.admin-theme .stat {border-radius:17px!important;border:1px solid #eadacb!important;padding:17px 18px!important;box-shadow:0 7px 20px #461a1a10;transition:transform .2s,box-shadow .2s;}
+.admin-theme .stat:hover {transform:translateY(-3px);box-shadow:0 12px 26px #461a1a20;}
+.admin-theme .stat:nth-child(1) {background:#fff4f7!important;}
+.admin-theme .stat:nth-child(2) {background:#eefff2!important;}
+.admin-theme .stat:nth-child(3) {background:#f0f6ff!important;}
+.admin-theme .stat:nth-child(4) {background:#fff7e9!important;}
+.admin-theme .overview-panel,.admin-theme .module {background:#fffefa;border:1px solid #e9dacc;border-radius:19px!important;box-shadow:0 9px 25px #3f132016;}
+.admin-theme .overview-head h2,.admin-theme .overview-panel h2,.admin-theme .module h2 {color:#730b2b;font-family:Georgia,serif;letter-spacing:-.02em;}
+.admin-theme .quick-actions button {border:1px solid #dfcbd7;border-radius:14px;background:linear-gradient(150deg,#fff,#fbf5f8);box-shadow:0 5px 12px #49102413;transition:transform .2s,box-shadow .2s;}
+.admin-theme .quick-actions button:hover {transform:translateY(-3px);box-shadow:0 10px 20px #49102426;}
+.admin-theme .finance-preview-row {border-radius:11px;}
+.admin-theme .finance-category-card {border-radius:18px;background:linear-gradient(145deg,#fffefa,#fff0e5);box-shadow:0 8px 19px #44071c12;}
+.admin-theme .finance-category-card:hover {transform:translateY(-4px);box-shadow:0 15px 27px #44071c25;}
+.admin-theme input,.admin-theme select,.admin-theme textarea {border-radius:10px;border-color:#dcc6b5;min-height:42px;background:#fff;}
+.admin-theme :is(button,.button) {transition:transform .15s,filter .15s,box-shadow .15s;}
+.admin-theme :is(button,.button):hover:not(:disabled) {filter:brightness(1.04);}
+.admin-theme #modal {border-radius:20px;box-shadow:0 30px 100px #1d071b86;}
+@media(max-width:980px){
+  .devotee-theme .hero h1 {max-width:13ch!important;}
+  .devotee-theme .finance-public-toolbar {grid-template-columns:1fr 1fr;}
+  .devotee-theme .finance-public-toolbar label:first-child {grid-column:1/-1;}
+}
+@media(max-width:720px){
+  .devotee-theme .mast .wrap{min-height:64px;}
+  .devotee-theme .hero{height:410px;}
+  .devotee-theme .hero:has(img)::after{background:linear-gradient(90deg,#290714e5,#2a0b1db5 64%,#21081443);}
+  .devotee-theme .hero h1{font-size:clamp(2.1rem,7vw,3rem)!important;max-width:13ch!important;}
+  .devotee-theme .hero .wrap{padding:20px 0 96px!important;}
+  .devotee-theme .carousel-controls{gap:4px!important;padding:7px!important;border-radius:15px!important;}
+  .devotee-theme #photoStatus{max-width:95px;min-width:55px;font-size:.67rem;}
+  .devotee-theme .photo-dots{max-width:75px;}
+  .devotee-theme .carousel-controls .button{font-size:.72rem;padding:4px 7px;}
+  .devotee-theme .photo-pause{padding:4px 6px;font-size:.7rem;}
+  .devotee-theme .public-finance-stats{grid-template-columns:1fr;}
+  .devotee-theme .finance-public-toolbar{grid-template-columns:1fr;}
+  .devotee-theme .finance-public-toolbar label:first-child{grid-column:auto;}
+  .admin-theme .admin-side{min-height:0;border-radius:14px!important;}
+  .admin-theme #workspace .admin-welcome::after{font-size:4rem;}
+}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .devotee-theme :is(.temple-panel,.finance-category-card,.mini-button,.visit-links>a),.admin-theme :is(.stat,.quick-actions button,.admin-side button,.finance-category-card){transition:none!important;}
+}
+
+/* Direct Drive media manager */
+.media-toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:end;margin:16px 0}
+.media-toolbar label{flex:1;min-width:180px}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin:14px 0}
+.media-item{border:1px solid #ead1c0;border-radius:14px;padding:10px;background:#fffaf5;min-width:0}
+.media-item img{width:100%;height:128px;object-fit:contain;background:#f2e9df;border-radius:9px}
+.media-item strong{display:block;margin:8px 0;overflow-wrap:anywhere;font-size:13px}
+.media-item .button{width:100%}
+.media-status{margin:12px 0;padding:11px;border-radius:10px;background:#f8f0e7;border:1px solid #e6c9b3;white-space:pre-wrap;overflow-wrap:anywhere}
+.media-danger{border:1px solid #e3b0b0;border-radius:12px;padding:10px;background:#fff8f8;margin-top:14px}
+
+/* Admin: visible Google Drive carousel preview, separate from devotee hero. */
+.admin-theme .admin-carousel{grid-column:2;grid-row:4;min-width:0;margin:0 0 12px;background:linear-gradient(145deg,#fffdfa,#fff4e6);border:1px solid #e7ceb2}
+.admin-theme .admin-layout{grid-row:5}
+.admin-theme .admin-side{grid-row:1 / span 5}
+.admin-carousel-help{margin:0 0 12px;font-size:.86rem;color:#765d64}
+.admin-carousel-content{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(225px,1fr);gap:18px;align-items:center}
+.admin-carousel-stage{display:flex;align-items:center;justify-content:center;min-height:210px;height:clamp(210px,25vw,330px);border:1px solid #e8d2bd;background:linear-gradient(140deg,#29091d,#5e1430);border-radius:15px;overflow:hidden;position:relative}
+.admin-carousel-stage img{display:block;width:100%;height:100%;object-fit:contain;min-height:0}
+.admin-carousel-stage img[hidden]{display:none}
+.admin-carousel-stage #adminCarouselEmpty{color:#fff5e8;max-width:35ch;padding:24px;text-align:center}
+.admin-carousel-detail{min-width:0}.admin-carousel-detail strong{color:#6d0c30;overflow-wrap:anywhere;display:block}
+.admin-carousel-detail p{line-height:1.5;color:#6b5159;font-size:.85rem;overflow-wrap:anywhere}
+.admin-carousel-controls,.admin-carousel-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.admin-carousel-controls button{flex:1;min-width:100px}
+#adminCarouselCount{font-variant-numeric:tabular-nums;font-weight:800;color:#620b2d;white-space:nowrap}
+.admin-carousel-actions .button{font-size:.82rem}
+.admin-carousel-thumbs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:13px 0 2px}
+.admin-carousel-thumbs button{flex:0 0 76px;width:76px;height:61px;border:2px solid transparent;border-radius:9px;padding:2px;overflow:hidden;background:#f7ebe0;cursor:pointer}
+.admin-carousel-thumbs button[aria-current="true"]{border-color:#9b1b43;box-shadow:0 0 0 2px #eac783}
+.admin-carousel-thumbs img{width:100%;height:100%;object-fit:contain}
+@media(max-width:920px){.admin-carousel-content{grid-template-columns:1fr}.admin-carousel-stage{height:290px}}
+@media(max-width:720px){.admin-theme .admin-carousel{margin:10px 0}.admin-carousel-stage{height:240px}.admin-carousel-controls button{min-width:85px}}
+
+
+/* Visually mirrored devotee page with protected inline editing controls */
+.admin-theme.visual-mode .admin-welcome,.admin-theme.visual-mode .stats,.admin-theme.visual-mode .admin-overview,.admin-theme.visual-mode>.admin-layout {display:none!important;}
+.admin-theme.visual-mode #workspace>.admin-layout,.admin-theme.visual-mode #workspace>.admin-carousel {display:none!important;}
+.admin-theme.visual-mode .visual-workspace{display:block!important;}
+.visual-workspace{display:none;color:#351e23;background:#fff9ed;border:1px solid #e6cdb6;border-radius:20px;overflow:hidden;margin:10px 0 28px;box-shadow:0 14px 30px #43192313}
+.visual-toolbar{display:flex;justify-content:space-between;gap:14px;align-items:center;flex-wrap:wrap;padding:14px 19px;background:#fffdf7;border-bottom:1px solid #e7d8c7}
+.visual-toolbar strong{font-size:1.07rem;color:#651e36}.visual-toolbar p{margin:2px 0 0;font-size:.77rem;color:#806457}.visual-toolbar-actions{display:flex;gap:7px;flex-wrap:wrap}
+.visual-mast{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:19px 24px;background:#fffaf1;font-size:.88rem;color:#906747}.visual-brand{font-family:Georgia,serif;font-size:clamp(1.25rem,2.5vw,1.95rem);font-weight:700;color:#680a2d}
+.visual-nav{background:#650321;display:flex;gap:5px;overflow-x:auto;padding:8px 16px;scrollbar-width:thin}
+.visual-nav button{white-space:nowrap;color:#fff6e7;background:transparent;border:0;border-radius:7px;padding:9px 12px;font-weight:700;font-size:.82rem}.visual-nav button:hover,.visual-nav button:focus-visible{background:#b07a36}
+.visual-hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:17px;background:linear-gradient(100deg,#43081f,#651b3b);padding:24px}.visual-intro{min-width:0;border:1px solid #ffffff29;border-radius:20px;padding:clamp(22px,3.5vw,46px);color:#fff2d5;background:#380719}.visual-intro h2{font:700 clamp(1.85rem,3.2vw,3.5rem)/1.03 Georgia,serif;letter-spacing:-.03em;color:#fff5d7;overflow-wrap:anywhere}.visual-intro p{color:#f5ddc7;font-size:.88rem}.visual-om{font-size:2.2rem;color:#f8c16c}.visual-eyebrow{letter-spacing:.13em;font-weight:700;font-size:.7rem!important;color:#ffdc92!important}.visual-intro small{color:#ffdc92}
+.visual-carousel-slot{min-width:0}.visual-carousel-slot .admin-carousel{margin:0;height:100%;background:#300c22;border:1px solid #b17b65;border-radius:20px;overflow:hidden;color:#fff}.visual-carousel-slot .admin-carousel :is(h2,strong,p){color:#fdf0dc}.visual-carousel-slot .admin-carousel-content{display:flex;flex-direction:column;gap:3px}.visual-carousel-slot .admin-carousel-stage{min-height:260px;height:clamp(260px,23vw,390px);background:#1b0b17}.visual-carousel-slot .admin-carousel-stage img{object-fit:contain}.visual-carousel-slot .admin-carousel-detail{padding:10px 15px}.visual-carousel-slot .admin-carousel-detail p{font-size:.75rem}.visual-carousel-slot .admin-carousel-thumbs{padding:8px 12px}.visual-carousel-slot button{font-size:.77rem}
+.visual-quick{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;padding:14px 20px;background:#fff6e9}.visual-quick button{background:#fffdf9;border:1px solid #ead7bf;border-radius:13px;padding:17px 6px;font-size:.77rem;color:#761e3c;font-weight:700;box-shadow:0 7px 16px #45251510}.visual-quick button:hover{border-color:#b17438;transform:translateY(-2px)}
+.visual-sections{padding:23px;background:#fff9ed;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.visual-section{border:1px solid #ead8c4;border-radius:15px;background:#fffefd;min-width:0;overflow:hidden;box-shadow:0 7px 20px #512c2412}.visual-section-header{display:flex;align-items:center;justify-content:space-between;gap:10px;background:#fffaf3;border-bottom:1px solid #ebdaca;padding:14px 15px}.visual-section-header h3{font:700 clamp(1.18rem,2.1vw,1.6rem)/1.2 Georgia,serif;color:#8e0036;margin:0}.visual-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;padding:13px}.visual-card{border:1px solid #eadbcc;background:#fffdf9;border-radius:12px;padding:11px;min-width:0}.visual-card strong{display:block;color:#67233b;overflow-wrap:anywhere}.visual-card p{font-size:.8rem;color:#70595b;line-height:1.5;max-height:6em;overflow:hidden}.visual-card img{display:block;object-fit:contain;width:100%;height:155px;background:#f5eee4;border-radius:9px;margin-bottom:8px}.visual-card-actions{display:flex;flex-wrap:wrap;gap:5px;margin-top:9px}.visual-card-actions button,.visual-section-header button,.visual-edit-btn,.visual-admin-action{background:#fffaf3;border:1px solid #d9b98a;color:#77263c;border-radius:7px;padding:6px 9px;font-size:.76rem;font-weight:700;cursor:pointer}.visual-card-actions button:hover,.visual-section-header button:hover,.visual-edit-btn:hover{background:#fbe5cb}.visual-card-actions .visual-danger{border-color:#e6bdbd;color:#a21e43}.visual-card .visual-status{font-size:.68rem;color:#82695d}.visual-empty{padding:16px;color:#7a615b;font-size:.85rem}.visual-category-amount{font-size:1.2rem;color:#154f38;font-weight:700}.visual-photo-section{grid-column:1/-1}.visual-photo-section .visual-card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.visual-photo-section .visual-card img{height:165px}.visual-video img{aspect-ratio:16/9;object-fit:cover;height:auto}.visual-lock-tip{padding:0 15px 14px;font-size:.73rem;color:#755e58}
+@media(max-width:1040px){.visual-quick{grid-template-columns:repeat(3,minmax(0,1fr))}.visual-sections{grid-template-columns:1fr}.visual-photo-section .visual-card-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:700px){.visual-hero{grid-template-columns:1fr;padding:12px}.visual-sections{padding:11px}.visual-mast{flex-wrap:wrap}.visual-photo-section .visual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-quick{grid-template-columns:repeat(2,minmax(0,1fr))}.visual-toolbar{padding:12px}.visual-intro{padding:23px}}
+@media(prefers-reduced-motion:reduce){.visual-quick button{transform:none!important}}
+
+.visual-drive-gallery{padding:10px 14px 15px}.visual-drive-title{font-weight:700;font-size:.8rem;color:#80354a;margin-bottom:8px}.visual-drive-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.visual-drive-photo{border:1px solid #ead8c4;border-radius:10px;background:#fffdf9;min-width:0;overflow:hidden;position:relative;padding:0}.visual-drive-photo img{display:block;width:100%;height:120px;object-fit:contain;background:#f5eee4}.visual-drive-photo span{position:absolute;bottom:0;right:0;padding:3px 6px;background:#580d32dc;color:white;font-size:.68rem}.visual-drive-photo:hover{outline:2px solid #b17438}@media(max-width:650px){.visual-drive-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Compact admin previews and modal collections */
+.visual-photo-manager{min-width:0;border:1px solid #e7d5c0;border-radius:12px;background:#fff9f0;padding:8px}.visual-photo-manager img{width:100%;height:140px;object-fit:contain;background:#f0e9dd;border-radius:9px}.visual-photo-manager small{display:block;max-height:38px;overflow:hidden;overflow-wrap:anywhere;padding:5px 0}.visual-photo-manager>div{display:flex;gap:5px}.visual-photo-manager button{flex:1;background:#fff9f2;border:1px solid #d6b9a0;border-radius:7px;padding:7px;cursor:pointer;color:#7d2144}
+
+.visual-quick{display:none!important}
+.visual-photo-section .visual-card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.visual-see-more{margin:6px 14px 16px;border:1px solid #c99d63;color:#771437;background:#ffeed4;border-radius:10px;padding:10px 16px;cursor:pointer;font-weight:800}
+.visual-collection-dialog{border:1px solid #e2c49f;border-radius:17px;background:#fff9f0;color:#4b2330;width:min(940px,94vw);max-height:88vh;overflow:auto;padding:0;box-shadow:0 25px 80px #18050b80}
+.visual-collection-dialog::backdrop{background:#14060cb3}
+.visual-modal-header{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:15px 20px;background:#600c2d;color:#fff7e9;position:sticky;top:0;z-index:2}.visual-modal-header h2{color:inherit;margin:0}.visual-modal-header button{background:#fff6eb;border:0;border-radius:9px;padding:9px;cursor:pointer}
+.visual-collection-dialog .visual-card-grid{grid-template-columns:repeat(auto-fill,minmax(190px,1fr));padding:18px}
+.visual-map-preview{padding:10px 14px}.visual-map-preview iframe{border:0;border-radius:12px;width:100%;height:280px}
+.temple-extra-form{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:20px}.temple-extra-form label{display:flex;flex-direction:column;gap:6px;font-weight:700}.temple-extra-form label[hidden]{display:none}.temple-extra-form input,.temple-extra-form select,.temple-extra-form textarea{border:1px solid #dbbca2;border-radius:8px;background:#fff;padding:10px;min-width:0}.temple-extra-form button{align-self:end;padding:12px;border:0;border-radius:10px;background:#6d0b33;color:#fff;font-weight:800}
+.extra-admin-list{padding:14px 20px;max-height:220px;overflow:auto}.extra-admin-row{display:flex;align-items:center;gap:10px;border-bottom:1px solid #eadbcc;padding:10px 0}.extra-admin-row>div{flex:1;display:grid}.extra-admin-row span{font-size:.8rem;color:#94716e}.extra-admin-row button{border:1px solid #dfb998;border-radius:7px;background:#fffaf6;padding:7px;cursor:pointer}
+@media(max-width:700px){.temple-extra-form{grid-template-columns:1fr}.visual-photo-section .visual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Compact, readable media management and priest profile cards */
+.visual-drive-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(175px,1fr))!important;gap:12px!important}
+.visual-photo-manager{min-width:0!important;width:auto!important;max-width:100%!important;overflow:hidden;border-radius:12px}
+.visual-photo-manager img{display:block!important;width:100%!important;height:148px!important;object-fit:contain!important;background:#f6ede4}
+.visual-photo-manager small{display:block;padding:8px;white-space:normal;overflow-wrap:anywhere;line-height:1.35}
+.visual-photo-manager>div{display:flex;flex-wrap:wrap;gap:6px;padding:7px}
+.visual-photo-manager button{min-width:0;background:#fff6e8;color:#6c1231;border:1px solid #d6a96f;font-weight:800}
+.priest-photo-card img{width:100%;height:195px;object-fit:contain;background:#f6eadd;border-radius:10px}
+.visual-card-grid{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))!important;align-items:stretch}
+.admin-carousel-controls button,.admin-carousel-actions button,.admin-carousel-actions a{color:#601026!important;background:#fff6e8!important;border:1px solid #d3a76d!important;font-weight:800!important}
+.visual-navigation-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;padding:15px}.visual-nav-card{display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #e6cda8;border-radius:12px;background:#fffaf4}.visual-nav-card span{font-size:.78rem;color:#79676a}.visual-nav-card button{margin-top:auto;border:1px solid #c99959;border-radius:8px;padding:8px;background:#ffefd9;color:#6b1635;cursor:pointer}.visual-photo-section>.visual-card-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:12px}.visual-photo-section>.visual-card-grid>.visual-drive-gallery{grid-column:1/-1;min-width:0}.visual-collection-dialog #visualCollectionItems{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr))!important;gap:14px;padding:16px}.visual-collection-dialog #visualCollectionItems>.visual-photo-manager{min-width:0}.visual-card{min-width:0;overflow-wrap:anywhere}@media(max-width:1000px){.visual-photo-section>.visual-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}}@media(max-width:520px){.visual-navigation-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ================================================================
+   HERITAGE LUXE DESIGN SYSTEM · 21 NOV 2026
+   Non-destructive visual overrides; existing JS IDs and actions intact.
+   ================================================================ */
+:root {
+ --paper:#f8f4ec;--surface:#fffefa;--ink:#271c1b;--muted:#72645e;
+ --wine:#590b29;--rust:#811637;--gold:#c99b4b;--line:#e9dfd2;
+ --serif:"Cormorant Garamond",Georgia,serif;
+ --premium-shadow:0 18px 50px rgba(60,30,24,.075);
+}
+html{scroll-behavior:smooth;scroll-padding-top:100px}
+body{background:var(--paper);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body,button,input,select,textarea{font-family:"DM Sans",system-ui,sans-serif}
+.devotee-theme h1,.devotee-theme h2,.devotee-theme h3,
+.admin-theme h1,.admin-theme h2,.admin-theme h3{font-family:var(--serif);font-weight:650;letter-spacing:-.022em}
+.wrap{width:min(1240px,calc(100% - 52px))}
+.bar{background:#42091e;color:#f4d7a4;padding:9px 14px;letter-spacing:.055em;font-size:.73rem}
+.mast{background:#fffdf8!important;border-bottom:1px solid #eadfce!important}
+.mast .wrap{min-height:74px;padding:10px 0}
+.brand{gap:13px;font-family:var(--serif)!important;font-size:clamp(1.4rem,2.1vw,2rem)!important;font-weight:700!important;color:#65122e!important}
+.mark{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#fff6df,#eecb8c);
+ border:1px solid #d9b16e;box-shadow:0 5px 14px #9d66282b;font-size:1.32rem}
+.strip{background:#590c2a!important;border-bottom:1px solid #a67348!important;box-shadow:0 6px 16px #32071c18;z-index:100!important}
+.strip .wrap{min-height:54px;gap:3px!important}
+.strip a,.strip button{transition:background .18s ease,color .18s ease,transform .18s ease}
+.strip a:hover,.strip a:focus-visible{background:#ffffff17!important;color:#ffe5b5!important}
+.strip a.active,.strip a[aria-current="page"]{background:#e9bd73!important;color:#4d0b26!important;border-radius:8px}
+.nav-admin{background:#fcf3e41c;border:1px solid #d9a96088;border-radius:10px;margin-right:12px!important;color:#ffe6b8!important;padding:9px 13px!important}
+.button,.mini-button{border-radius:12px!important;min-height:41px;letter-spacing:.012em;box-shadow:0 3px 9px #2d0e1714;transition:transform .18s,box-shadow .18s,background .18s}
+.button:hover:not(:disabled),.mini-button:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 9px 22px #430d242c}
+.devotee-theme .hero{position:relative!important;height:auto!important;min-height:unset!important;
+ background:radial-gradient(ellipse at 18% 10%,#8c315045,transparent 46%),linear-gradient(115deg,#390a20,#651530 58%,#31091d)!important;
+ overflow:hidden}
+.devotee-theme .hero:before{content:"";position:absolute;inset:0;z-index:0;
+ background-image:radial-gradient(#d4ad6740 .75px,transparent .75px);background-size:22px 22px;opacity:.33;pointer-events:none}
+.devotee-theme .hero:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,#e0b56a,transparent)}
+.devotee-theme .hero .wrap.hero-layout{position:relative;z-index:1;width:min(1240px,calc(100% - 52px))!important;
+ display:grid!important;grid-template-columns:minmax(0,1.02fr) minmax(0,1fr)!important;
+ gap:clamp(24px,4.5vw,66px)!important;align-items:center!important;padding:clamp(45px,6.4vw,90px) 0!important;max-width:none!important}
+.devotee-theme .hero-copy{min-width:0!important;background:transparent!important;box-shadow:none!important;border:0!important;padding:0!important}
+.devotee-theme .hero-copy-content{padding:0!important;max-width:620px}
+.hero-emblem{width:58px!important;height:58px!important;display:grid!important;place-items:center!important;color:#eed09a!important;
+ border:1px solid #e5bc7a78!important;background:#f4d9ad12;border-radius:18px;font-size:2rem;box-shadow:0 9px 25px #26021028}
+.devotee-theme .hero-kicker,.devotee-theme .hero .eyebrow{font-weight:650!important;letter-spacing:.14em!important;text-transform:uppercase;color:#f2d096!important;font-size:.71rem!important}
+.devotee-theme .hero h1,.devotee-theme .hero-copy h1{font-family:var(--serif)!important;max-width:14ch!important;
+ font-weight:650!important;color:#fffaf1!important;font-size:clamp(3.2rem,5.2vw,5.8rem)!important;
+ line-height:.98!important;letter-spacing:-.036em!important;margin:14px 0 20px!important;text-wrap:balance}
+.hero-description{font-size:clamp(.99rem,1.3vw,1.12rem)!important;line-height:1.9!important;color:#efdbd7!important;max-width:45ch!important}
+.hero .actions{gap:12px;flex-wrap:wrap;margin-top:24px}
+.hero .button.light{background:linear-gradient(135deg,#f6d495,#ddb16e)!important;color:#4c1429!important;
+ border-color:#e4b971!important;min-height:47px;padding:12px 20px}
+.hero .hero-outline{background:#ffffff0b!important;color:#fff0d9!important;border:1px solid #eed5ae70!important;min-height:47px;padding:12px 20px}
+.devotee-theme .hero-media{min-width:0!important;background:#2e0b1d!important;border:1px solid #d5aa765e!important;border-radius:24px!important;
+ padding:9px!important;box-shadow:0 30px 70px #1c051b6b,0 0 0 5px #ffffff09!important;overflow:hidden}
+.hero-image-stage{border-radius:17px!important;overflow:hidden!important;min-height:clamp(240px,29vw,400px)!important}
+.hero-image-stage img{width:100%!important;height:100%!important;min-height:clamp(240px,29vw,400px)!important;object-fit:cover!important}
+.hero-image-caption{font-size:.8rem!important;color:#f1dfc8!important;padding:8px 12px 0!important;margin:0!important}
+.carousel-controls{padding:8px 10px 6px!important}
+.carousel-icon-button,.photo-pause,.carousel-full-button{border-radius:10px!important;min-width:35px;min-height:34px}
+.temple-extras{gap:24px!important;margin:36px auto 42px!important;align-items:start!important}
+.extra-panel{background:#fffdf9!important;border:1px solid #e7d6bf!important;border-radius:22px!important;
+ padding:clamp(18px,2.5vw,28px)!important;box-shadow:var(--premium-shadow)!important;position:relative;overflow:hidden}
+.extra-panel:before{content:"";position:absolute;inset:0 0 auto;height:4px;background:linear-gradient(90deg,#9d3b53,#dcb36b,#f3dbad);pointer-events:none}
+.extras-heading>span{font-size:.7rem!important;font-weight:800!important;letter-spacing:.13em!important;color:#a56c36!important}
+.extras-heading h2{font-size:clamp(2.05rem,2.9vw,3rem)!important;line-height:1.08!important;margin:6px 0!important;color:#670e2d!important}
+.extras-heading p{color:#78675d!important;font-size:.9rem!important;line-height:1.6!important;margin:5px 0 20px!important}
+.calendar-topline{gap:7px;flex-wrap:wrap}
+.calendar-topline button,.audio-playlist-controls button,.audio-week button{border-radius:10px!important;transition:transform .16s,background .16s}
+.calendar-topline button:hover,.audio-playlist-controls button:hover,.audio-week button:hover{transform:translateY(-1px)}
+.calendar-days,.calendar-weekdays{gap:4px}
+.calendar-days button,.calendar-days span{border-radius:9px!important}
+.temple-live-tv-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important}
+.temple-live-card{border-radius:17px!important;border:1px solid #ebdfcf!important;box-shadow:0 7px 22px #36211b10!important;transition:transform .18s,box-shadow .18s}
+.temple-live-card:hover,.temple-history-card:hover,.section-tile:hover{transform:translateY(-3px);box-shadow:0 17px 32px #341a241a!important}
+.devotee-theme .browse{padding-top:18px!important;padding-bottom:65px!important}
+.devotee-theme .home-section-heading{margin:20px auto 28px!important}
+.devotee-theme .home-section-heading h2{font-family:var(--serif)!important;font-size:clamp(2.5rem,4vw,4rem)!important;line-height:1.07!important;color:#6c1330!important}
+.devotee-theme .temple-panel{border-radius:20px!important;background:#fffdf9!important;border:1px solid #eadfce!important;
+ padding:clamp(17px,2vw,25px)!important;box-shadow:var(--premium-shadow)!important;transition:box-shadow .2s}
+.devotee-theme .temple-panel-title h2{font-family:var(--serif)!important;color:#701532!important;font-size:clamp(1.75rem,2.2vw,2.3rem)!important}
+.devotee-theme .section-grid{gap:18px!important}
+.devotee-theme .section-tile{border-radius:16px!important;overflow:hidden!important;background:#fffefb!important;
+ border:1px solid #eadccb!important;box-shadow:0 7px 18px #4c243013!important;transition:transform .18s,box-shadow .18s}
+.devotee-theme .section-tile img,.devotee-theme .card img{object-fit:cover!important}
+.temple-history-cards{gap:18px!important}
+.temple-history-card{border-radius:17px!important;overflow:hidden!important;background:#fffdf9!important;
+ border:1px solid #eadac7!important;box-shadow:0 8px 23px #3c18151a!important;transition:transform .18s,box-shadow .18s}
+.temple-history-card>img{height:205px!important;object-fit:cover!important}
+.foot{background:linear-gradient(130deg,#37081d,#63122c)!important;border-top:3px solid #c59b56;color:#f9e7d6!important;padding:30px 0!important}
+.foot .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.foot a{color:#f1c982!important}
+dialog{border:1px solid #e7cda7!important;border-radius:20px!important;box-shadow:0 32px 100px #1d08125e!important}
+dialog::backdrop{background:#170914ba;backdrop-filter:blur(5px)}
+:focus-visible{outline:3px solid #dbaa5f!important;outline-offset:3px!important}
+@media(max-width:940px){
+ .devotee-theme .hero .wrap.hero-layout{gap:25px!important}
+ .temple-live-tv-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:780px){
+ .wrap{width:calc(100% - 30px)}
+ .mast .wrap{min-height:62px}
+ .brand{font-size:1.35rem!important}
+ .mark{width:39px;height:39px;border-radius:12px}
+ .devotee-theme .hero .wrap.hero-layout{width:calc(100% - 30px)!important;grid-template-columns:1fr!important;
+  padding:36px 0 42px!important;gap:27px!important}
+ .devotee-theme .hero-copy-content{max-width:none}
+ .devotee-theme .hero h1,.devotee-theme .hero-copy h1{font-size:clamp(2.7rem,9.5vw,4.2rem)!important;max-width:17ch!important}
+ .devotee-theme .hero-media{border-radius:19px!important}
+ .hero-image-stage,.hero-image-stage img{min-height:260px!important}
+ .temple-extras{grid-template-columns:1fr!important;gap:17px!important;margin-top:22px!important}
+ .extra-panel{padding:18px!important}
+ .temple-live-tv-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .devotee-theme .section-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media(max-width:480px){
+ .bar{font-size:.65rem;line-height:1.6}
+ .hero-image-stage,.hero-image-stage img{min-height:210px!important}
+ .devotee-theme .hero h1,.devotee-theme .hero-copy h1{font-size:clamp(2.6rem,11vw,3.35rem)!important}
+ .devotee-theme .section-grid{grid-template-columns:1fr!important}
+ .temple-live-tv-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:9px!important}
+ .temple-live-card{border-radius:11px!important}
+ .temple-history-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+ .temple-history-card>img{height:132px!important}
+ .foot .wrap{justify-content:center;text-align:center}
+}
+/* Admin: unified, refined visual language without changing data or actions */
+.admin-theme{background:#f7f3ec!important}
+.admin-theme .mast{background:#fffdfa!important}
+.admin-theme .page{padding-top:24px!important}
+.admin-theme .workspace-heading h1{font-size:clamp(2.5rem,3.5vw,3.5rem)!important;color:#60132c!important}
+.admin-theme .admin-side{background:linear-gradient(165deg,#66112e,#40091f)!important;border-radius:18px!important;
+ box-shadow:0 15px 34px #34081928!important;border:1px solid #af6c6380;padding:21px 14px!important}
+.admin-theme .admin-side-brand{font-family:var(--serif)!important;font-size:1.45rem!important}
+.admin-theme .panel,.admin-theme .card,.admin-theme .stat{background:#fffdfa!important;border:1px solid #e9dccb!important;
+ border-radius:17px!important;box-shadow:0 7px 22px #3b1e2410!important}
+.admin-theme .button{background:#721837;color:white}
+.admin-theme .button.secondary{background:#fffaf2;color:#681630;border-color:#dbbfa4}
+.admin-theme input,.admin-theme textarea,.admin-theme select{border-radius:10px!important;border-color:#d9cabc!important;background:#fffefa}
+.admin-theme .tabs button,.admin-theme .admin-side button{border-radius:10px!important}
+.admin-theme table{border-collapse:separate;border-spacing:0;width:100%}
+.admin-theme th{background:#f8eee6;color:#6d1a34;font-size:.78rem;letter-spacing:.03em}
+.admin-theme td,.admin-theme th{border-bottom:1px solid #ede3d9;padding:11px 12px}
+.admin-theme #login{max-width:530px;margin:28px auto;padding:28px!important}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important;animation:none!important}}
+
+
+.visual-assets-linkbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;background:linear-gradient(100deg,#fff8e8,#f9ecdc);border:1px solid #e4c493;padding:14px 18px;border-radius:16px;margin:14px 0}.visual-assets-linkbar span{color:#6b1234;font-weight:800}.visual-assets-linkbar a{color:#68203a;text-decoration:none;border:1px solid #dab57a;background:white;border-radius:20px;font-weight:700;padding:7px 12px;font-size:.82rem}.visual-assets-linkbar a:hover{background:#fff0d0}.visual-assets-linkbar small{display:block;width:100%;font-size:.75rem;color:#71605a;line-height:1.45}
+/* Temple Heritage admin UI uplift: cosmetic only; forms and actions unchanged */
+.admin-theme{background:linear-gradient(145deg,#fffaf1,#f5e9d9)!important}
+.admin-theme .panel,.admin-theme .card,.admin-theme .stat{border:1px solid #e7cfaf!important;border-radius:18px!important;box-shadow:0 12px 30px rgba(76,13,39,.065)!important}
+.admin-theme button{transition:background-color .18s,border-color .18s,transform .18s}
+.admin-theme button:not(:disabled):hover{filter:brightness(.97)}
+.admin-theme input:focus,.admin-theme textarea:focus,.admin-theme select:focus{outline:2px solid #d7a459;outline-offset:1px}
+.admin-theme h1,.admin-theme h2,.admin-theme h3{letter-spacing:-.012em}
+.admin-theme .stat strong{color:#68102e!important;font-weight:700!important}
+.admin-theme .ledger-scroll{border-radius:15px!important;box-shadow:0 5px 25px rgba(72,25,31,.035)}
+.admin-theme .ledger th{position:sticky;top:0;z-index:1}
+.admin-theme dialog{border-radius:20px!important;box-shadow:0 22px 70px #22000c50}
+@media(max-width:680px){.admin-theme .stats{grid-template-columns:repeat(2,minmax(0,1fr))}.admin-theme .form.cols{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.admin-theme button{transition:none!important}}
+
+</style><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet"></head>
+<body data-view="<?= view ?>" class="admin-theme">
+<header class="mast"><div class="wrap"><span class="brand"><span class="mark" aria-hidden="true">ॐ</span>Chidambareshwara Swamy Temple</span><? if (home) { ?><a class="button secondary" href="<?= home ?>">Devotee site</a><? } ?></div></header>
+<main class="wrap page">
+<section id="admin" hidden><div class="row between workspace-heading"><h1>Temple administration</h1><div class="actions"><button type="button" class="button secondary" id="visualReturn" hidden>✦ Visual editor</button><button type="button" class="button secondary" id="logout" hidden>Sign out</button></div></div><p class="notice" id="global" role="status"></p>
+<div id="login" class="panel login"><form class="form" id="loginForm"><label>Administrator password<input type="password" name="password" autocomplete="current-password" maxlength="128" required></label><button class="button">Sign in</button><p class="notice" role="status"></p></form><button id="forgot" class="button secondary" type="button">Forgot password</button></div>
+<div id="workspace" hidden><aside class="admin-side"><div class="admin-side-brand">🛕 <strong>Chidambareshwara<br>Swamy Temple</strong><small>ADMIN PANEL</small></div><div id="adminSideNav"></div><a class="side-website" href="https://induguvasanth.github.io/temple/" target="_blank" rel="noopener noreferrer">View website ↗</a></aside><div class="admin-welcome"><div><span>🪔 TEMPLE MANAGEMENT</span><h2>Welcome, Admin 🙏</h2><p>Manage temple content, Google Drive photos, sevas and finances.</p></div></div><div id="stats" class="stats"></div><div class="admin-overview"><section class="overview-panel"><div class="overview-head"><h2>Financial overview</h2><button type="button" class="button compact secondary" data-go-module="Finance">View transactions ↗</button></div><div id="financeOverview" class="overview-figures"></div></section><section class="overview-panel"><h2>Quick actions</h2><div class="quick-actions"><button type="button" data-go-module="Finance" data-create="true">＋ Add transaction</button><button type="button" data-go-module="Content" data-create="true">✿ Add temple content</button><button type="button" data-go-module="Sections">☰ Manage sections</button><button type="button" data-go-module="Requests">◷ Seva requests</button><button type="button" data-go-module="Donors">♙ Donor profiles</button><button type="button" data-go-module="Audit">▤ Audit log</button></div></section><section class="overview-panel"><div class="overview-head"><h2>Financial Transactions (Edit Records)</h2><button type="button" class="button compact" data-go-module="Finance" data-create="true">＋ Add transaction</button></div><div id="recentFinance" class="recent-finance"></div></section></div>
+<section class="visual-workspace" id="visualWorkspace" aria-label="Visual temple website editor">
+ <div class="visual-toolbar"><div><strong>Temple website · Visual editor</strong><p>Edit each section directly in a devotee-style preview. Changes go through the secure admin portal.</p></div><div class="visual-toolbar-actions"><button type="button" id="visualReload" class="button secondary">↻ Refresh</button><button type="button" id="visualAdvanced" class="button secondary">Advanced records</button><? if (home) { ?><a href="<?= home ?>" class="button" target="_blank" rel="noopener noreferrer">View devotee site ↗</a><? } ?></div></div>
+ <div class="visual-mast"><span class="visual-brand">🛕 Chidambareshwara Swamy Temple</span><span>Ichchapuram, Andhra Pradesh</span></div>
+ <nav id="visualNav" class="visual-nav" aria-label="Editable temple sections"></nav>
+ <div class="visual-hero"><div class="visual-intro"><span class="visual-om">ॐ</span><p class="visual-eyebrow">ICHHAPURAM, ANDHRA PRADESH</p><small>ॐ नमः शिवाय · Sacred heritage &amp; divine blessings</small><h2>Chidambareshwara<br>Swamy Temple</h2><p>Explore the temple, daily worship, sacred sevas and cherished celebrations.</p><button class="visual-edit-btn" type="button" data-visual-section="about">✎ Edit temple introduction</button></div><div id="visualCarouselSlot" class="visual-carousel-slot"></div></div>
+
+ <div class="visual-assets-linkbar" aria-label="Linked temple content sources"><span>🔗 Connected content sources</span><a href="https://docs.google.com/spreadsheets/d/1Xc5n4_wWrrdty70NRLbQy5Sc7YRvH2gLQWfMSsprSSg/edit" target="_blank" rel="noopener noreferrer">📊 Temple Google Sheet ↗</a><a href="https://drive.google.com/drive/folders/1hWLYvXeSEIGffA1EN6-9AHmj1py7NzP4" target="_blank" rel="noopener noreferrer">🛕 Temple History Drive ↗</a><a href="https://drive.google.com/drive/folders/13K4PzmmRdHUQisdxvnX0gxRk-Ngu-ptH" target="_blank" rel="noopener noreferrer">🖼️ Temple Media Drive ↗</a><small>Drafts and duplicate records remain editable in the original Sheet. New illustrative temple artwork is bundled with the public website.</small></div>
+ <div id="visualSections" class="visual-sections"></div>
+ <dialog id="visualCollectionModal" class="visual-collection-dialog"><div class="visual-modal-header"><h2 id="visualCollectionTitle">All section items</h2><button type="button" data-visual-close="true">✕ Close</button></div><div id="visualCollectionItems" class="visual-card-grid"></div></dialog>
+ <dialog id="templeExtraDialog" class="visual-collection-dialog visual-extras-dialog"><div class="visual-modal-header"><h2 id="templeExtraTitle">Manage temple content</h2><button type="button" data-visual-extra-close="true">✕ Close</button></div><div id="templeExtraList"></div><form id="templeExtraForm" class="temple-extra-form"><input name="id" type="hidden"><label id="extraFieldDay">Weekday<select name="weekday"><option value="0">Sunday · ఆదివారం</option><option value="1">Monday · సోమవారం</option><option value="2">Tuesday · మంగళవారం</option><option value="3">Wednesday · బుధవారం</option><option value="4">Thursday · గురువారం</option><option value="5">Friday · శుక్రవారం</option><option value="6">Saturday · శనివారం</option><option value="7">Other songs · Audio Gallery</option></select></label><label id="extraFieldDate">Festival date<input type="date" name="date"></label><label>Title<input type="text" name="title" maxlength="140" required></label><label id="extraFieldLink">Direct audio URL (Cloudinary MP3 recommended)<input name="driveUrl" type="url" placeholder="https://res.cloudinary.com/.../video/upload/...mp3"></label><label id="extraFieldYoutube">YouTube video/live or channel URL<input name="youtubeUrl" type="url" placeholder="https://www.youtube.com/watch?v=... or /channel/UC..."></label><label id="extraFieldDescription">Live TV description<textarea name="description" maxlength="500" rows="3"></textarea></label><label id="extraFieldImage">Song cover image URL<input name="imageUrl" type="url" placeholder="Google Drive image link"></label><label id="extraFieldFolder">Temple Drive folder ID<input name="folderId" type="text" placeholder="Drive folder ID or URL"></label><label id="extraFieldShort">Short history<textarea name="shortText" maxlength="500" rows="3"></textarea></label><label id="extraFieldFull">Full history<textarea name="fullText" rows="8"></textarea></label><label id="extraFieldNotes">Festival description<textarea name="notes" maxlength="500" rows="3"></textarea></label><label>Status<select name="status"><option>Published</option><option>Draft</option></select></label><button type="submit" class="visual-admin-action">Save record</button><span id="extraMessage" role="status"></span></form></dialog>
+</section>
+<section class="overview-panel admin-carousel" aria-labelledby="adminCarouselTitle">
+  <div class="overview-head">
+    <div><h2 id="adminCarouselTitle">Homepage carousel · Google Drive</h2><p class="admin-carousel-help">Preview photographs from the temple carousel folder. No GitHub media uploads required.</p></div>
+    <button type="button" class="button" id="carouselManageImages">Manage carousel images</button>
+  </div>
+  <div class="admin-carousel-content">
+    <div class="admin-carousel-stage">
+      <img id="adminCarouselImage" alt="Homepage carousel preview" hidden>
+      <p id="adminCarouselEmpty">Loading carousel images…</p>
+    </div>
+    <div class="admin-carousel-detail">
+      <strong id="adminCarouselName">Temple photographs</strong>
+      <p id="adminCarouselStatus" role="status">Loading images from Google Drive…</p>
+      <div class="admin-carousel-controls">
+        <button type="button" class="button secondary" id="adminCarouselPrev" aria-label="Previous carousel photo">‹ Previous</button>
+        <span id="adminCarouselCount" aria-live="polite">0 / 0</span>
+        <button type="button" class="button secondary" id="adminCarouselNext" aria-label="Next carousel photo">Next ›</button>
+      </div>
+      <div class="admin-carousel-actions"><button type="button" class="button secondary" id="adminCarouselRefresh">↻ Refresh photos</button><a id="adminCarouselDriveLink" class="button secondary" href="https://drive.google.com/drive/folders/1tWptRIHZsgfY5F-rhhrOks51FnIvjoSI" target="_blank" rel="noopener noreferrer">View Drive folder ↗</a></div>
+    </div>
+  </div>
+  <div id="adminCarouselThumbs" class="admin-carousel-thumbs" aria-label="Carousel photo previews"></div>
+</section>
+<div class="admin-layout"><nav class="tabs" aria-label="Administration modules" id="tabs"></nav>
+<section class="panel module"><div class="row between module-heading"><h2 id="moduleTitle"></h2><div class="actions"><button type="button" class="button secondary" id="reload">Reload</button><button type="button" class="button" id="add">Add</button><button type="button" class="button secondary" id="uploadVideo" hidden>Upload to YouTube</button></div></div>
+<div class="form cols record-tools"><label>Search records<input type="search" id="search" placeholder="Search the current view"></label><label>Sort<select id="sort"><option value="latest">Latest entered</option><option value="oldest">Earliest entered</option><option value="name">Name or title</option><option value="highest">Highest amount</option></select></label><label id="sectionFilterLabel">Section<select id="sectionFilter"></select></label></div><div id="siteControls" class="actions" hidden><button class="button secondary" type="button" id="manageCarousel">Manage homepage carousel</button><button class="button" type="button" id="manageDriveMedia">Manage Drive images</button><? if (home) { ?><a class="button secondary" href="<?= home ?>" target="_blank" rel="noopener noreferrer">Preview devotee site ↗</a><? } ?><div id="sectionShortcuts" class="actions"></div></div><button type="button" class="button compact secondary" id="manageFinanceCategories" hidden>Manage categories &amp; subcategories</button><details id="financeFilterPanel"><summary>Filter transactions</summary><div id="financeFilters" class="form cols"><label>Type<select id="financeType"><option value="">All types</option><option>Donation</option><option>Expense</option></select></label><label>Status<select id="financeStatus"><option value="">All statuses</option><option>Active</option><option>Inactive</option><option>Review</option></select></label><label>Year<select id="financeYear"></select></label><label>Category<select id="financeCategory"></select></label><label>Payment mode<select id="financeMethod"></select></label><label>From date<input id="dateFrom" type="date"></label><label>To date<input id="dateTo" type="date"></label></div></details><p id="recordCount" class="muted" role="status"></p><div id="records" class="list"></div><div id="pagination" class="row between"></div></section></div></div></section>
+<section id="request" hidden><p class="eyebrow">Devotee services</p><h1>Seva requests</h1><div class="form cols"><section class="panel"><h2>Request a seva</h2><form class="form" id="requestForm"><label>Seva<select name="service" required></select></label><label>Name<input name="name" maxlength="140" required></label><label>Preferred date<input type="date" name="date" required></label><label>Note<textarea name="note" maxlength="500"></textarea></label><button class="button">Submit request</button><p class="notice" role="status"></p></form></section>
+<section class="panel"><h2>Track a request</h2><form class="form" id="trackForm"><label>Tracking code<input name="code" maxlength="64" required></label><button class="button secondary">Check status</button><p class="notice" role="status"></p></form></section></div></section>
+</main><dialog id="modal" aria-labelledby="modalTitle"><div class="row between"><h2 id="modalTitle"></h2><button type="button" class="close" id="close" aria-label="Close dialog">×</button></div><div id="modalBody"></div></dialog>
+<script>'use strict';
+(() => {
+  const prefix='[[rich-html]]\n';
+  const allowed=new Set('p br h2 h3 h4 strong b em i u s blockquote ul ol li a figure figcaption img table caption thead tbody tfoot tr th td'.split(' '));
+  const discard=new Set('script style iframe object embed svg math template form input video audio'.split(' '));
+  function clean(value) {
+    const template=document.createElement('template');
+    template.innerHTML=String(value??'');
+    const output=document.createElement('div');
+    function copy(node,parent) {
+      if(node.nodeType===3){parent.append(document.createTextNode(node.data));return;}
+      const tag=node.localName;
+      if(!tag||discard.has(tag))return;
+      if(!allowed.has(tag)){for(const child of node.childNodes)copy(child,parent);return;}
+      const el=document.createElement(tag);
+      if(tag==='a'||tag==='img'){
+        const key=tag==='a'?'href':'src';
+        try{
+          const url=new URL(node.getAttribute(key)||'');
+          if(url.protocol!=='https:'||url.username||url.password){if(tag==='img')return;}
+          else el.setAttribute(key,url.href);
+        }catch{if(tag==='img')return;}
+        if(tag==='a'){el.target='_blank';el.rel='noopener noreferrer';}
+        else {el.alt=node.getAttribute('alt')||'';el.loading='lazy';el.referrerPolicy='no-referrer';}
+      }
+      if(tag==='td'||tag==='th')for(const key of ['colspan','rowspan']){
+        const n=Number(node.getAttribute(key));
+        if(Number.isInteger(n)&&n>1&&n<=20)el.setAttribute(key,String(n));
+      }
+      for(const child of node.childNodes)copy(child,el);
+      parent.append(el);
+    }
+    for(const node of template.content.childNodes)copy(node,output);
+    return output.innerHTML;
+  }
+  function html(value) {
+    const text=String(value??'');
+    if(text.startsWith(prefix))return clean(text.slice(prefix.length));
+    const p=document.createElement('p');p.textContent=text;
+    return text?p.outerHTML:'';
+  }
+  window.TempleRich={html,clean,pack:value=>prefix+clean(value)};
+})();
+</script><script>'use strict';
+function richField(label,name,value) {
+  return '<div class="wide rich-field"><label for="rich-'+name+'">'+esc(label)+'</label><div class="editor-tools" id="tools-'+name+'" aria-label="Formatting controls"></div><div class="rich-editor rich-text" contenteditable="true" role="textbox" aria-multiline="true" aria-label="'+esc(label)+'" id="rich-'+name+'">'+TempleRich.html(value)+'</div></div>';
+}
+let editorState=null;
+function disposeEditor(){
+  const state=editorState;editorState=null;
+  if(!state)return;
+  try {state.instance?.destruct();} catch {}
+  state.host?.remove();
+}
+function bindRich(name){
+  const area=$('rich-'+name), tools=$('tools-'+name), state={name,area,instance:null};
+  editorState=state;
+  const commands=[['Heading','formatBlock','h3'],['Bold','bold'],['Italic','italic'],['Underline','underline'],['Bullets','insertUnorderedList'],['Numbers','insertOrderedList'],['Quote','formatBlock','blockquote'],['Link','createLink'],['Image','insertImage'],['Table','table'],['Undo','undo'],['Redo','redo']];
+  for(const [label,command,arg] of commands){
+    const button=document.createElement('button');button.type='button';button.className='button compact secondary';button.textContent=label;
+    button.onmousedown=event=>event.preventDefault();
+    button.onclick=()=>{
+      area.focus();
+      if(command==='table'){document.execCommand('insertHTML',false,'<table><tbody><tr><th>Heading</th><th>Heading</th></tr><tr><td>Text</td><td>Text</td></tr></tbody></table><p></p>');return;}
+      let value=arg;
+      if(command==='createLink'||command==='insertImage'){
+        const input=prompt('Enter an HTTPS URL');
+        try {const u=new URL(input);if(u.protocol!=='https:'||u.username||u.password)return;value=u.href;}catch{return;}
+      }
+      document.execCommand(command,false,value);
+    };
+    tools.append(button);
+  }
+  area.addEventListener('paste',event=>{
+    event.preventDefault();
+    const plain=event.clipboardData.getData('text/plain');
+    document.execCommand('insertText',false,plain);
+  });
+  const jodit=globalThis.Jodit;
+  if(typeof jodit?.make!=='function')return;
+  const host=document.createElement('div'), input=document.createElement('textarea');
+  input.value=area.innerHTML;
+  input.setAttribute('aria-label',area.getAttribute('aria-label'));
+  host.className='jodit-field';host.append(input);area.after(host);
+  try {
+    state.instance=jodit.make(input,{
+      minHeight:160,height:240,toolbarAdaptive:false,statusbar:false,
+      askBeforePasteHTML:false,askBeforePasteFromWord:false,defaultActionOnPaste:'insert_only_text',
+      buttons:['paragraph','bold','italic','underline','|','ul','ol','blockquote','link','templeImage','table','|','undo','redo'],
+      controls:{templeImage:{name:'templeImage',icon:'image',tooltip:'Insert an HTTPS image',exec(editor){
+        const source=prompt('Enter a direct HTTPS image URL');
+        try {
+          const url=new URL(source);
+          if(url.protocol!=='https:'||url.username||url.password)return;
+          const image=document.createElement('img');
+          image.src=url.href;image.alt=prompt('Image description (optional)')||'';
+          editor.s.insertHTML(image.outerHTML);editor.synchronizeValues();
+        }catch{}
+      }}}
+    });
+    state.host=host;tools.hidden=true;area.hidden=true;
+  } catch {
+    state.instance=null;host.remove();
+  }
+}
+function collectRich(record){
+  if(!editorState)return;
+  const {name,instance,area}=editorState;
+  const html=TempleRich.pack(instance?instance.value:area.innerHTML);
+  if(html.length>12000)throw new Error('Formatted text is too long. Shorten it to 12,000 characters.');
+  record[name]=html;
+}
+</script><script>'use strict';
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+const day=()=>new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Kolkata',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const money=paise=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR'}).format(Number(paise)/100);
+const drive=id=>/^[A-Za-z0-9_-]+$/.test(id||'')?'https://drive.google.com/file/d/'+id+'/view':'';
+const modal=$('modal');
+let token='',expires=0,expiryTimer,activityTimer,lastTouch=0,tables={},categoryCatalog=[],active='Finance',page=0,uploading=false;
+const titles={Finance:'Financial transactions',Donors:'Donor profiles',Sections:'Navigation sections',Content:'Devotee site editor',Requests:'Seva requests',Audit:'Audit log'};
+const opt=(items,value)=>items.map(item=>{
+  const [id,label]=Array.isArray(item)?item:[item,item];
+  return '<option value="'+esc(id)+'" '+(String(id)===String(value)?'selected':'')+'>'+esc(label)+'</option>';
+}).join('');
+const message=(form,text)=>{form.querySelector('.notice').textContent=text;};
+function rpc(action,data={}) {
+  return new Promise((resolve,reject)=>{
+    if(!globalThis.google?.script?.run) {reject(new Error('Open the deployed Apps Script portal.'));return;}
+    google.script.run.withSuccessHandler(resolve).withFailureHandler(error=>{
+      const text=String(error?.message||'Request failed.').replace(/^Exception:\s*/,'');
+      if(/session has expired/i.test(text)) clearSession(text);
+      reject(new Error(text));
+    }).portal(action,{...data,token});
+  });
+}
+function formAction(form,action) {
+  let submitting=false;
+  form.onsubmit=async event=>{
+    event.preventDefault();
+    if(submitting) return;
+    const data=Object.fromEntries(new FormData(form));
+    const buttons=[...form.querySelectorAll('button:not([type]),button[type="submit"],input[type="submit"]')].filter(button=>!button.disabled);
+    submitting=true;
+    buttons.forEach(button=>{button.disabled=true;});
+    message(form,'');
+    try {await action(data,form,event.submitter?.value);}
+    catch(error) {message(form,error.message);}
+    finally {
+      buttons.forEach(button=>{button.disabled=false;});
+      submitting=false;
+    }
+  };
+}
+function show(title,body) {
+  disposeEditor();
+  $('modalBody').onclick=null;
+  $('modalTitle').textContent=title;$('modalBody').innerHTML=body;
+  if(!modal.open) modal.showModal();
+}
+$('close').onclick=()=>{if(!uploading) modal.close();};
+modal.addEventListener('close',()=>{if(!modal.open)disposeEditor();});
+modal.addEventListener('cancel',e=>{if(uploading) e.preventDefault();});
+function storeSession(value) {try{sessionStorage.setItem('temple-token',value);}catch{}}
+function clearSession(text='') {
+  token='';expires=0;lastTouch=0;tables={};page=0;storeSession('');
+  clearTimeout(expiryTimer);clearTimeout(activityTimer);
+  $('records').replaceChildren();$('stats').replaceChildren();$('sectionFilter').replaceChildren();
+  $('workspace').hidden=true;$('logout').hidden=true;$('login').hidden=false;$('global').textContent=text;
+  if(modal.open) modal.close();
+  $('modalBody').replaceChildren();
+}
+function setExpiry(time) {
+  expires=time;clearTimeout(expiryTimer);
+  expiryTimer=setTimeout(()=>clearSession('Signed out after two hours of inactivity.'),Math.max(0,time-Date.now()));
+}
+function noteActivity() {
+  if(!token) return;
+  if(Date.now()>=expires) {clearSession('Your session has expired. Sign in again.');return;}
+  if(activityTimer) return;
+  const session=token;
+  activityTimer=setTimeout(async ()=>{
+    activityTimer=null;
+    if(token!==session) return;
+    try {const data=await rpc('touch');if(token===session){lastTouch=Date.now();setExpiry(data.expires);}} catch {}
+  },Math.max(0,10000-(Date.now()-lastTouch)));
+}
+for(const event of ['pointerdown','keydown','wheel','touchstart']) document.addEventListener(event,noteActivity,{passive:true});
+async function refresh() {
+  const session=token,data=await rpc('snapshot');
+  if(token!==session) return;
+  tables=data.tables;categoryCatalog=data.categoryCatalog||[];setExpiry(data.expires);
+  $('login').hidden=true;$('workspace').hidden=false;$('logout').hidden=false;$('global').textContent='';
+  render();
+  loadAdminCarouselPreview().catch(error=>{if($('adminCarouselStatus'))$('adminCarouselStatus').textContent='Carousel preview unavailable: '+error.message;});
+}
+$('logout').onclick=()=>{
+  const ending=rpc('logout');
+  clearSession('Signed out.');
+  ending.catch(()=>{$('global').textContent='Signed out on this device. The server session will expire automatically.';});
+};
+formAction($('loginForm'),async ({password},form)=>{
+  const session=await rpc('login',{password});
+  token=session.token;storeSession(token);form.reset();setExpiry(session.expires);
+  await refresh();
+});
+$('forgot').onclick=()=>{
+  show('Reset administrator password','<p>Send a six-digit code to the recovery email configured for this temple.</p><form class="form" id="sendOtp"><button class="button">Send code</button><p class="notice" role="status"></p></form><hr><form class="form" id="resetOtp"><label>Verification code<input name="code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9]{6}" maxlength="6" required></label><label>New password<input name="password" type="password" autocomplete="new-password" minlength="16" maxlength="128" required></label><label>Confirm password<input name="confirm" type="password" autocomplete="new-password" minlength="16" maxlength="128" required></label><button class="button secondary">Set new password</button><p class="notice" role="status"></p></form>');
+  formAction($('sendOtp'),async(_,form)=>{await rpc('sendOtp');message(form,'Code sent. Check the configured recovery inbox.');});
+  formAction($('resetOtp'),async data=>{
+    if(data.password!==data.confirm) throw new Error('The passwords do not match.');
+    await rpc('reset',{code:data.code,password:data.password});
+    clearSession('Password reset. Sign in with your new password.');
+  });
+};
+function field(label,name,value='',attrs='',wide=false) {
+  return '<label class="'+(wide?'wide':'')+'">'+esc(label)+'<input name="'+name+'" value="'+esc(value)+'" '+attrs+'></label>';
+}
+function area(label,name,value='',max=12000) {return '<label class="wide">'+esc(label)+'<textarea name="'+name+'" maxlength="'+max+'">'+esc(value)+'</textarea></label>';}
+function select(label,name,items,value,required=true) {return '<label>'+esc(label)+'<select name="'+name+'"'+(required?' required':'')+'>'+opt(items,value)+'</select></label>';}
+function attachment(label,id) {
+  return '<div class="wide">'+field(label,'file','','type="file"')+
+    (drive(id)?'<div class="actions"><a href="'+drive(id)+'" target="_blank" rel="noopener noreferrer">Current attachment ↗</a><label class="checkbox"><input type="checkbox" name="removeFile"> Remove current attachment</label></div>':'')+
+    '<small class="muted">Up to 8 MB. Use YouTube or an HTTPS link for larger media.</small></div>';
+}
+function file64(file) {
+  return new Promise((resolve,reject)=>{
+    const reader=new FileReader();
+    reader.onload=()=>resolve(String(reader.result).split(',')[1]);
+    reader.onerror=()=>reject(new Error('Could not read the file.'));
+    reader.readAsDataURL(file);
+  });
+}
+function openEditor(row={}) {
+  const table=active, sectionOptions=(tables.Sections||[]).map(r=>[r.id,r.title]);
+  let fields='';
+  if(table==='Finance') fields=
+    select('Transaction type','type',['Donation','Expense'],row.type)+select('Donor profile','donorId',[['','Unassigned'],...(tables.Donors||[]).map(d=>[d.id,d.name+(d.phone?' · '+d.phone:'')]),...(row.donorId&&!(tables.Donors||[]).some(d=>d.id===row.donorId)?[[row.donorId,'Archived donor']]:[])],row.donorId,false)+field('Transaction date','date',row.date||day(),'type="date" required')+
+    field('Amount in ₹','amount',row.amountPaise?(Number(row.amountPaise)/100).toFixed(2):'','inputmode="decimal" maxlength="12" required')+
+    field('Category','category',row.category,'maxlength="140" list="txCategories" required')+'<datalist id="txCategories"></datalist>'+select('Payment method','method',['Cash','UPI','Bank transfer','Card','Cheque','Other'],row.method)+
+    field('Reference number','reference',row.reference,'maxlength="120"')+field('Paid by or to','party',row.party,'maxlength="150"',true)+
+    richField('Private finance notes','notes',row.notes)+select('Publish donor name (requires donor consent)','publishDonor',['No','Yes'],row.publishDonor||'No')+field('Public note (only when consent is Yes; never include contact details)','publicNote',row.publicNote||'','maxlength="350"')+attachment('Receipt file',row.receipt)+select('Status','status',row.status==='Review'?['Review','Active','Inactive']:['Active','Inactive'],row.status)+
+    (row.recordedBy?'<p class="muted">Recorded by '+esc(row.recordedBy)+'</p>':'');
+  if(table==='Donors') {
+    const prior=[...new Set((tables.Finance||[]).filter(x=>x.type==='Donation'&&x.party).map(x=>x.party))].sort();
+    fields=field('Donor name','name',row.name,'maxlength="140" list="donorNames" required',true)+
+      '<datalist id="donorNames">'+opt(prior)+'</datalist>'+
+      field('Phone','phone',row.phone,'type="tel" maxlength="40"')+field('Email','email',row.email,'type="email" maxlength="254"')+area('Private notes','notes',row.notes);
+  }
+  if(table==='Sections') fields=field('Section title','title',row.title,'maxlength="140" required')+
+    field('Navigation slug','slug',row.slug,'pattern="[a-z0-9]+(-[a-z0-9]+)*" maxlength="50" required')+
+    area('Section introduction','summary',row.summary,1500)+field('Sort order','order',row.order||0,'type="number" min="0" max="99999" required')+
+    select('Visibility','status',['Draft','Published'],row.status);
+  if(table==='Content') {
+    if(!sectionOptions.length) {show('Add a section first','<p>Create a navigation section before adding its content.</p>');return;}
+    fields=select('Section','section',sectionOptions,row.section||$('sectionFilter').value)+field('Title','title',row.title,'maxlength="140" required')+
+      richField('Public description or article','body',row.body)+field('Date','date',row.date,'type="date"')+
+      field('Time, price or short label','extra',row.extra,'maxlength="300"')+field('HTTPS link','url',row.url,'type="url" maxlength="1000"',true)+
+      attachment('Media or document',row.media)+field('Sort order','order',row.order||0,'type="number" min="0" max="99999" required')+select('Visibility','status',['Draft','Published'],row.status);
+  }
+  if(table==='Requests') fields='<div class="wide"><strong>'+esc(row.service)+'</strong><p>'+esc(row.name)+' · '+esc(row.date)+'</p><p>'+esc(row.note)+'</p></div>'+
+    select('Request status','status',['Pending','Confirmed','Declined'],row.status);
+  const heading={Finance:'transaction',Donors:'donor',Sections:'section',Content:'content',Requests:'request'};
+  show((row.id?'Edit ':'Add ')+heading[table],'<form id="editor" class="form cols">'+fields+'<p class="notice wide" role="status"></p><div class="actions wide"><button class="button" value="save">Save</button><button class="button secondary" value="another">Save and add another</button><button class="button secondary" value="continue">Save and continue editing</button></div></form>');
+  if(table==='Finance') {
+    bindRich('notes');
+    const form=$('editor'), toggle=()=>{
+      form.elements.donorId.disabled=form.elements.type.value!=='Donation';
+      const categories=[...new Set([...categoryCatalog,...(tables.Finance||[]).filter(r=>r.type===form.elements.type.value&&r.category).map(r=>r.category)])].sort();
+      $('txCategories').innerHTML=opt(categories);
+    };
+    form.elements.type.onchange=toggle;toggle();
+  }
+  if(table==='Content') bindRich('body');
+  const requestId=table==='Finance'&&!row.id?crypto.randomUUID():'';
+  formAction($('editor'),async (record,form,next)=>{
+    collectRich(record);
+    const selected=form.elements.file?.files[0];
+    let file;
+    if(selected) {
+      if(selected.size>8*1024*1024||!selected.size) throw new Error('Choose a file up to 8 MB.');
+      file={name:selected.name,type:selected.type,base64:await file64(selected)};
+    }
+    delete record.file;
+    const saved=await rpc('save',{table,requestId,record:{...record,id:row.id||'',updated:row.updated||''},file:file||null});
+    modal.close();await refresh();
+    if(next==='continue') openEditor(saved);
+    if(next==='another') openEditor(table==='Content'?{section:saved.section}:{});
+
+  });
+}
+function confirmDelete(row) {
+  const table=active;
+  show('Delete record','<p>Remove '+esc(row.title||row.category||row.name)+' from the portal? Enter the deletion password configured in Script Properties.</p><form class="form" id="deleteForm">'+field('Deletion password','password','','type="password" autocomplete="off" required')+'<button class="button">Delete record</button><p class="notice" role="status"></p></form>');
+  formAction($('deleteForm'),async ({password})=>{
+    await rpc('delete',{table,id:row.id,updated:row.updated,password});
+    modal.close();await refresh();
+  });
+}
+function openYouTube() {
+  const videoSection=(tables.Sections||[]).find(r=>r.slug==='videos');
+  if(!videoSection) {show('Create a Videos section','<p>Add a navigation section with the slug “videos” first.</p>');return;}
+  show('Upload to YouTube','<p>Select a video up to 1 GB. The upload goes to the channel authorized by the Apps Script owner.</p><form id="youtubeForm" class="form">'+
+    field('Video file','video','','type="file" accept="video/*" required')+field('Title','title','','maxlength="100" required')+area('Description','description','',4500)+
+    select('YouTube visibility','privacy',['private','unlisted','public'],'private')+
+    select('Made for kids','audience',[['','Choose an audience'],['no','No'],['yes','Yes']],'')+
+    '<progress id="uploadProgress" max="1" value="0" hidden></progress><p class="notice" role="status"></p><button class="button">Start upload</button></form>');
+  formAction($('youtubeForm'),async(data,form)=>{
+    const file=form.elements.video.files[0];
+    if(!file||file.size>1024*1024*1024) throw new Error('Select a video up to 1 GB.');
+    uploading=true;$('close').disabled=true;
+    const progress=$('uploadProgress');progress.hidden=false;
+    try {
+      const start=await rpc('youtubeStart',{title:data.title,description:data.description,privacy:data.privacy,forKids:data.audience==='yes',size:file.size,mime:file.type});
+      let offset=0,result,repeats=0;
+      while(offset<file.size) {
+        const base64=await file64(file.slice(offset,offset+start.chunkSize));
+        result=await rpc('youtubeChunk',{upload:start.upload,offset,base64});
+        repeats=result.offset===offset?repeats+1:0;
+        if(repeats>2) throw new Error('The upload stopped making progress. Check YouTube Studio before retrying.');
+        offset=result.offset;progress.value=offset/file.size;
+      }
+      if(!result?.videoId) throw new Error('YouTube did not confirm the video. Check YouTube Studio.');
+      try {
+        await rpc('save',{table:'Content',record:{section:videoSection.id,title:data.title,body:data.description,url:result.url,order:0,status:'Draft'}});
+      } catch(error) {
+        show('Video uploaded','<p>The draft could not be saved. Add the video link manually from Section content.</p><p><a href="'+esc(result.url)+'" target="_blank" rel="noopener noreferrer">'+esc(result.url)+'</a></p><p class="notice">'+esc(error.message)+'</p>');
+        return;
+      }
+      show('Video uploaded','<p>A draft video entry was added to the Videos section.</p><a href="'+esc(result.url)+'" target="_blank" rel="noopener noreferrer">View on YouTube ↗</a>');
+      await refresh();
+    } finally {uploading=false;$('close').disabled=false;}
+  });
+}
+function openHistory(donor) {
+  const normalized=value=>String(value||'').trim().replace(/\s+/g,' ').toLowerCase();
+  const all=(tables.Finance||[]).filter(r=>r.type==='Donation').sort((a,b)=>b.date.localeCompare(a.date));
+  const linked=all.filter(r=>r.donorId===donor.id);
+  const possible=all.filter(r=>!r.donorId&&normalized(r.party)===normalized(donor.name));
+  const line=r=>'<article class="row between"><div><strong>'+esc(money(r.amountPaise))+'</strong><p>'+[r.date,r.reference,r.status,r.coverage].filter(Boolean).map(esc).join(' · ')+'</p>'+(r.notes?'<details><summary>Private notes</summary><div class="rich-text">'+TempleRich.html(r.notes)+'</div></details>':'')+'</div>'+(drive(r.receipt)?'<a class="button compact secondary" href="'+drive(r.receipt)+'" target="_blank" rel="noopener noreferrer">Receipt ↗</a>':'')+'<button class="button compact secondary" data-tx="'+esc(r.id)+'">Review transaction</button></article>';
+  const activeTotal=linked.filter(r=>r.status==='Active').reduce((sum,r)=>sum+Number(r.amountPaise),0);
+  show(donor.name+' · Donations','<div class="stats"><div class="stat"><span>Linked donations</span><strong>'+linked.length+'</strong></div><div class="stat"><span>Active donation total</span><strong>'+esc(money(activeTotal))+'</strong></div></div><div class="list">'+(linked.map(line).join('')||'<p>No linked donations.</p>')+'</div>'+(possible.length?'<h3>Possible historical matches</h3><p>These names match. Review the source details before assigning a transaction to this donor.</p><div class="list">'+possible.map(line).join('')+'</div>':''));
+  $('modalBody').onclick=e=>{
+    const transaction=all.find(r=>r.id===e.target.dataset.tx);
+    if(transaction) {active='Finance';render();openEditor({...transaction,donorId:transaction.donorId||donor.id});}
+  };
+}
+function render() {
+  const finance=tables.Finance||[], pending=(tables.Requests||[]).filter(r=>r.status==='Pending').length;
+  const sum=(type,status)=>finance.filter(r=>r.type===type&&r.status===status).reduce((total,r)=>total+Number(r.amountPaise),0);
+  const donation=sum('Donation','Active'),expense=sum('Expense','Active');
+  const review=finance.filter(r=>r.status==='Review').length;
+  const cards=[
+    ['Active donations',money(donation),'donation'],
+    ['Active expenses',money(expense),'expense'],
+    ['Net balance',money(donation-expense),donation<expense?'expense':'balance'],
+    ['Pending sevas',pending,'sevas']
+  ];
+  $('stats').innerHTML=cards.map(([label,value,tone])=>'<div class="stat stat-'+tone+'"><span>'+esc(label)+'</span><strong>'+esc(value)+'</strong></div>').join('')+
+    (review?'<button type="button" class="review-ledger">'+review+' transactions need review · excluded from totals →</button>':'');
+  $('stats').querySelector('.review-ledger')?.addEventListener('click',()=>{
+    active='Finance';page=0;$('search').value='';
+    for(const id of ['financeType','financeYear','financeCategory','financeMethod','dateFrom','dateTo']) $(id).value='';
+    $('financeStatus').value='Review';$('financeFilterPanel').open=true;render();
+  });
+  const latest=[...finance].sort((a,b)=>String(b.date||'').localeCompare(String(a.date||''))).slice(0,5);
+  $('financeOverview').innerHTML='<div><span>Donations received</span><strong>'+esc(money(donation))+'</strong></div><div><span>Temple expenses</span><strong>'+esc(money(expense))+'</strong></div><div><span>Available balance</span><strong>'+esc(money(donation-expense))+'</strong></div>';
+  $('recentFinance').innerHTML=latest.length?latest.map(r=>'<div class="finance-preview-row"><span><b>'+esc(r.category||r.type||'Transaction')+'</b><small>'+esc(r.date||'')+'</small></span><strong class="'+(r.type==='Expense'?'outflow':'inflow')+'">'+(r.type==='Expense'?'−':'+')+esc(money(r.amountPaise))+'</strong><button type="button" class="finance-edit-preview" data-finance-edit="'+esc(r.id)+'" aria-label="Edit transaction">✎</button></div>').join(''):'<p class="muted">No financial transactions yet. Add a transaction to get started.</p>';
+  if($('adminSideNav') && $('tabs').parentElement!==$('adminSideNav')) $('adminSideNav').append($('tabs'));
+  $('tabs').innerHTML=Object.entries(titles).map(([key,title])=>'<button class="button secondary" type="button" aria-pressed="'+(active===key)+'" data-tab="'+key+'">'+title+'</button>').join('');
+  $('moduleTitle').textContent=titles[active];
+  $('add').hidden=['Requests','Audit','Giving'].includes(active);
+  $('add').textContent={Finance:'Add transaction',Donors:'Add donor',Sections:'Add section',Content:'Add content'}[active]||'Add';
+  $('uploadVideo').hidden=active!=='Content';
+  $('sectionFilterLabel').hidden=active!=='Content';
+  $('siteControls').hidden=!['Sections','Content'].includes(active);
+  $('sectionShortcuts').innerHTML=(tables.Sections||[]).filter(r=>r.slug!=='carousel').sort((a,b)=>Number(a.order)-Number(b.order)).map(r=>'<button type="button" class="button compact secondary" data-site-section="'+esc(r.id)+'">'+esc(r.title)+'</button>').join('');
+  const rows=tables.Finance||[];
+  for(const [id,values] of [['financeYear',rows.map(r=>r.date?.slice(0,4))],['financeCategory',rows.map(r=>r.category)],['financeMethod',rows.map(r=>r.method)]]){
+    $(id).innerHTML=opt([['','All'],...[...new Set(values.filter(Boolean))].sort()],$(id).value);
+  }
+  $('financeFilterPanel').hidden=active!=='Finance';
+  $('manageFinanceCategories').hidden=active!=='Finance';
+  $('sectionFilter').innerHTML=opt([['','All sections'],...(tables.Sections||[]).map(r=>[r.id,r.title])],$('sectionFilter').value);
+  renderRows();
+}
+const donorKey=value=>String(value||'').trim().replace(/\s+/g,' ').toLowerCase();
+function donationGroups(){
+  const donors=new Map((tables.Donors||[]).map(row=>[row.id,row]));
+  const groups=new Map();
+  for(const row of tables.Finance||[]){
+    if(row.type!=='Donation') continue;
+    const key=row.donorId?'profile:'+row.donorId:'legacy:'+donorKey(row.party);
+    const name=row.donorId?(donors.get(row.donorId)?.name||row.party||'Archived donor'):(row.party||'Unnamed donations');
+    if(!groups.has(key)) groups.set(key,{key,name,linked:!!row.donorId,rows:[],active:0});
+    const group=groups.get(key);group.rows.push(row);
+    if(row.status==='Active')group.active+=Number(row.amountPaise)||0;
+  }
+  return [...groups.values()];
+}
+function renderGiving(query){
+  const groups=donationGroups().filter(g=>g.name.toLowerCase().includes(query));
+  if($('sort').value==='name')groups.sort((a,b)=>a.name.localeCompare(b.name));
+  else if($('sort').value==='highest')groups.sort((a,b)=>b.active-a.active);
+  else {
+    const latest=g=>g.rows.reduce((date,r)=>String(r.date||'')>date?String(r.date):date,'');
+    groups.sort((a,b)=>($('sort').value==='oldest'?1:-1)*latest(a).localeCompare(latest(b)));
+  }
+  page=Math.min(page,Math.max(0,Math.ceil(groups.length/12)-1));
+  $('recordCount').textContent=groups.length+' donor profiles or recorded-name groups';
+  $('records').innerHTML='<div class="giving-grid">'+groups.slice(page*12,page*12+12).map(g=>'<article class="giving-card"><span class="badge">'+(g.linked?'Linked profile':'Recorded name · unlinked')+'</span><h3>'+esc(g.name)+'</h3><strong>'+esc(money(g.active))+'</strong><p class="muted">'+g.rows.length+' transactions · active total shown</p><button class="button compact" data-giving="'+esc(g.key)+'">View full history</button></article>').join('')+'</div>';
+  $('pagination').innerHTML=groups.length>12?'<button type="button" class="button compact secondary" data-page="-1" '+(!page?'disabled':'')+'>Previous</button><span>'+(page+1)+' / '+Math.ceil(groups.length/12)+'</span><button type="button" class="button compact secondary" data-page="1" '+((page+1)*12>=groups.length?'disabled':'')+'>Next</button>':'';
+}
+function showGiving(key){
+  const group=donationGroups().find(g=>g.key===key);
+  if(!group)return;
+  const history=[...group.rows].sort((a,b)=>String(b.date||'').localeCompare(String(a.date||'')));
+  const note=r=>r.notes?'<details><summary>Notes</summary><div class="rich-text">'+TempleRich.html(r.notes)+'</div></details>':'';
+  const cards=history.map(r=>'<article class="history-row"><div class="row between"><strong>'+esc(money(r.amountPaise))+'</strong><span class="badge">'+esc(r.status)+'</span></div><p>'+[r.date,r.category,r.method,r.reference].filter(Boolean).map(esc).join(' · ')+'</p>'+note(r)+'<div class="actions">'+(drive(r.receipt)?'<a class="button compact secondary" href="'+drive(r.receipt)+'" target="_blank" rel="noopener noreferrer">Receipt ↗</a>':'')+'<button type="button" class="button compact secondary" data-history-edit="'+esc(r.id)+'">Review transaction</button></div></article>').join('');
+  show(group.name+' · Donations','<p><strong>'+esc(money(group.active))+'</strong> active total · '+history.length+' transactions</p>'+(!group.linked?'<p class="muted">Grouped by the name recorded in the ledger. Confirm the donor identity before linking these entries to a profile.</p>':'')+cards);
+  $('modalBody').onclick=e=>{
+    const row=history.find(r=>r.id===e.target.dataset.historyEdit);
+    if(row){active='Finance';page=0;render();openEditor(row);}
+  };
+}
+function manageFinanceCategories(){
+  const used=new Set((tables.Finance||[]).map(r=>r.category));
+  const labels=[...new Set([...categoryCatalog,...used])].sort();
+  show('Manage finance categories','<p>Add a category or a nested category using <strong>Parent / Subcategory</strong>. Deletion requires the configured deletion password, and categories with existing transactions cannot be deleted.</p><form id="categoryAddForm" class="form"><label>Category or subcategory<input name="label" required maxlength="140" placeholder="Temple rituals / Pooja materials"></label><button class="button">Add category</button><p class="notice" role="status"></p></form><div class="category-detail-list">'+labels.map(label=>'<div class="category-detail-row row between"><strong>'+esc(label)+'</strong><button class="button compact secondary" data-remove-category="'+esc(label)+'" '+(used.has(label)?'disabled title="Reassign existing transactions first"':'')+'>Delete</button></div>').join('')+'</div>');
+  formAction($('categoryAddForm'),async data=>{const result=await rpc('categoryAdd',data);categoryCatalog=result.items;manageFinanceCategories();render();});
+  $('modalBody').onclick=async e=>{const button=e.target.closest('[data-remove-category]');if(!button)return;const label=button.dataset.removeCategory;const password=prompt('Enter the deletion password to delete category: '+label);if(password===null)return;try{const result=await rpc('categoryDelete',{label,password});categoryCatalog=result.items;manageFinanceCategories();render();}catch(error){alert(error.message);}};
+}
+$('manageFinanceCategories').onclick=manageFinanceCategories;
+function financeCategoryCards(rows) {
+  const groups=new Map();
+  for(const r of rows){
+    const category=String(r.category||'Uncategorized').trim();
+    const key=r.type+'::'+category;
+    if(!groups.has(key))groups.set(key,{type:r.type,category,rows:[],active:0});
+    const g=groups.get(key);g.rows.push(r);
+    if(r.status==='Active')g.active+=Number(r.amountPaise)||0;
+  }
+  const items=[...groups.values()].sort((a,b)=>a.type.localeCompare(b.type)||b.active-a.active);
+  return '<div class="finance-category-header"><h3>Category overview</h3><p>Choose a category to inspect transactions, donor history and notes. Use the filters above to narrow these cards.</p></div><div class="finance-category-grid">'+items.map(g=>'<button type="button" class="finance-category-card '+(g.type==='Expense'?'expense':'donation')+'" data-category-detail="'+esc(g.type+'::'+g.category)+'"><span class="category-card-icon">'+(g.type==='Expense'?'↗':'♡')+'</span><span class="category-card-type">'+esc(g.type)+'</span><strong>'+esc(g.category)+'</strong><span class="category-card-total">'+esc(money(g.active))+'</span><small>'+g.rows.length+' records · active total</small><span class="category-card-link">View details →</span></button>').join('')+'</div>';
+}
+function showFinanceCategory(key) {
+  const index=key.indexOf('::');if(index<0)return;
+  const type=key.slice(0,index),category=key.slice(index+2);
+  const records=(tables.Finance||[]).filter(r=>r.type===type&&String(r.category||'Uncategorized').trim()===category).sort((a,b)=>String(b.date).localeCompare(String(a.date)));
+  const total=records.filter(r=>r.status==='Active').reduce((n,r)=>n+(Number(r.amountPaise)||0),0);
+  const rows=records.map(r=>'<article class="category-detail-row"><div class="row between"><strong>'+esc(r.party||'Unspecified')+'</strong><strong>'+esc(money(r.amountPaise))+'</strong></div><p>'+[r.date,r.method,r.status,r.reference].filter(Boolean).map(esc).join(' · ')+'</p>'+(r.notes?'<details><summary>View notes</summary><div class="rich-text">'+TempleRich.html(r.notes)+'</div></details>':'')+'<div class="actions"><button class="button compact secondary" data-category-edit="'+esc(r.id)+'">Edit record</button>'+(r.type==='Donation'?'<button class="button compact secondary" data-category-donor="'+esc(r.id)+'">Donor history</button>':'')+'</div></article>').join('');
+  show(category+' · '+type,'<div class="category-modal-summary"><span>Active '+esc(type.toLowerCase())+' total</span><strong>'+esc(money(total))+'</strong><small>'+records.length+' records</small></div><div class="category-detail-list">'+(rows||'<p>No transactions.</p>')+'</div>');
+  $('modalBody').onclick=e=>{
+    const edit=e.target.closest('[data-category-edit]');const donor=e.target.closest('[data-category-donor]');
+    if(edit){const row=records.find(r=>r.id===edit.dataset.categoryEdit);if(row){active='Finance';render();openEditor(row);}}
+    if(donor){const row=records.find(r=>r.id===donor.dataset.categoryDonor);if(row){const group=donationGroups().find(g=>g.key===(row.donorId?'profile:'+row.donorId:'legacy:'+donorKey(row.party)));if(group)showGiving(group.key);}}
+  };
+}
+function renderRows() {
+  const section=$('sectionFilter').value, query=$('search').value.trim().toLowerCase();
+  if(active==='Giving'){renderGiving(query);return;}
+  const financeType=$('financeType').value, financeStatus=$('financeStatus').value, dateFrom=$('dateFrom').value, dateTo=$('dateTo').value;
+  const source=(tables[active]||[]).filter(r=>{
+    if(active==='Content'&&section&&r.section!==section) return false;
+    if(active==='Finance'&&(($('financeYear').value&&!r.date?.startsWith($('financeYear').value))||($('financeCategory').value&&r.category!==$('financeCategory').value)||($('financeMethod').value&&r.method!==$('financeMethod').value)||(financeType&&r.type!==financeType)||(financeStatus&&r.status!==financeStatus)||(dateFrom&&r.date<dateFrom)||(dateTo&&r.date>dateTo))) return false;
+    return !query||Object.values(r).some(v=>String(v).toLowerCase().includes(query));
+  }).reverse();
+  const sort=$('sort').value;
+  if(sort==='name') source.sort((a,b)=>String(a.title||a.name||a.category||a.service||a.action||'').localeCompare(String(b.title||b.name||b.category||b.service||b.action||'')));
+  if(active==='Finance'&&['latest','oldest'].includes(sort)) source.sort((a,b)=>(sort==='latest'?-1:1)*String(a.date||'').localeCompare(String(b.date||'')));
+  else if(sort==='oldest') source.reverse();
+  if(sort==='highest') source.sort((a,b)=>Number(b.amountPaise||0)-Number(a.amountPaise||0));
+  page=Math.max(0,Math.min(page,Math.ceil(source.length/20)-1));
+  $('recordCount').textContent=source.length+' '+(source.length===1?'record':'records');
+  const slice=source.slice(page*20,page*20+20);
+  const txActions=r=>'<button class="button compact secondary" data-edit="'+esc(r.id)+'">Edit</button> <button class="button compact secondary" data-delete="'+esc(r.id)+'">Delete</button>';
+  const txStatus=r=>'<span class="badge status-'+esc(String(r.status).toLowerCase())+'">'+esc(r.status)+'</span>';
+  const ledgerRows=slice.map(r=>'<tr><td><strong>'+esc(r.party||'—')+'</strong><small>'+esc(r.reference||'')+'</small></td><td>'+esc(r.date)+'</td><td>'+esc(r.type)+'<small>'+esc(r.category)+'</small></td><td class="ledger-amount">'+esc(money(r.amountPaise))+'</td><td>'+esc(r.method)+'</td><td>'+txStatus(r)+'</td><td>'+txActions(r)+'</td></tr>').join('');
+  const mobileRows=slice.map(r=>'<article class="transaction-card"><div class="row between"><strong>'+esc(r.party||'—')+'</strong><strong class="ledger-amount">'+esc(money(r.amountPaise))+'</strong></div><p>'+[r.date,r.type,r.category,r.method,r.reference].filter(Boolean).map(esc).join(' · ')+'</p><div class="row between">'+txStatus(r)+'<div class="actions">'+txActions(r)+'</div></div></article>').join('');
+  $('records').innerHTML=active==='Finance'&&slice.length ? financeCategoryCards(source)+'<details class="finance-ledger-details"><summary>Show all matching transactions ('+source.length+')</summary>'+'<div class="ledger-scroll"><table class="ledger"><thead><tr>'+['Paid by or to','Date','Transaction','Amount','Payment','Status','Actions'].map(h=>'<th scope="col">'+h+'</th>').join('')+'</tr></thead><tbody>'+ledgerRows+'</tbody></table></div><div class="transaction-cards">'+mobileRows+'</div>' +'</details>' : slice.map(r=>{
+    const title=r.title||r.category||r.name||r.service||r.action;
+    const detail=active==='Finance'?[r.type,money(r.amountPaise),r.date,r.method,r.party,r.reference]:
+      active==='Donors'?[r.phone,r.email]:active==='Sections'?['/'+r.slug,'Sort order '+r.order]:
+      active==='Content'?[(tables.Sections||[]).find(s=>s.id===r.section)?.title,r.date,r.extra]:
+      active==='Requests'?[r.name,r.date,r.note]:[r.date,r.table,r.target];
+    return '<article class="row between"><div><strong>'+esc(title)+'</strong> '+(r.status?'<span class="badge">'+esc(r.status)+'</span>':'')+'<p>'+detail.filter(Boolean).map(esc).join(' · ')+'</p></div>'+
+      (active==='Audit'?'':'<div class="actions">'+(active==='Donors'?'<button class="button compact" data-history="'+esc(r.id)+'">Donation history</button>':'')+'<button class="button compact secondary" data-edit="'+esc(r.id)+'">'+(active==='Requests'?'Update status':'Edit')+'</button>'+
+      (active==='Requests'?'':'<button class="button compact secondary" data-delete="'+esc(r.id)+'">Delete</button>')+(['Sections','Content'].includes(active)?'<button class="button compact" data-visibility="'+esc(r.id)+'">'+(r.status==='Published'?'Hide':'Show')+'</button>':'')+'</div>')+'</article>';
+  }).join('')||'<p class="muted">No matching records.</p>';
+  $('pagination').innerHTML=source.length>20?'<button type="button" class="button compact secondary" data-page="-1" '+(!page?'disabled':'')+'>Previous</button><span>'+ (page+1)+' / '+Math.ceil(source.length/20)+'</span><button type="button" class="button compact secondary" data-page="1" '+((page+1)*20>=source.length?'disabled':'')+'>Next</button>':'';
+}
+$('tabs').onclick=e=>{const btn=e.target.closest('[data-tab]');if(!btn)return;active=btn.dataset.tab;page=0;$('search').value='';render();$('tabs').querySelector('[data-tab="'+active+'"]').focus();};
+$('pagination').onclick=e=>{if(e.target.dataset.page){page+=Number(e.target.dataset.page);renderRows();}};
+$('search').oninput=()=>{page=0;renderRows();};
+for(const id of ['sort','sectionFilter','financeType','financeStatus','dateFrom','dateTo','financeYear','financeCategory','financeMethod']) $(id).onchange=()=>{page=0;renderRows();};
+$('records').onclick=async e=>{
+  if(e.target.dataset.giving){showGiving(e.target.dataset.giving);return;}
+  const id=e.target.dataset.edit||e.target.dataset.delete||e.target.dataset.history||e.target.dataset.visibility;
+  if(!id) return;
+  const row=tables[active].find(r=>r.id===id);
+  if(!row) return;
+  if(e.target.dataset.visibility){
+    e.target.disabled=true;
+    try {await rpc('visibility',{table:active,id:row.id,updated:row.updated,status:row.status==='Published'?'Draft':'Published'});await refresh();}
+    catch(error){$('global').textContent=error.message;}
+    finally{e.target.disabled=false;}
+  } else (e.target.dataset.history?openHistory:e.target.dataset.edit?openEditor:confirmDelete)(row);
+};
+$('sectionShortcuts').onclick=e=>{
+  const section=e.target.dataset.siteSection;
+  if(!section) return;
+  active='Content';page=0;$('search').value='';render();
+  $('sectionFilter').value=section;renderRows();
+};
+async function openDriveMediaManager(folder='gallery') {
+  show('Google Drive · Temple images',
+    '<p>Manage images stored directly in the temple Drive folders. New images appear on the devotee website after refresh. For priest portraits, name files after the published priest (or priest-1.jpg, priest-2.jpg, etc.). No GitHub media upload is needed.</p>'+
+    '<div class="media-toolbar"><label>Folder<select id="mediaFolder"><option value="gallery">Temple gallery</option><option value="carousel">Homepage carousel</option><option value="priests">Priest portraits</option></select></label>'+
+    '<button type="button" class="button secondary" id="mediaCheck">Test Drive permissions</button></div>'+
+    '<form id="mediaUploadForm" class="media-toolbar"><label>Choose image (max 8 MB)<input name="file" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required></label><button class="button">Upload image</button><p class="notice" role="status"></p></form>'+
+    '<div id="mediaStatus" class="media-status" role="status">Loading media…</div><div id="mediaGrid" class="media-grid"></div>'+
+    '<div class="media-danger"><label>Deletion password<input type="password" autocomplete="off" id="mediaDeletePassword" placeholder="Required to move an image to trash"></label><small>Deletion moves the image into Google Drive trash and removes any linked catalog thumbnail.</small></div>');
+  $('mediaFolder').value=folder;
+  const status=$('mediaStatus'),grid=$('mediaGrid');
+  const load=async()=>{
+    const target=$('mediaFolder').value;
+    status.textContent='Checking '+target+' folder…';grid.replaceChildren();
+    try {
+      const result=await rpc('mediaList',{folder:target});
+      status.textContent='Backend: '+result.build+' · '+result.photos.length+' images in '+target+' folder';
+      grid.innerHTML=result.photos.length?result.photos.map(photo=>'<article class="media-item">'+
+        '<img loading="lazy" src="https://drive.google.com/thumbnail?id='+encodeURIComponent(photo.id)+'&sz=w480" alt="" referrerpolicy="no-referrer">'+
+        '<strong>'+esc(photo.name)+'</strong><button type="button" class="button compact secondary" data-remove-media="'+esc(photo.id)+'">Move to trash</button></article>').join(''):'<p>No images in this folder.</p>';
+    } catch(error) {status.textContent='ERROR: '+error.message+'\nIf you see Unknown action, your Apps Script deployment is still running the old Code.gs.';}
+  };
+  $('mediaFolder').onchange=load;
+  $('mediaCheck').onclick=async()=>{
+    const btn=$('mediaCheck');btn.disabled=true;
+    try {
+      const result=await rpc('mediaProbe',{folder:$('mediaFolder').value});
+      status.textContent='Backend: '+result.build+'\n'+result.stages.join('\n')+
+        (result.tempFileId?'\nTest file could not be trashed: '+result.tempFileId:'');
+    }catch(error){status.textContent='Permission test failed: '+error.message;}
+    finally{btn.disabled=false;}
+  };
+  formAction($('mediaUploadForm'),async (_,form)=>{
+    const file=form.elements.file.files[0];
+    if(!file||!file.size||file.size>8*1024*1024)throw new Error('Choose an image up to 8 MB.');
+    if(!/^image\/(jpeg|png|gif|webp)$/i.test(file.type))throw new Error('Select JPG, PNG, GIF or WebP.');
+    await rpc('mediaUpload',{folder:$('mediaFolder').value,file:{name:file.name,type:file.type,base64:await file64(file)}});
+    form.reset();await load();
+  });
+  grid.onclick=async event=>{
+    const button=event.target.closest('[data-remove-media]');if(!button)return;
+    const password=$('mediaDeletePassword').value;
+    if(!password){status.textContent='Enter the deletion password first.';return;}
+    if(!confirm('Move this temple image into Google Drive trash? This cannot be undone from the admin panel.'))return;
+    button.disabled=true;
+    try{await rpc('mediaDelete',{folder:$('mediaFolder').value,id:button.dataset.removeMedia,password});
+      $('mediaDeletePassword').value='';await load();}
+    catch(error){status.textContent=error.message;button.disabled=false;}
+  };
+  await load();
+}
+let adminCarouselPhotos=[],adminCarouselIndex=0;
+const adminCarouselThumb=id=>'https://drive.google.com/thumbnail?id='+encodeURIComponent(id)+'&sz=w1200';
+function showAdminCarouselPreview(){
+  const img=$('adminCarouselImage'),empty=$('adminCarouselEmpty'),counter=$('adminCarouselCount'),title=$('adminCarouselName'),thumbs=$('adminCarouselThumbs');
+  if(!adminCarouselPhotos.length){img.hidden=true;img.removeAttribute('src');empty.hidden=false;empty.textContent='No images found in the Drive carousel folder.';counter.textContent='0 / 0';title.textContent='No photos yet';thumbs.replaceChildren();return;}
+  adminCarouselIndex=(adminCarouselIndex+adminCarouselPhotos.length)%adminCarouselPhotos.length;
+  const photo=adminCarouselPhotos[adminCarouselIndex];
+  title.textContent=photo.name||'Temple carousel image';
+  counter.textContent=(adminCarouselIndex+1)+' / '+adminCarouselPhotos.length;
+  empty.hidden=true;img.hidden=false;
+  img.onerror=()=>{img.hidden=true;empty.hidden=false;empty.textContent='Drive thumbnail preview unavailable. Try opening the image from your Drive folder.';};
+  img.alt='Carousel image: '+(photo.name||'Temple photo');
+  img.src=adminCarouselThumb(photo.id);
+  thumbs.innerHTML=adminCarouselPhotos.slice(0,30).map((p,i)=>'<button type="button" data-slide-index="'+i+'" aria-label="View photo '+(i+1)+'" aria-current="'+(i===adminCarouselIndex)+'"><img loading="lazy" alt="" src="'+esc(adminCarouselThumb(p.id))+'"></button>').join('');
+}
+async function loadAdminCarouselPreview(){
+  $('adminCarouselStatus').textContent='Loading carousel photographs from Google Drive…';
+  try{
+    const result=await rpc('mediaList',{folder:'carousel'});
+    adminCarouselPhotos=(Array.isArray(result.photos)?result.photos:[]).filter(p=>/^[A-Za-z0-9_-]{10,120}$/.test(p.id||''));
+    if(adminCarouselIndex>=adminCarouselPhotos.length)adminCarouselIndex=0;
+    $('adminCarouselStatus').textContent=adminCarouselPhotos.length+' image(s) in the carousel Drive folder.';
+    showAdminCarouselPreview();
+  }catch(error){
+    adminCarouselPhotos=[];showAdminCarouselPreview();
+    $('adminCarouselEmpty').textContent='Could not load the carousel preview.';
+    $('adminCarouselStatus').textContent='Drive carousel: '+error.message+' Check the Apps Script deployment and Drive folder permissions.';
+  }
+}
+$('adminCarouselPrev').onclick=()=>{if(adminCarouselPhotos.length){adminCarouselIndex--;showAdminCarouselPreview();}};
+$('adminCarouselNext').onclick=()=>{if(adminCarouselPhotos.length){adminCarouselIndex++;showAdminCarouselPreview();}};
+$('adminCarouselRefresh').onclick=()=>loadAdminCarouselPreview();
+$('carouselManageImages').onclick=()=>openDriveMediaManager('carousel');
+$('adminCarouselThumbs').onclick=event=>{const button=event.target.closest('[data-slide-index]');if(!button)return;adminCarouselIndex=Number(button.dataset.slideIndex);showAdminCarouselPreview();};
+
+$('manageDriveMedia').onclick=()=>openDriveMediaManager();
+$('manageCarousel').onclick=()=>openDriveMediaManager('carousel');
+$('add').onclick=()=>openEditor();
+$('uploadVideo').onclick=openYouTube;
+$('reload').onclick=()=>refresh().catch(error=>{$('global').textContent=error.message;});
+async function requestPage() {
+  $('request').hidden=false;
+  const form=$('requestForm');form.elements.date.min=day();
+  formAction(form,async(data,current)=>{
+    const r=await rpc('submitRequest',data);
+    current.reset();
+    show('Request submitted','<p>Your request is pending. Save this code to check its status.</p><p><code>'+esc(r.code)+'</code></p>');
+    $('trackForm').elements.code.value=r.code;
+  });
+  formAction($('trackForm'),async(data,current)=>{
+    const r=await rpc('trackRequest',{code:data.code.trim()});
+    message(current,r.service+' · '+r.date+' · '+r.status);
+  });
+  try {
+    const data=await rpc('catalog'), sevas=data.sections.find(s=>s.slug==='sevas');
+    const items=data.content.filter(r=>r.section===sevas?.id);
+    form.elements.service.innerHTML=opt(items.map(r=>[r.id,r.title]));
+    if(!items.length){form.querySelector('button').disabled=true;message(form,'The committee has yet to publish sevas.');}
+  } catch(error) {form.querySelector('button').disabled=true;message(form,error.message);}
+}
+if(document.body.dataset.view==='request') requestPage();
+else {
+  $('admin').hidden=false;
+  try{token=sessionStorage.getItem('temple-token')||'';}catch{}
+  if(token) refresh().catch(error=>clearSession(error.message));
+}
+
+// Dashboard shortcuts preserve the existing editor, permissions and save flow.
+document.querySelector('.admin-overview')?.addEventListener('click',event=>{
+ const edit=event.target.closest('[data-finance-edit]');
+ if(edit){const row=(tables.Finance||[]).find(r=>String(r.id)===edit.dataset.financeEdit);if(row){active='Finance';page=0;render();openEditor(row);}return;}
+ const btn=event.target.closest('[data-go-module]');if(!btn)return;
+ active=btn.dataset.goModule;page=0;$('search').value='';render();
+ if(btn.dataset.create==='true'&&!$('add').hidden)$('add').click();
+ else document.querySelector('.admin-layout')?.scrollIntoView({behavior:'smooth',block:'start'});
+});
+
+$('records').addEventListener('click',event=>{const card=event.target.closest('[data-category-detail]');if(card)showFinanceCategory(card.dataset.categoryDetail);});
+
+// Section-by-section visual editor: uses the existing server-authorized RPC, forms and delete confirmation.
+let visualMode=true;
+const visualSlugs=[['about','About the temple'],['timings','Darshan & pooja timings'],['sevas','Sevas'],['priests','Priests'],['gallery','Gallery'],['videos','Videos'],['articles','Articles'],['donations','Donations'],['announcements','Announcements'],['visit','Visit & contact']];
+const visualIdMap=()=>new Map((tables.Sections||[]).map(r=>[r.slug,r]));
+const visualThumb=id=>'https://drive.google.com/thumbnail?id='+encodeURIComponent(id)+'&sz=w480';
+function visualSwitch(on){visualMode=on;document.body.classList.toggle('visual-mode',on);$('visualWorkspace').hidden=!on;$('visualReturn').hidden=on;document.querySelector('#workspace > .admin-layout').hidden=on;document.querySelector('#workspace > .admin-overview').hidden=on;document.querySelector('#workspace > .admin-welcome').hidden=on;$('stats').hidden=on;if(on){const panel=document.querySelector('#workspace > .admin-carousel');if(panel)$('visualCarouselSlot').append(panel);}else{const panel=$('visualCarouselSlot').querySelector('.admin-carousel');if(panel)document.querySelector('#workspace > .admin-layout').before(panel);panel && (panel.hidden=false);} $('visualAdvanced').textContent=on?'Advanced records':'Visual editor';if(on)visualRender();}
+function visualEditModule(sectionId,row){active='Content';$('sectionFilter').value=sectionId; if(row)openEditor(row);else openEditor({section:sectionId});}
+function visualRender(){
+ if(!tables.Sections)return;
+ const sections=visualIdMap();
+ $('visualNav').innerHTML='<button type="button" data-visual-nav="top">Home</button>'+visualSlugs.filter(([key])=>sections.has(key)).map(([key,label])=>'<button type="button" data-visual-nav="'+esc(key)+'">'+esc(label)+'</button>').join('');
+ const records=tables.Content||[];
+ const sectionHtml=(slug,label)=>{
+  const section=sections.get(slug);
+  if(!section)return '';
+  const items=records.filter(r=>r.section===section.id);
+  const buttons='<button type="button" data-visual-add="'+esc(section.id)+'">＋ Add</button>'+(slug==='gallery'?'<button type="button" data-visual-media="gallery">Upload / Delete images</button>':'')+(slug==='priests'?'<button type="button" data-visual-media="priests">Priest photos</button>':'')+(slug==='videos'?'<button type="button" data-visual-youtube="true">Upload video</button>':'')+(slug==='donations'?'<button type="button" data-visual-finance="true">Finance categories</button>':'')+'<button type="button" data-visual-edit-section="'+esc(section.id)+'">✎ Section</button>';
+  const card=r=>{
+    let picture='';
+    if(slug==='videos'){
+      const videoId=String(r.url||'').match(/(?:v=|youtu\.be\/|embed\/)([A-Za-z0-9_-]{11})/)?.[1];
+      if(videoId)picture='<img alt="" loading="lazy" src="https://i.ytimg.com/vi/'+esc(videoId)+'/hqdefault.jpg">';
+    }else if(r.media){const id=String(r.media).match(/(?:\/d\/|id=)([A-Za-z0-9_-]+)/)?.[1];if(id)picture='<img alt="" loading="lazy" src="'+esc(visualThumb(id))+'">';}
+    return '<article class="visual-card '+(slug==='videos'?'visual-video':'')+'" data-visual-card-name="'+esc(r.title||'')+'" data-visual-card-slug="'+esc(slug)+'">'+picture+'<strong>'+esc(r.title||'Untitled')+'</strong><span class="visual-status">'+esc(r.status||'Draft')+'</span><p>'+esc(String(r.body||r.extra||'').replace(/<[^>]*>/g,'').slice(0,145))+'</p><div class="visual-card-actions"><button type="button" data-visual-edit="'+esc(r.id)+'">✎ Edit</button><button type="button" data-visual-visibility="'+esc(r.id)+'">'+(r.status==='Published'?'Hide':'Publish')+'</button><button type="button" class="visual-danger" data-visual-delete="'+esc(r.id)+'">Delete</button></div></article>';
+  };
+  const isWide=['gallery','videos','donations','priests'].includes(slug);
+  let extra='';
+  if(slug==='donations'){
+   const list=(tables.Finance||[]).filter(r=>r.status==='Active');const sum=type=>list.filter(r=>r.type===type).reduce((n,r)=>n+(Number(r.amountPaise)||0),0);
+   extra='<div class="visual-card-grid"><article class="visual-card"><strong>Active donations</strong><div class="visual-category-amount">'+esc(money(sum('Donation')))+'</div></article><article class="visual-card"><strong>Active expenses</strong><div class="visual-category-amount">'+esc(money(sum('Expense')))+'</div></article></div><div class="visual-card-actions" style="padding:0 14px 12px"><button type="button" data-visual-finance="true">View / Edit transactions</button><button type="button" data-visual-donors="true">Donor histories</button></div>';
+  }
+  if(slug==='visit')extra='<div class="visual-map-preview"><iframe loading="lazy" title="Chidambareshwara Swamy Temple Google Map" src="https://www.google.com/maps?q=19.1148733%2C84.6807024&amp;z=17&amp;output=embed"></iframe></div>';
+  if(slug==='gallery')extra='<p class="visual-lock-tip">Gallery pictures come from Google Drive; use Upload / Delete images to manage them directly.</p>';
+  if(slug==='priests')extra='<p class="visual-lock-tip">Priest portraits are stored in their own Drive folder; they do not mix with gallery images.</p>';
+  return '<section class="visual-section '+(isWide?'visual-photo-section':'')+'" id="visual-section-'+esc(slug)+'"><div class="visual-section-header"><h3>'+esc(label)+'</h3><div class="visual-card-actions">'+buttons+'</div></div>'+extra+'<div class="visual-card-grid">'+(items.length?items.slice(0,8).map(card).join(''):'<p class="visual-empty">No content yet. Click Add to create content.</p>')+'<div id="visualDrive-'+esc(slug)+'" class="visual-drive-gallery"></div></div>'+(items.length>8?'<button type="button" class="visual-see-more" data-visual-see-more="'+esc(slug)+'">See all '+items.length+' records →</button>':'')+'</section>';
+ };
+ $('visualSections').innerHTML=visualSlugs.filter(([slug])=>sections.has(slug)).map(([slug,label])=>sectionHtml(slug,label)).join('')+'<section class="visual-section"><div class="visual-section-header"><h3>Telugu calendar · Festivals</h3><button type="button" data-extra-open="Festivals">Manage festivals</button></div><p class="visual-lock-tip">Festival records from your Google Sheet appear on the current-month calendar after publishing.</p></section><section class="visual-section"><div class="visual-section-header"><h3>Daily devotional audio</h3><button type="button" data-extra-open="Audio">Manage weekday songs</button></div><p class="visual-lock-tip">Set a featured MP3 for each weekday, plus unlimited extra songs in Audio Gallery (weekday 7).</p></section><section class="visual-section"><div class="visual-section-header"><h3>Live TV · YouTube</h3><button type="button" data-extra-open="LiveTV">Manage live TV</button></div><p class="visual-lock-tip">Add the YouTube live/video URL or channel ID URL. Only published channels appear after Today’s Devotional Song.</p></section><section class="visual-section visual-photo-section"><div class="visual-section-header"><h3>Temple History</h3><button type="button" data-extra-open="TempleHistory">Manage temple history</button></div><p class="visual-lock-tip">One subfolder per temple under the Temple Information Drive folder. First filename alphabetically becomes the cover photo; multiple photos become a carousel.</p></section><section class="visual-section"><div class="visual-section-header"><h3>Navigation sections</h3><button data-visual-new-section="true">＋ Add section</button></div><div class="visual-navigation-grid">'+[...(tables.Sections||[])].sort((a,b)=>Number(a.order)-Number(b.order)).map(section=>'<article class="visual-nav-card"><strong>'+esc(section.title||section.slug||'Unnamed section')+'</strong><span>'+esc(section.status||'Draft')+' · '+esc(section.slug||'')+'</span><button type="button" data-visual-edit-section="'+esc(section.id)+'">✎ Edit / Order</button></article>').join('')+'</div></section>';
+ visualDrivePreviews().catch(error=>console.warn('Visual Drive preview:',error.message));
+}
+async function visualDrivePreviews(){
+ for(const name of ['gallery','priests']){
+   const host=$('visualDrive-'+name);if(!host||!token)return;
+   try {
+     const response=await rpc('mediaList',{folder:name});if(!host.isConnected)return;
+     const photos=Array.isArray(response.photos)?response.photos:[];
+     const normalize=v=>String(v||'').toLocaleLowerCase().replace(/\.[^.]+$/,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+     if(name==='priests'){
+       window.templeAdminPriestPhotos=photos;
+       const sectionId=visualIdMap().get('priests')?.id;
+       const records=(tables.Content||[]).filter(r=>r.section===sectionId);
+       const grid=host.closest('.visual-section')?.querySelector('.visual-card-grid');
+       if(grid){
+         const original=Array.from(grid.children).filter(c=>c!==host);
+         original.forEach(el=>el.remove());
+         const usedIds=new Set();
+         const cards=photos.map(photo=>{
+           const photoName=String(photo.name||'Temple priest').replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').trim();
+           const match=records.find(r=>normalize(r.title)===normalize(photo.name));
+           if(match)usedIds.add(match.id);
+           const buttons=match?'<button type="button" data-visual-edit="'+esc(match.id)+'">Edit</button><button type="button" data-visual-visibility="'+esc(match.id)+'">'+(match.status==='Published'?'Hide':'Publish')+'</button><button type="button" class="visual-danger" data-visual-delete="'+esc(match.id)+'">Delete</button>':'<button type="button" data-visual-media="priests">Manage photo</button>';
+           return '<article class="visual-card priest-photo-card"><img loading="lazy" src="'+esc(visualThumb(photo.id))+'" alt="'+esc(photoName)+'"><strong>'+esc(photoName)+'</strong><span class="visual-status">'+(match?esc(match.status):'Drive photo')+'</span><div class="visual-card-actions">'+buttons+'</div></article>';
+         });
+         const remainder=records.filter(r=>!usedIds.has(r.id)).map(r=>'<article class="visual-card"><div class="priest-photo-placeholder">ॐ</div><strong>'+esc(r.title)+'</strong><span class="visual-status">No matching portrait</span><div class="visual-card-actions"><button type="button" data-visual-edit="'+esc(r.id)+'">Edit</button><button type="button" data-visual-visibility="'+esc(r.id)+'">'+(r.status==='Published'?'Hide':'Publish')+'</button><button type="button" data-visual-delete="'+esc(r.id)+'">Delete</button></div></article>');
+         host.insertAdjacentHTML('beforebegin',cards.concat(remainder).join(''));
+       }
+       host.innerHTML='<p class="visual-lock-tip">Portraits are paired with priest records by their matching filenames. Rename a Drive photograph to match its priest record when needed.</p>';
+     }else{
+       host.innerHTML=photos.length?'<div class="visual-drive-title">Google Drive gallery · '+photos.length+' photos</div><div class="visual-drive-grid">'+photos.slice(0,8).map(p=>'<div class="visual-photo-manager"><img loading="lazy" src="'+esc(visualThumb(p.id))+'" alt="'+esc(p.name||'Temple photograph')+'"><small>'+esc(p.name||'Temple photograph')+'</small><div><button type="button" data-visual-media="gallery">Manage</button><button type="button" data-visual-delete-photo="'+esc(p.id)+'">Delete</button></div></div>').join('')+'</div>'+(photos.length>8?'<button type="button" class="visual-see-more" data-visual-see-more="driveGallery">See all '+photos.length+' photos →</button>':''):'<p class="visual-empty">No Drive gallery photographs yet.</p>';
+       window.templeAdminDrivePhotos=photos;
+     }
+   }catch(error){if(host.isConnected)host.innerHTML='<p class="visual-empty">Drive preview unavailable: '+esc(error.message)+'</p>';}
+ }
+}
+async function openTempleExtraEditor(name){
+ window.templeEditingExtra=name;
+ const result=await rpc('extraInit');
+ const listing=await rpc('extraList');
+ const records=name==='Audio'?listing.audio:name==='Festivals'?listing.festivals:name==='LiveTV'?listing.liveTV:listing.history;
+ $('templeExtraTitle').textContent=name==='Audio'?'Daily devotional audio — 7 weekdays':name==='Festivals'?'Festival calendar entries':name==='LiveTV'?'Live TV — YouTube channels':'Temple History — Drive photo folders';
+ $('extraFieldDay').hidden=$('extraFieldLink').hidden=name!=='Audio';
+ $('extraFieldDate').hidden=$('extraFieldNotes').hidden=name!=='Festivals';
+ $('extraFieldImage').hidden=name!=='Audio';
+ $('extraFieldYoutube').hidden=$('extraFieldDescription').hidden=name!=='LiveTV';
+ ['extraFieldFolder','extraFieldShort','extraFieldFull'].forEach(id=>$(id).hidden=name!=='TempleHistory');
+ $('templeExtraList').innerHTML='<div class="extra-admin-list">'+(records.length?records.map(r=>'<div class="extra-admin-row"><div><strong>'+esc(r.title)+'</strong><span>'+esc(name==='Audio'?['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Audio Gallery'][Number(r.weekday)]:name==='Festivals'?r.date:name==='LiveTV'?r.youtubeUrl:r.folderId)+' · '+esc(r.status)+'</span></div><button type="button" data-extra-edit="'+esc(r.id)+'">Edit</button><button type="button" data-extra-delete="'+esc(r.id)+'">Delete</button></div>').join(''):'No records yet. Add the first one below.')+'</div>';
+ window.templeExtraRows=records;
+ $('templeExtraForm').reset();$('templeExtraForm').elements.id.value='';
+ $('extraMessage').textContent=result.message||'';
+ $('templeExtraDialog').showModal();
+}
+$('templeExtraForm').onsubmit=async event=>{
+ event.preventDefault();const form=$('templeExtraForm'),btn=form.querySelector('[type=submit]');btn.disabled=true;
+ try{
+ const record=Object.fromEntries(new FormData(form));
+ await rpc('extraSave',{name:window.templeEditingExtra,record});
+ $('templeExtraDialog').close();await openTempleExtraEditor(window.templeEditingExtra);
+ }catch(error){$('extraMessage').textContent=error.message;}finally{btn.disabled=false;}
+};
+$('visualAdvanced').onclick=()=>visualSwitch(false);
+$('visualReturn').onclick=()=>visualSwitch(true);
+$('visualReload').onclick=()=>refresh().catch(error=>$('global').textContent=error.message);
+$('visualWorkspace').addEventListener('click',async event=>{
+ const b=event.target.closest('button');if(!b)return;
+ if(b.dataset.visualClose){$('visualCollectionModal').close();return;}
+ if(b.dataset.visualExtraClose){$('templeExtraDialog').close();return;}
+ if(b.dataset.extraOpen){try{await openTempleExtraEditor(b.dataset.extraOpen);}catch(error){$('global').textContent=error.message;}return;}
+ if(b.dataset.extraEdit){const r=(window.templeExtraRows||[]).find(x=>x.id===b.dataset.extraEdit);if(!r)return;const f=$('templeExtraForm');Object.keys(r).forEach(k=>{if(f.elements[k])f.elements[k].value=r[k]});return;}
+ if(b.dataset.extraDelete){const password=prompt('Enter the deletion password to remove this record:');if(password===null)return;try{await rpc('extraDelete',{name:window.templeEditingExtra,id:b.dataset.extraDelete,password});$('templeExtraDialog').close();await openTempleExtraEditor(window.templeEditingExtra);}catch(error){$('extraMessage').textContent=error.message;}return;}
+ if(b.dataset.visualSeeMore){
+   const slug=b.dataset.visualSeeMore,dialog=$('visualCollectionModal');
+   $('visualCollectionTitle').textContent=slug==='driveGallery'?'All Gallery Images':slug+' · Complete records';
+   if(slug==='driveGallery')$('visualCollectionItems').innerHTML=(window.templeAdminDrivePhotos||[]).map(p=>'<div class="visual-photo-manager"><img loading="lazy" src="'+esc(visualThumb(p.id))+'" alt="'+esc(p.name)+'"><small>'+esc(p.name)+'</small><div><button type="button" data-visual-media="gallery">Manage</button><button type="button" data-visual-delete-photo="'+esc(p.id)+'">Delete</button></div></div>').join('');
+   else {
+     const section=visualIdMap().get(slug),all=(tables.Content||[]).filter(r=>r.section===section?.id);
+     $('visualCollectionItems').innerHTML=all.map(r=>{const match=slug==='priests'?(window.templeAdminPriestPhotos||[]).find(p=>String(p.name||'').toLowerCase().replace(/\.[^.]+$/,'').trim()===String(r.title||'').toLowerCase().trim()):null;return '<article class="visual-card">'+(match?'<img src="'+esc(visualThumb(match.id))+'" alt="Portrait of '+esc(r.title)+'">':'')+'<strong>'+esc(r.title||'Untitled')+'</strong><span class="visual-status">'+esc(r.status)+'</span><div class="visual-card-actions"><button type="button" data-visual-edit="'+esc(r.id)+'">Edit</button><button type="button" data-visual-visibility="'+esc(r.id)+'">'+(r.status==='Published'?'Hide':'Publish')+'</button><button type="button" data-visual-delete="'+esc(r.id)+'">Delete</button></div></article>';}).join('');
+   } dialog.showModal();
+   return;
+ }
+ if(b.dataset.visualNav){const target=b.dataset.visualNav==='top'?$('visualWorkspace'):$('visual-section-'+b.dataset.visualNav);target?.scrollIntoView({behavior:'smooth',block:'start'});return;}
+ if(b.dataset.visualMedia){openDriveMediaManager(b.dataset.visualMedia);return;}
+ if(b.dataset.visualDeletePhoto){const password=prompt('Enter deletion password to move this gallery photo to trash:');if(password===null)return;try{await rpc('mediaDelete',{folder:'gallery',id:b.dataset.visualDeletePhoto,password});$('visualCollectionModal').close();await visualDrivePreviews();}catch(error){$('global').textContent=error.message;}return;}
+ if(b.dataset.visualYoutube){openYouTube();return;}
+ if(b.dataset.visualFinance){active='Finance';visualSwitch(false);render();document.querySelector('.admin-layout')?.scrollIntoView({behavior:'smooth'});return;}
+ if(b.dataset.visualDonors){active='Donors';visualSwitch(false);render();document.querySelector('.admin-layout')?.scrollIntoView({behavior:'smooth'});return;}
+ if(b.dataset.visualNewSection){active='Sections';openEditor();return;}
+ if(b.dataset.visualSection){const section=visualIdMap().get(b.dataset.visualSection);if(section)visualEditModule(section.id);return;}
+ if(b.dataset.visualEditSection){active='Sections';const row=(tables.Sections||[]).find(s=>s.id===b.dataset.visualEditSection);if(row)openEditor(row);return;}
+ if(b.dataset.visualAdd){visualEditModule(b.dataset.visualAdd);return;}
+ const id=b.dataset.visualEdit||b.dataset.visualDelete||b.dataset.visualVisibility;
+ if(!id)return;
+ const row=(tables.Content||[]).find(r=>r.id===id);if(!row)return;
+ active='Content';
+ if(b.dataset.visualEdit){openEditor(row);return;}
+ if(b.dataset.visualDelete){confirmDelete(row);return;}
+ if(b.dataset.visualVisibility){b.disabled=true;try{await rpc('visibility',{table:'Content',id:row.id,updated:row.updated,status:row.status==='Published'?'Draft':'Published'});await refresh();}catch(error){$('global').textContent=error.message;}finally{b.disabled=false;}}
+});
+// Visual page refreshes only after successfully authorized snapshot requests.
+const originalVisualRefresh=refresh;
+refresh=async function(){await originalVisualRefresh();if(token&&tables.Sections)visualSwitch(visualMode);};
+
+</script></body></html>
