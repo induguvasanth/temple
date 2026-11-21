@@ -1635,3 +1635,59 @@ html{scroll-padding-top:75px}
   .devotee-theme .about-figure>img,
   .devotee-theme .about-figure .panel-placeholder{height:190px!important}
 }
+
+/* 2026-11-21 precision corrections: always-visible Home, left-aligned hero, full About image */
+.devotee-theme .strip .wrap#nav{
+  scroll-padding-inline-start:0!important;
+  scroll-snap-type:none!important;
+  justify-content:flex-start!important;
+  scrollbar-gutter:stable;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  min-width:0;
+}
+.devotee-theme #nav>a:first-child{
+  position:sticky!important;
+  left:0;
+  z-index:5;
+  flex:0 0 auto;
+  padding-inline:17px!important;
+  margin-left:0!important;
+  background:#6b092b;
+  box-shadow:7px 0 12px rgba(64,0,20,.24);
+}
+.devotee-theme #nav>a:first-child[aria-current="page"]{
+  color:#4b0822!important;
+  background:linear-gradient(180deg,#ffe7a2,#efbd60)!important;
+}
+.devotee-theme .hero-copy{
+  justify-content:flex-start!important;
+  padding-left:clamp(14px,1.2vw,22px)!important;
+  padding-right:clamp(16px,2.2vw,30px)!important;
+}
+.devotee-theme .hero-copy-content{
+  margin-left:0!important;
+  margin-right:auto!important;
+  transform:translateX(0)!important;
+  max-width:100%!important;
+}
+.devotee-theme .about-figure{
+  padding:8px!important;
+  overflow:hidden;
+  height:auto;
+}
+.devotee-theme .about-figure img{
+  display:block!important;
+  width:100%!important;
+  height:auto!important;
+  min-height:180px;
+  max-height:310px;
+  object-fit:contain!important;
+  object-position:center!important;
+  margin:0!important;
+  background:transparent!important;
+}
+@media(max-width:780px){
+  .devotee-theme .hero-copy{padding:22px!important;}
+  .devotee-theme .about-figure img{min-height:150px;max-height:290px;}
+}
