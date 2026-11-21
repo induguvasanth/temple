@@ -122,6 +122,32 @@ function historyImage(record){
   if(record.cover?.media)return thumbnail(record.cover.media);
   return heritageArt[record.id]||'';
 }
+function timingEmoji(title){
+  const t=String(title||'').toLowerCase();
+  if(/suprabhat|morning|prabhata/.test(t)) return '🌅';
+  if(/abhishek|abhishekam|snanam/.test(t)) return '🪔';
+  if(/archana|pooja|puja|worship/.test(t)) return '🙏';
+  if(/harati|aarati|aarti|deeparadhana/.test(t)) return '🔥';
+  if(/darshan|darsan/.test(t)) return '👁️';
+  if(/annadanam|prasadam|naivedyam/.test(t)) return '🍲';
+  if(/festival|utsav|kalyanam/.test(t)) return '🎉';
+  return '🕘';
+}
+function decorateTimingTitle(title){
+  const clean=String(title||'').trim();
+  return clean ? timingEmoji(clean)+' '+clean : '🕘 Temple timing';
+}
+function splitTempleName(name){
+  const clean=String(name||'Temple').replace(/\s+/g,' ').trim();
+  const match=clean.match(/^(.*?)(\s+Swamy\s+Temple)$/i);
+  if(match) return '<span class="line-main">'+esc(match[1])+'</span><span class="line-sub">'+esc(match[2].trim())+'</span>';
+  const parts=clean.split(' ');
+  if(parts.length>2){
+    const cut=Math.ceil(parts.length/2);
+    return '<span class="line-main">'+esc(parts.slice(0,cut).join(' '))+'</span><span class="line-sub">'+esc(parts.slice(cut).join(' '))+'</span>';
+  }
+  return '<span class="line-main">'+esc(clean)+'</span>';
+}
 function uniqueHistory(items){
   const seen=new Set();
   return (Array.isArray(items)?items:[]).filter(r=>{
@@ -172,13 +198,14 @@ function render(data) {
     const about=sectionItems('about');
     const intro=about[0];
     const aboutText=String(intro?.body||sectionBySlug('about')?.summary||'Discover the heritage and traditions of our sacred temple.').replace(/<[^>]*>/g,' ').replace(/\[\[rich-html\]\]/g,'').slice(0,250);
-    const aboutHtml='<div class="about-flex">'+(picture(firstPhoto('about'))||'<div class="panel-placeholder">ॐ</div>')+'<div><p>'+esc(aboutText)+'</p><a class="mini-button" href="#about">Read more ›</a></div></div>';
+    const aboutPhoto=picture(firstPhoto('about'))||'<div class="panel-placeholder about-figure-placeholder">ॐ</div>';
+    const aboutHtml='<div class="about-flex"><div class="about-figure">'+aboutPhoto+'</div><div><p>'+esc(aboutText)+'</p><a class="mini-button" href="#about">Read more ›</a></div></div>';
     const sevas=sectionItems('sevas');
     const sevasHtml='<p class="panel-intro">Explore sacred services and worship offerings.</p><div class="seva-list">'+(sevas.slice(0,5).map(r=>'<a href="#sevas">❯ &nbsp; '+esc(r.title)+' <span>›</span></a>').join('')||'<a href="#sevas">View available sevas →</a>')+'</div><a class="mini-button" href="#sevas">View all sevas ›</a>';
     const priests=sectionItems('priests');
-    const priestsHtml='<div class="priest-preview">'+((data.drivePriests||[]).slice(0,2).map(photo=>'<a href="#priests"><img loading="lazy" src="'+esc(thumbnail(photo.media))+'" data-drive="'+esc(photo.id)+'" alt="'+esc(photo.title)+'"><strong>'+esc(String(photo.title||'').replace(/\.[^.]+$/,'').replace(/[_-]+/g,' '))+'</strong></a>').join('')||'<p>View temple priest details.</p>')+'</div><a class="mini-button" href="#priests">View all priests ›</a>';
+    const priestsHtml='<div class="priest-preview">'+((data.drivePriests||[]).slice(0,2).map(photo=>'<a href="#priests"><span class="priest-preview-photo"><img loading="lazy" src="'+esc(thumbnail(photo.media))+'" data-drive="'+esc(photo.id)+'" alt="'+esc(photo.title)+'"><span class="priest-overlay-chip">🙏 Temple Priest</span></span><strong>'+esc(String(photo.title||'').replace(/\.[^.]+$/,'').replace(/[_-]+/g,' '))+'</strong></a>').join('')||'<p>View temple priest details.</p>')+'</div><a class="mini-button" href="#priests">View all priests ›</a>';
     const timings=sectionItems('timings');
-    const timingsHtml='<div class="timing-list">'+(timings.slice(0,6).map(r=>'<a href="#timings"><span>▣ &nbsp; '+esc(r.title)+'</span><strong>'+esc(String(r.extra||'').slice(0,42))+'</strong></a>').join('')||'<a href="#timings">See daily pooja and darshan timings →</a>')+'</div>';
+    const timingsHtml='<div class="timing-list">'+(timings.slice(0,6).map(r=>'<a href="#timings"><span>'+esc(decorateTimingTitle(r.title))+'</span><strong>'+esc(String(r.extra||'').slice(0,42))+'</strong></a>').join('')||'<a href="#timings">🕘 See daily pooja and darshan timings →</a>')+'</div>';
     const gallery=galleryViewerItems;
     const galleryHtml='<p class="panel-intro">🖼️ Photographs from the dedicated Temple Gallery folder. Carousel slides and temple-history photos are kept separate.</p>'+
       '<div class="gallery-preview gallery-preview-premium">'+gallery.slice(0,8).map((r,i)=>'<button type="button" class="gallery-tile" data-gallery-index="'+i+'" aria-label="Open '+esc(r.title)+' in gallery"><img loading="lazy" alt="'+esc(r.title)+'" src="'+esc(gallerySrc(r))+'"'+(driveId(r.media)?' data-drive="'+esc(driveId(r.media))+'"':'')+'></button>').join('')+'</div>'+
@@ -211,7 +238,7 @@ function render(data) {
       const section=byId.get(r.section);
       const text=r.body||'', formatted=TempleRich.html(text);
       const body=text.length>290||text.startsWith('[[rich-html]]')?'<details class="public-details"><summary>Read more</summary><div class="rich-text">'+formatted+'</div></details>':'<div class="rich-text">'+formatted+'</div>';
-      return '<article class="card"><h3>'+esc(r.title)+'</h3>'+(r.date?'<time datetime="'+esc(r.date)+'">'+esc(r.date)+'</time>':'')+(r.extra?'<p class="card-meta">'+esc(r.extra)+'</p>':'')+'<div class="actions">'+media(r,['gallery','priests','about','articles'].includes(section.slug))+'</div>'+body+(section.slug==='sevas'&&$('request').href?'<a class="button compact secondary" href="'+esc($('request').href)+'">Request a seva ↗</a>':'')+'</article>';
+      return '<article class="card section-card section-'+esc(section.slug)+'-card"><h3>'+(section.slug==='timings'?esc(decorateTimingTitle(r.title)):esc(r.title))+'</h3>'+(r.date?'<time datetime="'+esc(r.date)+'">'+esc(r.date)+'</time>':'')+(r.extra?'<p class="card-meta">'+esc(r.extra)+'</p>':'')+'<div class="actions">'+media(r,['gallery','priests','about','articles'].includes(section.slug))+'</div>'+body+(section.slug==='sevas'&&$('request').href?'<a class="button compact secondary" href="'+esc($('request').href)+'">Request a seva ↗</a>':'')+'</article>';
     }).join('');
     if(selected?.slug==='videos') {
       const records=sorted(data.content.filter(r=>r.section===selected.id));
@@ -232,10 +259,10 @@ function render(data) {
         const name=String(photo.title||'Temple priest').replace(/\.[^.]+$/,'').replace(/[_-]+/g,' ').trim();
         const matched=sectionRecords.find(r=>normalize(r.title)===normalize(photo.title));
         const id=driveId(photo.media)||photo.id;
-        return '<article class="priest-profile-card"><button type="button" class="priest-photo-open" data-priest-image><img loading="lazy" alt="'+esc(name)+'" src="'+esc(thumbnail(photo.media))+'" data-drive="'+esc(id)+'"></button><div class="priest-profile-info"><h3>'+esc(name)+'</h3>'+(matched?.extra?'<p>'+esc(matched.extra)+'</p>':'')+'</div></article>';
+        return '<article class="priest-profile-card"><button type="button" class="priest-photo-open" data-priest-image><img loading="lazy" alt="'+esc(name)+'" src="'+esc(thumbnail(photo.media))+'" data-drive="'+esc(id)+'"><span class="priest-photo-veil"></span><span class="priest-photo-badge">🙏 Temple Priest</span></button><div class="priest-profile-info"><h3>'+esc(name)+'</h3>'+(matched?.extra?'<p>'+esc(matched.extra)+'</p>':'<p>Temple priest</p>')+'</div></article>';
       });
       const matchedNames=new Set(photos.map(p=>normalize(p.title)));
-      const unpictured=sectionRecords.filter(r=>!matchedNames.has(normalize(r.title))).map(r=>'<article class="priest-profile-card"><div class="priest-photo-placeholder">ॐ</div><div class="priest-profile-info"><h3>'+esc(r.title)+'</h3><p>Portrait not yet matched</p></div></article>');
+      const unpictured=sectionRecords.filter(r=>!matchedNames.has(normalize(r.title))).map(r=>'<article class="priest-profile-card"><div class="priest-photo-placeholder">ॐ</div><div class="priest-profile-info"><h3>'+esc(r.title)+'</h3><p>🙏 Portrait not yet matched</p></div></article>');
       $('sections').innerHTML='<section class="priest-directory"><div class="priest-directory-heading"><p class="gallery-overline">TEMPLE PRIESTS</p><h2>Our Priests</h2></div><div class="priest-directory-grid">'+([...photoCards,...unpictured].join('')||'<p>No priest photographs available.</p>')+'</div></section>';
       $('resultCount').textContent='';hydrateDriveImages();return;
     }
@@ -480,7 +507,8 @@ function carousel(data) {
   draw(0);
 }
 (async()=>{
-  $('brand').textContent=$('temple').textContent=config.name;
+  $('brand').textContent=config.name;
+  $('temple').innerHTML=splitTempleName(config.name);
   $('place').textContent=config.place;
   document.title=config.name;
   // Hero pictures are exclusively controlled by the Carousel folder.
