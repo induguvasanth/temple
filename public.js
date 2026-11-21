@@ -559,6 +559,8 @@ function carousel(data) {
     const published=new Set(sections.map(section=>section.slug));
     $('heroTimings').hidden=!published.has('timings');
     const route=()=>{
+      // Restore horizontal navigation origin on every route; Home stays visible.
+      const nav=$('nav');if(nav)nav.scrollLeft=0;
       const slug=location.hash.slice(1);
       $('filter').value=sections.find(s=>s.slug===slug)?.id||'';
       $('search').value='';catalogPage=0;render(data);
@@ -587,7 +589,7 @@ function carousel(data) {
     // Initial load must preserve the hero position; only user navigation should scroll.
     const initialSlug=location.hash.slice(1);
     if(initialSlug && !['home','browse'].includes(initialSlug)) {route();}
-    else { $('filter').value=''; render(data); requestAnimationFrame(()=>window.scrollTo(0,0)); }
+    else { $('filter').value=''; render(data); requestAnimationFrame(()=>{window.scrollTo(0,0);if($('nav'))$('nav').scrollLeft=0;}); }
     carousel(data);
   } catch {$('notice').textContent='Temple information is temporarily unavailable.';}
 })();
