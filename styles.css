@@ -1359,3 +1359,94 @@ body.devotee-theme{background:#fff9ef!important;color:#43232a!important}
 .devotee-theme .gallery-preview-premium .gallery-tile:hover{transform:translateY(-3px);box-shadow:0 10px 24px #5c173333}
 @media(max-width:960px){.devotee-theme .temple-dashboard{grid-template-columns:1fr!important}.devotee-theme .temple-history-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}.devotee-theme .gallery-preview-premium{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 @media(max-width:580px){.devotee-theme .temple-history-cards{grid-template-columns:1fr!important}.devotee-theme .temple-history-card>img,.devotee-theme .temple-history-card>.history-image-placeholder{height:230px!important}.devotee-theme .temple-panel{padding:17px!important}.devotee-theme .gallery-preview-premium{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}}
+
+
+/* ===== Premium Balanced Layout v5: purpose-sized sections, restrained cards ===== */
+:root{--premium-ink:#3f2330;--premium-wine:#680d30;--premium-brass:#bc8b47;--premium-paper:#fffdfa;--premium-line:#ead9c6}
+html{scroll-padding-top:75px}
+.devotee-theme{background:linear-gradient(180deg,#faf4ea 0%,#f6eee3 65%,#faf6f0 100%)}
+.devotee-theme .wrap{width:min(100% - 44px,1160px)!important;max-width:1160px!important;margin-left:auto!important;margin-right:auto!important}
+.devotee-theme .mast .wrap{max-width:1160px!important}
+.devotee-theme .hero .wrap.hero-layout{width:min(100% - 44px,1160px)!important;max-width:1160px!important}
+.devotee-theme .temple-extras{width:min(100% - 44px,1160px)!important;max-width:1160px!important;margin:26px auto 0!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:20px!important}
+.devotee-theme .extra-panel{min-width:0!important;border:1px solid #e8d4b8!important;border-radius:20px!important;box-shadow:0 9px 26px rgba(77,29,36,.07)!important;padding:21px!important;background:#fffcf7!important}
+.devotee-theme .temple-extras .live-tv-panel{grid-column:1/-1!important}
+.devotee-theme .temple-live-tv-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:16px!important;margin-top:18px!important;align-items:stretch}
+.devotee-theme .temple-live-card{border-radius:16px!important;box-shadow:0 5px 17px #47152112!important}
+.devotee-theme .temple-live-details{padding:13px 15px 17px!important}
+.devotee-theme .temple-live-details h3{font-size:1.03rem!important}
+.devotee-theme .temple-live-details p{font-size:.82rem!important}
+.devotee-theme .browse{padding-top:18px!important;padding-bottom:26px}
+.devotee-theme #sections{width:100%;min-width:0}
+.devotee-theme .temple-dashboard{display:grid!important;grid-template-columns:repeat(12,minmax(0,1fr))!important;column-gap:20px!important;row-gap:20px!important;padding:8px 0 22px!important;align-items:stretch}
+.devotee-theme .temple-dashboard>.temple-panel{grid-column:span 6!important;min-width:0;min-height:0!important;margin:0!important;padding:21px!important;background:var(--premium-paper)!important;border:1px solid var(--premium-line)!important;border-radius:20px!important;box-shadow:0 7px 23px #4c183117!important;transition:box-shadow .18s,transform .18s}
+.devotee-theme .temple-dashboard>.temple-panel:hover{transform:translateY(-2px);box-shadow:0 12px 28px #4c183125!important}
+.devotee-theme .temple-dashboard>.panel-about{grid-column:span 7!important}
+.devotee-theme .temple-dashboard>.panel-sevas{grid-column:span 5!important}
+.devotee-theme .temple-dashboard>.panel-priests{grid-column:span 6!important}
+.devotee-theme .temple-dashboard>.panel-timings{grid-column:span 6!important}
+.devotee-theme .temple-dashboard>.panel-gallery,.devotee-theme .temple-dashboard>.panel-history,.devotee-theme .temple-dashboard>.panel-contact{grid-column:1/-1!important}
+.devotee-theme .temple-panel-title{display:flex;gap:9px;align-items:center;margin:0 0 15px!important;padding:0 0 12px!important;border-bottom:1px solid #ead5b8!important}
+.devotee-theme .temple-panel-title h2{font-family:'Cormorant Garamond',Georgia,serif!important;font-size:clamp(1.5rem,2.1vw,1.95rem)!important;line-height:1.1!important;margin:0!important;color:#68132f!important}
+.devotee-theme .temple-panel-title .panel-icon{display:grid;place-items:center;width:35px;height:35px;flex:0 0 35px;border-radius:10px;background:#f9ecd6;color:#7d2540;font-size:1.2rem}
+.devotee-theme .about-flex{grid-template-columns:minmax(145px,36%) minmax(0,1fr);gap:16px;align-items:center}
+.devotee-theme .about-flex>img{height:185px;border-radius:13px}
+.devotee-theme .about-flex p,.devotee-theme .panel-intro{line-height:1.65;font-size:.9rem;color:#66545a}
+.devotee-theme .seva-list,.devotee-theme .timing-list{gap:8px}
+.devotee-theme .seva-list a,.devotee-theme .timing-list a{border:1px solid #efe0cd;background:#fbf4ea;border-radius:10px;min-height:38px;padding:9px 12px;font-size:.85rem}
+.devotee-theme .priest-preview{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:540px}
+.devotee-theme .priest-preview a{background:#fbf5ec;border:1px solid #ecdeca;border-radius:13px;padding:8px!important;font-size:.84rem}
+.devotee-theme .priest-preview img{height:150px!important;width:100%;object-fit:contain!important}
+.devotee-theme .video-preview{height:auto!important;max-height:300px;aspect-ratio:16/9;width:100%;border-radius:13px}
+.devotee-theme .donate-panel{min-height:180px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:9px;padding-left:65px}
+.devotee-theme .donate-panel p{margin:0}
+.devotee-theme .donate-panel .mini-button{margin-top:0}
+.devotee-theme .gallery-preview-premium{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:14px!important;max-width:100%!important}
+.devotee-theme .gallery-preview-premium .gallery-tile{aspect-ratio:4/3!important;width:100%;max-height:220px;border-radius:12px!important}
+.devotee-theme .gallery-preview-premium img{width:100%;height:100%;object-fit:cover!important}
+.devotee-theme .temple-history-cards{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:18px!important;align-items:stretch}
+.devotee-theme .temple-history-card{width:100%!important;min-height:0!important;max-width:none;border-radius:16px!important;box-shadow:0 6px 16px #48152513!important}
+.devotee-theme .temple-history-card>img,.devotee-theme .temple-history-card>.history-image-placeholder{height:195px!important;aspect-ratio:auto;object-fit:cover!important}
+.devotee-theme .temple-history-card .history-summary{padding:16px!important;min-height:180px}
+.devotee-theme .temple-history-card .history-summary h3{font-size:1.24rem!important;line-height:1.28!important}
+.devotee-theme .temple-history-card .history-summary p{line-height:1.55;font-size:.85rem;min-height:0;margin-bottom:10px}
+.devotee-theme .mini-button{display:inline-flex;justify-content:center;align-items:center;gap:5px;border-radius:9px!important;padding:10px 14px!important;font-size:.82rem!important;min-height:37px}
+.devotee-theme .temple-live-map{grid-template-columns:minmax(0,1fr) minmax(0,1.65fr);gap:18px;align-items:center}
+.devotee-theme .temple-live-map iframe{height:270px!important;min-height:270px!important;border-radius:14px}
+.devotee-theme .hero .wrap.hero-layout{border-radius:0}
+.devotee-theme .hero-copy-content h1{max-width:16ch}
+.devotee-theme .hero-image-stage{min-height:280px}
+.devotee-theme .hero-image-stage.has-photo>img{object-fit:contain!important}
+@media(max-width:1000px){
+ .devotee-theme .temple-extras{grid-template-columns:1fr 1fr!important}
+ .devotee-theme .temple-live-tv-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .devotee-theme .temple-dashboard>.panel-about,.devotee-theme .temple-dashboard>.panel-sevas{grid-column:span 6!important}
+ .devotee-theme .temple-history-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .devotee-theme .gallery-preview-premium{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+}
+@media(max-width:760px){
+ .devotee-theme .wrap,.devotee-theme .hero .wrap.hero-layout,.devotee-theme .temple-extras{width:calc(100% - 28px)!important}
+ .devotee-theme .temple-extras{grid-template-columns:1fr!important;gap:14px!important;margin-top:15px!important}
+ .devotee-theme .temple-extras .live-tv-panel{grid-column:1/-1!important}
+ .devotee-theme .temple-dashboard{grid-template-columns:1fr!important;row-gap:14px!important}
+ .devotee-theme .temple-dashboard>.temple-panel{grid-column:1/-1!important;padding:18px!important}
+ .devotee-theme .temple-history-cards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:12px!important}
+ .devotee-theme .temple-history-card>img,.devotee-theme .temple-history-card>.history-image-placeholder{height:165px!important}
+ .devotee-theme .temple-history-card .history-summary{padding:13px!important}
+ .devotee-theme .temple-history-card .history-summary h3{font-size:1.1rem!important}
+ .devotee-theme .gallery-preview-premium{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .devotee-theme .temple-live-tv-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ .devotee-theme .temple-live-map{grid-template-columns:1fr}
+ .devotee-theme .temple-live-map iframe{height:230px!important;min-height:230px!important}
+}
+@media(max-width:470px){
+ .devotee-theme .temple-live-tv-grid{grid-template-columns:1fr!important}
+ .devotee-theme .temple-history-cards{grid-template-columns:1fr!important}
+ .devotee-theme .temple-history-card>img,.devotee-theme .temple-history-card>.history-image-placeholder{height:200px!important}
+ .devotee-theme .about-flex{grid-template-columns:1fr}
+ .devotee-theme .about-flex>img{height:190px}
+ .devotee-theme .temple-dashboard>.temple-panel{padding:15px!important}
+ .devotee-theme .extra-panel{padding:15px!important}
+ .devotee-theme .gallery-preview-premium{gap:9px!important}
+ .devotee-theme .priest-preview img{height:120px!important}
+}
